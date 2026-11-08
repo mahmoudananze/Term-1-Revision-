@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grade 10 GLG · Exam Guide & Practice</title>
+<style>
+:root{--navy:#1f3864;--navy2:#2c4d85;--ink:#1d2330;--mut:#5d6677;--line:#dde3ec;--bg:#f4f6fa;--card:#fff;--ok:#1e8e4e;--okbg:#e6f6ec;--no:#c0392b;--nobg:#fdecea;--mid:#c98a00;--acc:#f2a900}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
+header{background:linear-gradient(120deg,var(--navy),var(--navy2));color:#fff;padding:22px 18px 0}
+.hwrap{max-width:1100px;margin:0 auto}
+.school{font-size:13px;opacity:.85;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+h1{margin:8px 0 2px;font-size:clamp(24px,4vw,34px);letter-spacing:-.3px}
+.sub{opacity:.9;font-size:14px;margin-bottom:14px}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tab{background:transparent;border:0;color:#dbe4f5;padding:11px 15px;font-size:15px;font-weight:600;cursor:pointer;border-radius:10px 10px 0 0;white-space:nowrap}
+.tab.on{background:var(--bg);color:var(--navy)}
+main{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h2{color:var(--navy);margin:12px 0 14px}
+h3{color:var(--navy);margin:6px 0 10px}
+h4{color:var(--navy);margin:4px 0 10px}
+.hidden{display:none!important}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.panel,.quiz{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+.rtab th,.rtab td,.map th,.map td,.rt td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.rtab th,.map th{background:#eef2f9;color:var(--navy)}
+.rtab{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.map td:last-child,.map th:last-child{text-align:right}
+.map tr:last-child td{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#eef2f9;border-radius:20px;padding:6px 12px;font-size:14px}
+.chip b{color:var(--navy)}
+.note{background:#fff8e6;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.act{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:4px}
+.act:hover{border-color:var(--navy2);box-shadow:0 4px 14px rgba(31,56,100,.12);transform:translateY(-2px)}
+.at{font-weight:700;color:var(--navy)}
+.ad{color:var(--mut);font-size:14px;flex:1}
+.badge{display:inline-block;border-radius:20px;padding:2px 9px;font-size:12.5px;font-weight:700}
+.badge.good{background:var(--okbg);color:var(--ok)}.badge.mid{background:#fff3d6;color:var(--mid)}.badge.low{background:var(--nobg);color:var(--no)}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--navy2)}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn.ok{background:var(--ok)}
+.btn.sm{padding:6px 10px;font-size:13.5px}
+.btn.big{font-size:18px;padding:14px 24px;margin:6px 0 16px}
+.btn:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.row.tight{margin:4px 0;gap:4px}
+.center{justify-content:center;text-align:center}
+.muted{color:var(--mut);font-size:14px}
+.quizhead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;padding:6px 0 10px;z-index:2;border-bottom:1px solid var(--line);margin-bottom:6px}
+.score{font-size:15px}.score.big{font-size:18px;font-weight:700;color:var(--navy);margin:8px 0}
+.q{padding:12px 0;border-bottom:1px dashed var(--line)}
+.q:last-child{border-bottom:0}
+.qtext{font-weight:500;margin-bottom:8px}
+.qn{display:inline-grid;place-items:center;min-width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;margin-right:6px;padding:0 6px}
+.qt{display:inline-block;background:#eef2f9;color:var(--navy2);font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:4px;text-transform:uppercase;letter-spacing:.3px}
+.tag{background:#eef2f9;color:var(--navy2);font-size:12.5px;font-weight:700;border-radius:6px;padding:2px 7px}
+.blank{color:var(--navy2);font-weight:700;letter-spacing:1px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt,.ropt{text-align:left;background:#f8fafd;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;font-size:15px;cursor:pointer;color:var(--ink);display:block}
+.opt:hover:not(:disabled),.ropt:hover{border-color:var(--navy2)}
+.opt.sm{padding:5px 9px;font-size:13px;display:inline-block}
+.ol{display:inline-block;width:22px;font-weight:700;color:var(--navy2)}
+.right{border-color:var(--ok)!important;background:var(--okbg)!important}
+.wrong{border-color:var(--no)!important;background:var(--nobg)!important}
+.opt:disabled{cursor:default;color:var(--ink)}
+.fb{margin-top:8px;padding:8px 12px;border-radius:9px;font-size:14.5px}
+.fb.ok{background:var(--okbg);color:#145c33}.fb.no{background:var(--nobg);color:#8a2318}
+.passage{background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:15.5px;line-height:1.75}
+.passage p{margin:0 0 12px}
+.pn{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;margin-right:8px}
+.gaptext select{font-size:15px;padding:3px 6px;border-radius:8px;border:1.5px solid var(--navy2);background:#eef2f9;max-width:100%}
+.pgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:start}
+.sticky{position:sticky;top:10px;max-height:calc(100vh - 20px);overflow:auto}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr}.sticky{position:static;max-height:none}}
+.flash{margin:14px auto;max-width:520px;min-height:200px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;cursor:pointer;text-align:center;box-shadow:0 8px 24px rgba(31,56,100,.25);user-select:none}
+.flash.flipped{background:#fff;color:var(--ink);border:2px solid var(--navy)}
+.flash .muted{color:#cfd9ee}
+.fw{font-size:34px;font-weight:700}
+.fm{font-size:20px;font-weight:600;color:var(--navy)}
+.fe{margin-top:12px;color:var(--mut);font-style:italic}
+.match{display:flex;flex-direction:column;gap:8px}
+.mrow{display:grid;grid-template-columns:180px 1fr;gap:10px;align-items:center}
+@media(max-width:600px){.mrow{grid-template-columns:1fr}}
+select,input[type=text],input[type=number],textarea{font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+.match select{width:100%}
+input[type=text]{flex:1;min-width:220px}
+.num{width:70px}
+textarea{width:100%;line-height:1.6}
+.hint{color:var(--navy2);font-family:ui-monospace,Consolas,monospace;font-size:14px;margin-left:6px}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:10px 0}
+.lcell{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fbfcfe}
+.lw{font-weight:700;font-size:17px;color:var(--navy);margin-bottom:6px}
+.olist{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.oitem{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;background:#fbfcfe}
+.otext{flex:1}
+.task{background:#eef2f9;border-radius:10px;padding:12px 14px;margin:10px 0}
+.src{margin-bottom:10px}.src summary,.gnotes summary{cursor:pointer;color:var(--navy);font-weight:600}
+.src p{font-size:15px;background:#fbfcfe;border-left:3px solid var(--navy2);padding:8px 12px;margin:8px 0}
+.wc{font-size:14px;margin:4px 0 8px}.okc{color:var(--ok)}.noc{color:var(--no)}
+.checks{display:flex;flex-direction:column;gap:4px;background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14.5px}
+.model{background:#f1f8f3;border:1px solid #cfe8d8;border-radius:12px;padding:12px 16px;margin-top:10px;font-size:15px}
+.gnotes details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px}
+.gnotes details p{margin:8px 0 2px}
+details.gnotes{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:16px}
+.cl{display:block;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.cl input,.checks input{transform:scale(1.2);margin-right:8px}
+.pbar{height:12px;background:#e3e8f1;border-radius:8px;overflow:hidden;margin:6px 0}
+.pbar div{height:100%;background:linear-gradient(90deg,var(--ok),#3bb873);width:0;transition:width .4s}
+.timer{position:sticky;top:8px;float:right;background:var(--navy);color:#fff;border-radius:20px;padding:6px 14px;font-weight:700;z-index:3}
+.result{background:#fff;border:2px solid var(--navy);border-radius:14px;padding:0 18px}
+.result:empty{display:none}
+.rt{margin-bottom:10px}.rt .tot td{font-size:18px;color:var(--navy);border-top:2px solid var(--navy)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;z-index:99}
+.hero{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.namebox input{min-width:240px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
+.hublink{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;font-size:13px;font-weight:600}
+.hublink:hover{background:rgba(255,255,255,.28)}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.part{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fbfcfe}
+.part h4{margin:0 0 6px}
+.tips li{margin:4px 0}
+</style>
+<style>:root{--navy:#2b4a1f;--navy2:#3f6b2d;--acc:#e0a526}header{background:linear-gradient(120deg,#24461b,#3f6b2d)}.tab.on{color:var(--navy)}</style>
+</head>
+<body>
+<header><div class="hwrap">
+  <div class="school"><span><a class="hublink" href="index.html">← All grades</a>&nbsp; Scientific Institute for Secondary Education · English Department</span><span>Grade 10 GLG · Teacher: Dr. Mahmoud Ananzeh</span></div>
+  <h1>Exam Guide &amp; Practice</h1>
+  <div class="sub">Grade 10 GLG · Stage 6 · CEFR B1.2 · Everything you need to understand the exam, plus practice with instant answers</div>
+  <nav>
+    <button class="tab on" data-t="home">🏠 The exam</button>
+    <button class="tab" data-t="vocab">📚 Vocabulary</button>
+    <button class="tab" data-t="grammar">🧠 Grammar</button>
+    <button class="tab" data-t="reading">📖 Reading</button>
+    <button class="tab" data-t="writing">✍️ Writing</button>
+    <button class="tab" data-t="mock">📝 Mock exam</button>
+    <button class="tab" data-t="check">✅ Checklist</button>
+  </nav>
+</div></header>
+<main>
+<div id="main">
+  <section class="page" id="pg-home">
+    <div class="panel hero">
+      <div><h2 style="margin:0">Welcome, Grade 10! 👋</h2><div class="muted">Every activity gives you instant feedback. Your scores are saved on this device.</div></div>
+      <div class="namebox row"><label for="sname"><b>Your name:</b></label><input id="sname" type="text" placeholder="Type your name"></div>
+    </div>
+    <div class="panel"><h3>Your progress</h3><div id="prog"></div>
+      <div class="row"><button class="btn" id="quickbtn">⚡ Quick quiz: 20 random questions</button><button class="btn ghost" data-go="mock">📝 Take the mock exam</button><button class="btn ghost" id="resetall">Reset my progress</button></div></div>
+    <div class="grid2">
+      <div class="panel"><h3>1 · The exam in numbers</h3>
+        <table class="map"><tr><th>Part</th><th>Section</th><th>Level</th><th>Questions</th><th>Marks</th></tr>
+        <tr><td>1</td><td>Vocabulary</td><td>Towards GLG</td><td>5 gaps × 2</td><td>10</td></tr>
+        <tr><td>2</td><td>Grammar</td><td>At GLG</td><td>5 gaps × 2</td><td>10</td></tr>
+        <tr><td>3A</td><td>Reading</td><td>At GLG</td><td>8 × 3</td><td>24</td></tr>
+        <tr><td>3B</td><td>Reading</td><td>Beyond GLG</td><td>8 × 2</td><td>16</td></tr>
+        <tr><td>4</td><td>Writing</td><td>At GLG</td><td>Task 1.1 + 1.2</td><td>40</td></tr>
+        <tr><td></td><td>Total</td><td></td><td></td><td>100</td></tr></table>
+        <p class="muted">Reading &amp; Viewing (60 marks) is taken online. Writing (40 marks) is on paper. GLG means Grade Level Goal. Parts 1, 2, 3A and 4 together are worth 84 marks.</p></div>
+      <div class="panel"><h3>7 · Test-day tips</h3>
+        <ul class="tips">
+          <li>Do the sections in this order: <b>Part 1, Part 2, Part 3A, Part 4, then Part 3B</b>.</li>
+          <li>Never leave a multiple-choice question empty. Guess if needed.</li>
+          <li>For reading, find the answer in the text. Do not use only your own opinion.</li>
+          <li>For writing, plan for 3 minutes: opinion, three ideas, example, conclusion.</li>
+          <li>Leave 3 minutes at the end to check your writing.</li>
+          <li>The exam specification does not state the exam time. Ask your teacher for the timetable.</li>
+        </ul>
+        <p class="muted">Activities marked ⭐ and the mock exam are extra practice that isn't in the guide.</p></div>
+    </div>
+    <div class="panel"><h3>2 · Part by part</h3>
+      <div class="parts">
+        <div class="part"><h4>Part 1 · Vocabulary (10)</h4>One text of about 160 words with 5 gaps; choose from 3 options. Themes: Meeting New People, Learning New Things and Come Rain or Shine.<div class="row"><button class="btn sm" data-go="vocab">Practise vocabulary →</button></div></div>
+        <div class="part"><h4>Part 2 · Grammar (10)</h4>One narrative of about 160 words (Writing a Description of Wild Weather) with 5 gaps: past continuous, relative clauses, verb patterns, indirect questions, ability, linkers, comparatives.<div class="row"><button class="btn sm" data-go="grammar">Practise grammar →</button></div></div>
+        <div class="part"><h4>Part 3A · Reading (24)</h4>One expository text of 250–270 words on Sharing Things. 8 questions × 3 marks: 4 specific information, 2 details, 1 inference, 1 overall meaning.<div class="row"><button class="btn sm" data-go="reading">Practise reading →</button></div></div>
+        <div class="part"><h4>Part 3B · Reading (16)</h4>A harder B2.1 text of 250–270 words on Feeling Under the Weather?. 8 × 2 marks: 4 details, 1 inference, 1 connections, 1 prediction, 1 overall meaning.<div class="row"><button class="btn sm" data-go="reading">Practise reading →</button></div></div>
+        <div class="part"><h4>Part 4 · Writing (40)</h4>Choose Talking About Seasons or Ready for a Shared-Living Experience?. Task 1.1: summary in 3–4 sentences (15). Task 1.2: argumentative text, at least 150 words, all three prompts (25).<div class="row"><button class="btn sm" data-go="writing">Practise writing →</button></div></div>
+      </div></div>
+  </section>
+  <section class="page hidden" id="pg-vocab"><h2>3 · Vocabulary lists &amp; practice</h2><div id="sec-vocab"></div></section>
+  <section class="page hidden" id="pg-grammar"><h2>4 · Grammar lessons &amp; practice</h2><p class="muted">Tap a lesson to open the rule, then do the mini-exercise and the practice set.</p><div id="sec-grammar"></div></section>
+  <section class="page hidden" id="pg-reading"><h2>5 · Reading practice: Parts 3A &amp; 3B</h2><div id="sec-reading"></div></section>
+  <section class="page hidden" id="pg-writing"><h2>6 · Writing guide with models</h2><div id="sec-writing"></div></section>
+  <section class="page hidden" id="pg-mock"><h2>Mock exam (100 marks)</h2><div id="mock"></div></section>
+  <section class="page hidden" id="pg-check"><h2>Final checklist</h2><div id="checkhost"></div></section>
+</div>
+<div id="activity" class="hidden"></div>
+</main>
+<footer>Scientific Institute for Secondary Education · English Department · Grade 10 GLG · Dr. Mahmoud Ananzeh</footer>
+<script>// ===== DATA: Grade 10 GLG · Stage 6 · B1.2 (Mahmoud Ananzeh) =====
+const STORE = "g10glg";
+const L = s => s.charCodeAt(0) - 65;
+const GLOSS = {
+  "Meeting New People, Learning New Things": [
+    ["roommate", "(noun) a person who shares a room or flat with you", "My roommate and I share the cleaning."],
+    ["colleague", "(noun) a person you work with", "My colleague helped me finish the report."],
+    ["privacy", "(noun) the right to be alone and keep things private", "Everyone needs some privacy in their own room."],
+    ["community", "(noun) the people who live in the same area", "The community built a new park."],
+    ["deadline", "(noun) the last day or time to finish something", "The deadline for the project is Friday."],
+    ["schedule", "(noun) a plan that shows when things will happen", "We made a schedule for the housework."],
+    ["authority", "(noun) the power or right to make decisions", "The teacher has the authority to change the date."],
+    ["regulation", "(noun) an official rule", "There is a regulation about using phones in class."],
+    ["manage", "(verb) to deal with something successfully; to control", "She can manage her time very well."],
+    ["cope", "(verb) to deal with a difficult situation", "He learned to cope with stress."]
+  ],
+  "Come Rain or Shine": [
+    ["humidity", "(noun) the amount of water in the air", "High humidity makes the air feel heavy."],
+    ["temperature", "(noun) how hot or cold something is", "The temperature reached 45 degrees."],
+    ["climate", "(noun) the usual weather in a place over many years", "The UAE has a hot, dry climate."],
+    ["season", "(noun) one of the four parts of the year", "Winter is my favourite season."],
+    ["absorb", "(verb) to take in (heat, water, light)", "Dark clothes absorb heat."],
+    ["reflect", "(verb) to send back (light or heat)", "White roofs reflect sunlight."],
+    ["hazardous", "(adjective) dangerous", "The wet road was hazardous."],
+    ["severe", "(adjective) very bad or serious", "A severe storm hit the city."],
+    ["ability", "(noun) the power to do something", "She has the ability to stay calm."],
+    ["skill", "(noun) something you can do well because you have learned it", "Swimming is a useful skill."],
+    ["rescue", "(verb / noun) to save someone from danger", "The team rescued the hikers."],
+    ["safety", "(noun) being protected from danger", "Safety rules protect workers."],
+    ["textile", "(noun) cloth made by weaving or knitting", "The textile factory makes cotton cloth."],
+    ["fabric", "(noun) cloth used for making clothes", "Cotton is a cool fabric."]
+  ],
+  "Wild weather": [
+    ["cumulus cloud", "a thick, white, fluffy cloud with a flat bottom", "Huge cumulus clouds formed over the mountains."],
+    ["thunderstorm", "a storm with thunder, lightning and heavy rain", "The thunderstorm lasted all night."],
+    ["warning", "a message that tells you about danger", "The radio gave a weather warning."],
+    ["gale-force", "very strong (wind)", "Gale-force winds blew the signs down."],
+    ["weather phenomena", "special weather events (storms, rainbows, dust storms)", "Rainbows are beautiful weather phenomena."],
+    ["impact", "the effect something has", "The storm had a big impact on the city."],
+    ["damage", "harm done to something", "The wind caused damage to the trees."],
+    ["protection", "something that keeps you safe", "A hat gives protection from the sun."]
+  ]
+};
+const MATCH10 = [["roommate", "a person who shares your flat"], ["deadline", "the last day to finish something"], ["humidity", "the amount of water in the air"], ["absorb", "to take in heat, water or light"], ["hazardous", "dangerous"], ["rescue", "to save someone from danger"], ["regulation", "an official rule"], ["fabric", "cloth used for making clothes"], ["cope", "to deal with a difficult situation"], ["privacy", "the right to be alone"]];
+const strip = m => m.replace(/^\([^)]*\)\s*/, "");
+
+const SETS = {};
+SETS.vp2 = { title: "Practice 2: Meeting a new roommate", sec: "vocab", gap: true,
+  text: "When Sara started university, she moved into a shared flat with a new [1] called Hana. At first, both girls felt nervous because they did not know each other. They sat down together and made a [2] for cleaning the kitchen and the bathroom, so nobody had too much work.\n\nSara also explained that she needs quiet time in her room because her [3] is very important to her. Hana understood and agreed. Soon the two girls became friends. Sara's first big project was due in two weeks, and she was afraid she would miss the [4]. Hana helped her to plan each day, and Sara finished on time. Of course, living away from home was not always easy, and Sara missed her family. However, she learned how to [5] with problems, and she felt more confident every week. \"Sharing a flat taught me a lot,\" she told her mother.",
+  items: [
+    ["Gap 1", ["roommate", "colleague", "manager"], "A", "She shares a flat with Hana → roommate."],
+    ["Gap 2", ["schedule", "regulation", "authority"], "A", "A plan that shows when things happen → schedule (a regulation is an official rule, which does not fit)."],
+    ["Gap 3", ["deadline", "privacy", "community"], "B", "Quiet time alone in her room → privacy."],
+    ["Gap 4", ["deadline", "skill", "season"], "A", "A project due in two weeks → miss the deadline."],
+    ["Gap 5", ["cope", "reflect", "absorb"], "A", "cope with problems = deal with a difficult situation."]
+  ] };
+SETS.vbonus = { title: "Bonus: Sentence gap-fill (new)", sec: "vocab", items: [
+  ["My ___ at the office always helps me with new software.", ["colleague", "roommate", "community"], "A", "A person you work with → colleague."],
+  ["The whole ___ came together to clean the beach.", ["community", "deadline", "fabric"], "A", "The people who live in the same area → community."],
+  ["Only the head teacher has the ___ to cancel the trip.", ["authority", "humidity", "season"], "A", "The power or right to make decisions → authority."],
+  ["There is a new ___ that students must wear their ID cards.", ["regulation", "skill", "climate"], "A", "An official rule → regulation."],
+  ["She can ___ three projects at the same time without stress.", ["manage", "absorb", "rescue"], "A", "To deal with something successfully → manage."],
+  ["The ___ today is 42 degrees.", ["temperature", "privacy", "authority"], "A", "How hot or cold something is → temperature."],
+  ["Spring is the ___ when many flowers grow.", ["season", "deadline", "textile"], "A", "One of the four parts of the year → season."],
+  ["Snow and ice ___ most of the sunlight back into the sky.", ["reflect", "absorb", "cope"], "A", "Send back light or heat → reflect."],
+  ["A dark car ___ more heat than a white car.", ["absorbs", "reflects", "manages"], "A", "Take in heat → absorbs."],
+  ["Driving in a dust storm is ___ because you cannot see the road.", ["hazardous", "humid", "private"], "A", "Dangerous → hazardous."],
+  ["The doctor said it was a ___ illness, so he stayed in hospital.", ["severe", "cool", "seasonal"], "A", "Very bad or serious → severe."],
+  ["Helicopters were used to ___ people from the flood.", ["rescue", "reflect", "schedule"], "A", "Save someone from danger → rescue."],
+  ["Wear a helmet for your ___ when you ride a bike.", ["safety", "humidity", "season"], "A", "Being protected from danger → safety."],
+  ["Learning to cook is a useful ___ for students who live alone.", ["skill", "regulation", "climate"], "A", "Something you can do well because you learned it → skill."],
+  ["The storm caused serious ___ to the roofs of many houses.", ["damage", "protection", "privacy"], "A", "Harm done to something → damage."]
+] };
+SETS.vpairs = { title: "Bonus: Confusing pairs (new)", sec: "vocab", items: [
+  ["White walls ___ sunlight and keep the house cool.", ["reflect", "absorb"], "A", "reflect = send back light or heat."],
+  ["A sponge can ___ a lot of water.", ["reflect", "absorb"], "B", "absorb = take in water, heat or light."],
+  ["The UAE has a hot, dry ___ all year round.", ["climate", "temperature"], "A", "climate = the usual weather over many years."],
+  ["The ___ dropped to 15 degrees last night.", ["climate", "temperature"], "B", "temperature = how hot or cold something is at a time."],
+  ["I live with my ___ in a flat near the university.", ["roommate", "colleague"], "A", "roommate = shares your room or flat."],
+  ["My ___ and I work in the same office.", ["roommate", "colleague"], "B", "colleague = a person you work with."],
+  ["Swimming is a ___ you can learn in a few weeks.", ["skill", "ability"], "A", "skill = something you have learned to do well."],
+  ["Some birds have the ___ to fly thousands of kilometres.", ["skill", "ability"], "B", "ability = the power to do something."],
+  ["The ___ for the essay is next Monday.", ["deadline", "schedule"], "A", "deadline = the last day to finish."],
+  ["Our ___ shows who cleans the kitchen each day.", ["deadline", "schedule"], "B", "schedule = a plan of when things happen."],
+  ["Sunscreen gives ___ from the sun.", ["damage", "protection"], "B", "protection = something that keeps you safe."],
+  ["Cotton is a light ___ for summer shirts.", ["fabric", "humidity"], "A", "fabric = cloth used for making clothes."]
+] };
+SETS.vtype = { title: "Bonus: Noun, verb or adjective? (new)", sec: "vocab", items: [
+  ["What type of word is needed? “The road was very ___ after the rain.”", ["adjective", "noun", "verb"], "A", "After very we need an adjective (e.g. hazardous)."],
+  ["What type of word is needed? “Dark clothes ___ heat.”", ["verb", "noun", "adjective"], "A", "After the subject we need a verb (absorb)."],
+  ["What type of word is needed? “We made a ___ for the housework.”", ["noun", "verb", "adjective"], "A", "After a we need a noun (schedule)."],
+  ["What type is 'hazardous'?", ["adjective", "noun", "verb"], "A", "hazardous = dangerous (adjective)."],
+  ["What type is 'cope'?", ["verb", "noun", "adjective"], "A", "cope = to deal with a difficult situation (verb)."],
+  ["What type is 'safety'?", ["noun", "adjective", "verb"], "A", "safety = being protected from danger (noun)."],
+  ["What type is 'severe'?", ["adjective", "verb", "noun"], "A", "severe = very bad or serious (adjective)."],
+  ["What type is 'rescue'?", ["verb or noun", "only adjective", "only noun"], "A", "rescue can be a verb (rescue someone) or a noun (a rescue)."],
+  ["Which word fits? “She has the ___ to stay calm.”", ["ability", "able", "ably"], "A", "After the we need a noun: ability."],
+  ["Which word fits? “He learned to ___ with stress.”", ["cope", "coping", "copes"], "A", "After to we need the base verb: cope."]
+] };
+const SPELL = [["a person who shares a room or flat with you", "roommate"], ["the amount of water in the air", "humidity"], ["the usual weather in a place over many years", "climate"], ["very bad or serious", "severe"], ["dangerous", "hazardous"], ["something you can do well because you have learned it", "skill"], ["the last day or time to finish something", "deadline"], ["a plan that shows when things will happen", "schedule"], ["an official rule", "regulation"], ["cloth used for making clothes", "fabric"], ["a storm with thunder, lightning and heavy rain", "thunderstorm"], ["something that keeps you safe", "protection"]];
+
+// ---- Grammar: typed mini-exercises from the guide ----
+const T = {
+  pc: [["Fill in", "At 8 o'clock last night, we ____ (watch) the storm.", ["were watching"], "were watching"], ["Fill in", "She ____ (drive) when the wind became strong.", ["was driving"], "was driving"], ["Fill in", "The children ____ (not / sleep) during the thunderstorm.", ["were not sleeping", "weren't sleeping"], "were not (weren't) sleeping"]],
+  rel: [["Fill in", "The student ____ sits next to me is my roommate. (who / which)", ["who", "that"], "who"], ["Fill in", "This is the textile ____ keeps you cool. (who / which)", ["which", "that"], "which"], ["Fill in", "I met a woman ____ house was damaged by the storm. (who / whose)", ["whose"], "whose"]],
+  vp: [["Fill in", "He wants ____ (join) the sports club.", ["to join"], "to join"], ["Fill in", "They avoided ____ (go) outside in the storm.", ["going"], "going"], ["Fill in", "You should ____ (drink) more water.", ["drink"], "drink"]],
+  iq: [["Fill in", "Could you tell me where ____ ? (the library / is)", ["the library is"], "the library is"], ["Fill in", "Do you know why ____ ? (it / is so humid)", ["it is so humid", "it's so humid"], "it is so humid"], ["Fill in", "I wonder how much ____ . (the ticket / costs)", ["the ticket costs"], "the ticket costs"]],
+  mod: [["Fill in", "I ____ speak three languages. (can / cans)", ["can"], "can"], ["Fill in", "When he was ten, he ____ run very fast. (can / could)", ["could"], "could"], ["Fill in", "She ____ not open the window; it was too heavy. (can / could)", ["could"], "could"]],
+  lnk: [["Fill in", "The storm was severe. ____, we stayed at home. (However / Therefore)", ["therefore"], "Therefore"], ["Fill in", "I like winter. ____, I don't enjoy the cold wind. (However / In addition)", ["however"], "However"], ["Fill in", "Cotton is cool. ____, it is cheap. (Also / However)", ["also"], "Also"]],
+  comp: [["Fill in", "Cotton is ____ than wool in summer. (cool)", ["cooler"], "cooler"], ["Fill in", "This text is ____ than the first one. (difficult)", ["more difficult"], "more difficult"], ["Fill in", "Today's weather is ____ than yesterday's. (bad)", ["worse"], "worse"]],
+  mix: [
+    ["Bonus (new) · Past continuous", "I ____ (read) a book when the lights went out.", ["was reading"], "was reading"],
+    ["Bonus (new) · Past continuous", "While we ____ (walk) to school, it started to rain.", ["were walking"], "were walking"],
+    ["Bonus (new) · Relative clause", "The app ____ shows the weather is very useful.", ["which", "that"], "which / that"],
+    ["Bonus (new) · Verb pattern", "We decided ____ (stay) inside.", ["to stay"], "to stay"],
+    ["Bonus (new) · Verb pattern", "My brother enjoys ____ (watch) thunderstorms.", ["watching"], "watching"],
+    ["Bonus (new) · Indirect question", "“When does the bus leave?” → Do you know when ____ ?", ["the bus leaves"], "the bus leaves"],
+    ["Bonus (new) · Ability", "Last year I ____ swim, but now I can. (can't / couldn't)", ["couldn't", "could not"], "couldn't"],
+    ["Bonus (new) · Comparative", "Dubai is ____ (humid) than Al Ain.", ["more humid"], "more humid"],
+    ["Bonus (new) · Comparative", "This storm is ____ (big) than the last one.", ["bigger"], "bigger"],
+    ["Bonus (new) · Linker", "The road was hazardous. ____, the school closed. (As a result / However)", ["as a result"], "As a result"]
+  ]
+};
+const REWRITE = T.mix;
+
+// ---- Grammar bonus MCQs (new) ----
+SETS.gpc = { title: "Past continuous", items: [
+  ["I ___ home when the rain started.", ["was walking", "walked", "am walking"], "A", "Longer action in progress (past continuous) interrupted by a short action (past simple)."],
+  ["They ___ outside when the thunder began.", ["were playing", "was playing", "are playing"], "A", "They → were + -ing."],
+  ["What ___ you doing at 9 p.m. yesterday?", ["were", "was", "did"], "A", "Question: were + you + -ing."],
+  ["While Ali was cooking, the phone ___.", ["rang", "was ringing", "rings"], "A", "The short action that interrupts → past simple."],
+  ["The sun ___ when we left the house.", ["was shining", "shined", "is shining"], "A", "Background action in progress at a past moment."],
+  ["We ___ TV during the storm – the power was off.", ["weren't watching", "wasn't watching", "didn't watching"], "A", "Negative: were not (weren't) + -ing."]
+] };
+SETS.grel = { title: "Defining relative clauses", items: [
+  ["The man ___ gave the warning works at the weather centre.", ["who", "which", "whose"], "A", "who for people."],
+  ["A cumulus cloud is a cloud ___ looks like cotton.", ["which", "who", "whose"], "A", "which / that for things."],
+  ["That's the girl ___ brother is my colleague.", ["whose", "who", "which"], "A", "whose for possession."],
+  ["The fabric ___ I bought is very light.", ["that", "who", "whose"], "A", "that can replace which for things."],
+  ["Which sentence is correct?", ["The roommate who lives with me is kind.", "The roommate, who lives with me is kind.", "The roommate which lives with me is kind."], "A", "Defining clause: who for people, no commas."],
+  ["Firefighters are people ___ rescue others from danger.", ["who", "which", "whose"], "A", "People → who."]
+] };
+SETS.gvp = { title: "Verb patterns", items: [
+  ["She decided ___ early.", ["to leave", "leaving", "leave"], "A", "decide + to + infinitive."],
+  ["We enjoy ___ storms from the window.", ["watching", "to watch", "watch"], "A", "enjoy + -ing."],
+  ["You must ___ a hat in the sun.", ["wear", "to wear", "wearing"], "A", "Modal + bare infinitive."],
+  ["I hope ___ my driving test next month.", ["to pass", "passing", "pass"], "A", "hope + to + infinitive."],
+  ["Please avoid ___ outside during the thunderstorm.", ["going", "to go", "go"], "A", "avoid + -ing."],
+  ["Have you finished ___ your report?", ["writing", "to write", "write"], "A", "finish + -ing."]
+] };
+SETS.giq = { title: "Indirect questions", items: [
+  ["Could you tell me where the bus stop ___?", ["is", "is it", "does"], "A", "Statement order: the bus stop is."],
+  ["Do you know what time the storm ___?", ["starts", "does start", "start"], "A", "No does; add -s: the storm starts."],
+  ["“Where is the library?” → Could you tell me ___?", ["where the library is", "where is the library", "where does the library is"], "A", "question word + subject + verb."],
+  ["I wonder why it ___ so humid today.", ["is", "does", "is it"], "A", "Statement order: it is."],
+  ["“How much does it cost?” → Can you tell me how much ___?", ["it costs", "does it cost", "costs it"], "A", "Remove does: it costs."],
+  ["Do you know ___ the shop opens?", ["when", "when does", "does when"], "A", "No do/does in an indirect question."]
+] };
+SETS.gmod = { title: "Modals of ability", items: [
+  ["She ___ swim very well.", ["can", "cans", "can to"], "A", "can + bare infinitive (no -s)."],
+  ["When I was five, I ___ already read.", ["could", "can", "can't"], "A", "Past ability → could."],
+  ["He ___ drive in the rain yet – he's still learning.", ["can't", "couldn't", "doesn't can"], "A", "Present inability → can't."],
+  ["Yesterday the road was closed, so we ___ get to the beach.", ["couldn't", "can't", "don't could"], "A", "Past inability → couldn't."],
+  ["___ you speak French?", ["Can", "Do", "Are"], "A", "Question: Can + subject + verb."],
+  ["Which sentence is correct?", ["My sister can ride a bike.", "My sister can rides a bike.", "My sister can to ride a bike."], "A", "After a modal use the bare infinitive."]
+] };
+SETS.glnk = { title: "Adverbial linkers", items: [
+  ["It was sunny. ___, it was very humid.", ["However", "Therefore", "For example"], "A", "Contrast → However."],
+  ["The road was hazardous. ___, the school closed.", ["As a result", "However", "Also"], "A", "Result → As a result."],
+  ["Cotton is cool. ___, it is cheap.", ["In addition", "However", "Therefore"], "A", "Adding → In addition."],
+  ["___, open the box. Then, read the instructions.", ["First", "Finally", "However"], "A", "Order → First."],
+  ["Some fabrics keep you cool. ___, linen is light and soft.", ["For example", "However", "As a result"], "A", "Example → For example."],
+  ["It rained all day. ___, the match was cancelled.", ["Therefore", "In addition", "For example"], "A", "Result → Therefore."]
+] };
+SETS.gcomp = { title: "Comparatives", items: [
+  ["August is ___ than December.", ["hotter", "more hot", "hoter"], "A", "Short adjective, double the consonant: hotter."],
+  ["This storm is ___ than the last one.", ["more dangerous", "dangerouser", "most dangerous"], "A", "Long adjective → more dangerous."],
+  ["The weather today is ___ than yesterday.", ["worse", "badder", "more bad"], "A", "Irregular: bad → worse."],
+  ["My new school is ___ than my old one.", ["better", "gooder", "more good"], "A", "Irregular: good → better."],
+  ["Winter is ___ than summer in the UAE.", ["cooler", "more cool", "coolest"], "A", "Short adjective + -er."],
+  ["Is Abu Dhabi ___ than Al Ain?", ["more humid", "humider", "most humid"], "A", "humid → more humid (two syllables, not -y)."]
+] };
+SETS.gclue = { title: "Bonus: What grammar is tested? (new)", sec: "grammar", items: [
+  ["“We ___ to music when the radio gave a warning.” Clue word: when", ["past continuous", "comparative", "indirect question"], "A", "when / while → past continuous."],
+  ["“The storm was ___ than any storm we had seen.” Clue word: than", ["comparative", "relative clause", "modal"], "A", "than → comparative."],
+  ["“That is the presenter ___ gave the warning.”", ["relative clause (who)", "linker", "verb pattern"], "A", "A person + gap + verb → who."],
+  ["“He did not want ___ the trip.”", ["verb pattern (to + infinitive)", "past continuous", "comparative"], "A", "want → to + infinitive."],
+  ["“Could you tell me where ___?”", ["indirect question", "modal of ability", "relative clause"], "A", "Could you tell me … → indirect question."],
+  ["“___, the rain became so heavy that we had to stop.”", ["adverbial linker", "comparative", "relative clause"], "A", "A gap at the start of a sentence + comma → linker (However / As a result)."],
+  ["“When she was young, she ___ swim across the lake.”", ["modal of ability (could)", "past continuous", "comparative"], "A", "Past ability → could."],
+  ["“We enjoy ___ in the rain.”", ["verb pattern (-ing)", "indirect question", "linker"], "A", "enjoy → verb + -ing."]
+] };
+SETS.gp3 = { title: "Practice 3: A storm on the road", sec: "grammar", gap: true,
+  text: "Last August, on a hot Friday morning, my family was driving to the coast. The sky looked beautiful, and huge cumulus clouds were already forming over the mountains. We [1] to music when the radio suddenly gave a weather warning. A severe thunderstorm was coming, with gale-force winds.\n\n\"That is the presenter [2] gave the warning yesterday,\" said my father, laughing. He did not want [3] the trip, so we kept driving. [4], the rain soon became so heavy that the road was hazardous, and we had to stop. The storm was [5] than any storm we had ever seen. Thunder shook the car, and the wind pushed against the doors. My little sister was frightened, but my mother held her hand. When it finally stopped, we saw the impact: broken branches covered the road, and a few signs lay on the ground. Luckily, nobody was hurt, and we arrived at the beach the next morning.",
+  items: [
+    ["Gap 1", ["listened", "were listening", "are listening"], "B", "Past continuous: an action in progress (were listening) interrupted by the warning."],
+    ["Gap 2", ["who", "which", "whose"], "A", "Relative clause for a person (the presenter) → who."],
+    ["Gap 3", ["cancel", "cancelling", "to cancel"], "C", "want + to + infinitive → to cancel."],
+    ["Gap 4", ["Because", "However", "Therefore"], "B", "Contrast: they kept driving, but the rain became heavy → However."],
+    ["Gap 5", ["bad", "worse", "worst"], "B", "than → comparative of bad: worse."]
+  ] };
+const LINKERS = [["however", "C"], ["therefore", "R"], ["as a result", "R"], ["in addition", "A"], ["also", "A"], ["first", "O"], ["then", "O"], ["finally", "O"], ["for example", "E"]];
+const LCAT = { C: "Contrast", R: "Result", A: "Adding", O: "Order", E: "Example" };
+const ORDERS = {
+  A: { t: "How to answer Part 1 (Vocabulary)", s: ["Read the whole text first.", "Look at the words before and after the gap.", "Decide the part of speech (noun, verb, adjective).", "Cross out options that do not fit the meaning.", "Read the sentence again with your choice."] },
+  B: { t: "Plan for Task 1.2 (argumentative text)", s: ["Paragraph 1: give your opinion – In my opinion … / I believe that …", "Paragraph 2: cover all three prompts with reasons and examples.", "Paragraph 3: add an experience or example (past tense / must, have to).", "Paragraph 4: In conclusion … repeat your opinion in new words.", "Check: at least 150 words, linkers, spelling and capital letters."] },
+  C: { t: "Bonus (new): Order of sections on test day", s: ["Part 1: Vocabulary", "Part 2: Grammar", "Part 3A: Reading at grade level", "Part 4: Writing", "Part 3B: Reading beyond grade level"] }
+};
+
+// ---- Reading ----
+SETS.rtype = { title: "Bonus: Name the question type (new)", sec: "reading", items: [
+  ["“How much do most libraries of things ask for each year?”", ["Specific information", "Overall meaning", "Prediction"], "A", "A number stated directly → specific information (CS.2.1)."],
+  ["“What is the text mainly about?”", ["Overall meaning", "Details", "Specific information"], "A", "Main idea / best title → overall meaning (CS.1.1)."],
+  ["“In the last paragraph, the word 'damaged' probably means…”", ["Inference", "Specific information", "Connections"], "A", "A word's meaning from context → inference (CS.4.1)."],
+  ["“What can members learn at the free classes?”", ["Details", "Prediction", "Overall meaning"], "A", "What exactly / how / why → details (CS.5.1)."],
+  ["“What is the writer most likely to discuss next?”", ["Prediction", "Details", "Specific information"], "A", "What comes next → prediction (CS.4.2)."],
+  ["“Which situation is the best example of the advice in the text?”", ["Connections", "Specific information", "Overall meaning"], "A", "Linking the text to real life → connections (CS.3.1)."],
+  ["“Where did the first library of things open?”", ["Specific information", "Inference", "Prediction"], "A", "A place stated directly → specific information."],
+  ["For an overall meaning question, the correct answer…", ["covers all paragraphs, not one detail", "is always the longest option", "uses a word from the first line"], "A", "Think about the whole text."]
+] };
+const R3A = { title: "The Library of Things", paras: [
+  "Imagine that you need a ladder to paint your bedroom, but you will only use it once. Buying one costs a lot of money, and it will then sit in your cupboard for years. In several cities around the world, a new kind of library offers a better idea: the “library of things”.",
+  "A library of things works like a normal library, but people borrow objects instead of books. Members can take home tools, camping equipment, sewing machines, board games and even musical instruments. Most libraries ask for a small yearly fee of about 20 dollars, and members can keep an item for one to two weeks. If they bring it back late, they pay a small charge.",
+  "The first library of things opened in Berlin in 2010. Today there are more than 400 of them in countries such as Canada, Australia and Japan. Many are run by volunteers who check each item carefully before it goes back on the shelf.",
+  "Supporters say the idea has two main advantages. First, it saves money, because families do not have to buy things they use only a few times. Second, it is good for the environment, because fewer new products are made and less rubbish is thrown away. The libraries also help neighbours to meet and learn new skills. For example, many offer free classes where experts show members how to repair bicycles or grow vegetables.",
+  "However, there are some problems. Popular items, such as drills, are often borrowed, so members sometimes have to wait. Volunteers also need a lot of time to repair damaged objects. Even so, more people join every year, and the idea continues to spread."
+] };
+SETS.r3a = { title: "Practice 4: Part 3A Reading", sec: "reading", passage: R3A, marks: 3, items: [
+  ["<span class='qt'>Specific information</span> How much do most libraries of things ask for each year?", ["About 20 dollars", "About 40 dollars", "Nothing"], "A", "Paragraph 2: a small yearly fee of about 20 dollars."],
+  ["<span class='qt'>Specific information</span> Where did the first library of things open?", ["Toronto", "Berlin", "Tokyo"], "B", "Paragraph 3: Berlin in 2010."],
+  ["<span class='qt'>Specific information</span> How long can a member usually keep an item?", ["One to two weeks", "One to two months", "One to two days"], "A", "Paragraph 2: one to two weeks."],
+  ["<span class='qt'>Specific information</span> Who often checks each item before it goes back on the shelf?", ["Paid engineers", "Teachers", "Volunteers"], "C", "Paragraph 3: volunteers check each item."],
+  ["<span class='qt'>Detail</span> What is one advantage of the libraries for the environment?", ["They sell old products.", "Fewer new products are made.", "They use less electricity."], "B", "Paragraph 4: fewer new products are made and less rubbish is thrown away."],
+  ["<span class='qt'>Detail</span> What can members learn at the free classes?", ["How to read quickly", "How to repair bicycles", "How to play instruments"], "B", "Paragraph 4: how to repair bicycles or grow vegetables."],
+  ["<span class='qt'>Inference</span> In the last paragraph, the word “damaged” probably means:", ["new", "broken or not working properly", "very expensive"], "B", "Volunteers need time to repair them → broken."],
+  ["<span class='qt'>Overall meaning</span> What is the text mainly about?", ["A library where people borrow things instead of buying them", "The history of Berlin", "How to paint a bedroom"], "A", "The other options are small details."]
+] };
+const R3B = { title: "Can the Weather Change How We Feel?", paras: [
+  "People often say that they feel “under the weather”, meaning that they are slightly ill or sad. However, scientists have found that the weather really can affect both our bodies and our moods.",
+  "Take heat, for example. When the temperature and humidity are both high, the body has to work harder to stay cool, and many people feel tired, find it difficult to concentrate and sleep badly. Doctors advise drinking plenty of water and avoiding outdoor activity in the hottest hours of the day.",
+  "Cold, dark weather causes different problems. In countries where winter days are very short, some people experience a low mood that lasts for weeks. Researchers believe that a lack of sunlight changes the chemicals in the brain that control sleep and mood. Spending time outside at midday, even when it is cloudy, helps many people to feel better.",
+  "Some people are also sensitive to changes in air pressure. Before a storm arrives, they sometimes get headaches, although scientists are still studying why this happens.",
+  "Not everyone reacts in the same way. A person who grows up in a hot climate usually copes with high temperatures more easily than someone who has just arrived. In addition, a good routine, healthy food and regular exercise make us stronger in any weather.",
+  "Understanding how the weather affects us is useful, not only for individuals but also for schools and employers. Some schools in hot countries, for instance, now move sports lessons to the early morning."
+] };
+SETS.r3b = { title: "Practice 5: Part 3B Reading", sec: "reading", passage: R3B, marks: 2, items: [
+  ["<span class='qt'>Detail</span> According to the text, what happens when temperature and humidity are both high?", ["The body works harder to stay cool.", "People sleep more deeply.", "People need less water."], "A", "Paragraph 2."],
+  ["<span class='qt'>Detail</span> What do researchers believe about a lack of sunlight?", ["It makes people hungry.", "It changes brain chemicals that control sleep and mood.", "It only affects children."], "B", "Paragraph 3."],
+  ["<span class='qt'>Detail</span> What does the text say about headaches before a storm?", ["They are caused by thunder.", "They are not real.", "Scientists do not fully understand them yet."], "C", "Paragraph 4: scientists are still studying why."],
+  ["<span class='qt'>Detail</span> Why might a person who grew up in a hot climate cope better with heat?", ["They are used to high temperatures.", "They drink less water.", "They always avoid the sun."], "A", "Paragraph 5."],
+  ["<span class='qt'>Inference</span> In the fourth paragraph, “sensitive to” probably means:", ["easily affected by", "afraid of", "unable to notice"], "A", "They get headaches when air pressure changes → easily affected."],
+  ["<span class='qt'>Connections</span> Which situation is the best example of the advice in the text for a student who feels tired in very hot weather?", ["Doing sports at midday", "Drinking water and avoiding the hottest hours outside", "Sleeping all day"], "B", "Paragraph 2: doctors advise drinking water and avoiding the hottest hours."],
+  ["<span class='qt'>Prediction</span> What is the writer most likely to discuss next?", ["Other ways schools and employers can adapt to the weather", "The history of weather forecasting", "How to build a rain gauge"], "A", "The last paragraph introduces schools and employers."],
+  ["<span class='qt'>Overall meaning</span> What is the main message of the text?", ["Weather can affect how we feel, but people react differently and can prepare for it.", "Hot weather is always dangerous.", "Schools should close in summer."], "A", "It covers the whole text."]
+] };
+
+// ---- Writing ----
+SETS.wfl = { title: "Bonus: Useful language for writing (new)", sec: "writing", items: [
+  ["Which phrase expresses an opinion (FL.16)?", ["As far as I am concerned, …", "Last summer, …", "You mustn't …"], "A", "Opinion: In my opinion / I believe / As far as I am concerned."],
+  ["Which sentence describes a past experience (FL.31)?", ["I was camping in the desert when a cool breeze started.", "You have to clean the kitchen.", "I think winter is better."], "A", "Past continuous + past simple for a past event."],
+  ["Roommates ___ borrow things without asking. (It is not allowed.)", ["mustn't", "don't have to", "have to"], "A", "mustn't = it is not allowed (FL.20)."],
+  ["You ___ become best friends with your roommates. (It is not necessary.)", ["don't have to", "mustn't", "must"], "A", "don't have to = not necessary."],
+  ["Everyone ___ pay their part of the bills on time. (It is necessary.)", ["has to", "doesn't have to", "mustn't"], "A", "has to / must = necessary."],
+  ["Which is the best way to start a Task 1.1 summary?", ["The text explains that …", "In my opinion …", "Last summer, I …"], "A", "Start with The text is about … / The text explains that …"],
+  ["Which linker adds another reason?", ["Also, …", "However, …", "In conclusion, …"], "A", "Also / In addition = adding."],
+  ["Which sentence is the best conclusion?", ["In conclusion, sharing a flat saves money and teaches responsibility.", "First, rent is expensive.", "For example, my cousin lives alone."], "A", "In conclusion + repeat your opinion in new words."]
+] };
+SETS.wsum = { title: "Bonus: Good summary or not? (new)", sec: "writing", items: [
+  ["Original: “For many families in the UAE, winter is the best time of the year.” Best paraphrase:", ["Many UAE families prefer winter to other seasons.", "For many families in the UAE, winter is the best time of the year.", "Everyone in the world loves winter."], "A", "Own words, same meaning; B copies, C exaggerates."],
+  ["Which sentence should NOT be in a Task 1.1 summary?", ["I think summer is boring and I hate it.", "Summer is hot, so people stay indoors.", "Winter lets families enjoy outdoor activities."], "A", "Do not add your opinion in Task 1.1."],
+  ["Which is a main idea, not a small detail?", ["Roommates must respect each other.", "Some students use an app.", "Music can be loud."], "A", "Summaries keep main ideas only."],
+  ["How many sentences should a Task 1.1 summary have?", ["3–4", "1", "8–10"], "A", "Write 3–4 sentences."],
+  ["Original: “Problems will almost certainly appear sooner or later.” Best paraphrase:", ["Roommates will probably have some problems at some point.", "Problems will almost certainly appear sooner or later.", "There will never be problems."], "A", "Same meaning, new words."]
+] };
+const W11_SEASONS = "Every season has something special to offer, but people choose their favourites for very different reasons. For many families in the UAE, winter is the best time of the year. The weather is cooler and the sun is not as strong, so people can enjoy the outdoors again. Children play football in the parks, families have picnics on the beach and desert camps are full at weekends.\n\nSummer, on the other hand, is difficult for some people. Temperatures can reach fifty degrees, and humidity makes the air feel heavy. Most people stay inside shopping malls or at home, and outdoor activities usually take place early in the morning or late at night.\n\nHowever, summer has its own advantages. Schools close for the holidays, and many families travel to cooler countries. Students also have time to learn new skills, read books or spend time with their grandparents. In the end, each season is good for different activities, and the best one depends on what we like to do.";
+const W11_SHARED = "Moving into a shared flat can be an exciting step, but it also needs preparation. Before you move in, you should talk honestly with your new roommates. Everyone has to agree on basic rules, such as who cleans the kitchen, how loud the music can be and whether friends can visit.\n\nYou must also decide how to pay the bills. Many students open a shared account or use an app to divide the costs fairly. Although you don't have to become best friends with your roommates, you do need to respect them. For example, you mustn't borrow things without asking, and you should always tell people if you are going to arrive late.\n\nProblems will almost certainly appear sooner or later. When they do, it is better to discuss them calmly instead of ignoring them. Finally, remember that living with others teaches useful skills: cooperation, patience and responsibility, which will help you at university and at work.";
+const MODELS = {
+  s11: "The text explains that people like different seasons for different reasons. Winter is popular in the UAE because the cooler weather lets families enjoy outdoor activities. Summer is hot and humid, so people stay indoors, but it gives students free time to travel and learn new skills. The writer concludes that the best season depends on what each person likes to do.",
+  s12: "In my opinion, winter is better than summer, although both seasons have good points. I believe winter is better because the weather is cooler and we can enjoy the outdoors.\n\nIn winter, people can play sports in the park, go camping in the desert or have a picnic on the beach. In summer, however, the temperature is often higher than forty-five degrees, so most people have to stay inside. The main problem of winter is that some days are windy and the evenings can be cold. The main problem of summer is the heat and the humidity.\n\nI remember last winter very well. My cousins and I were camping in the desert when a cool breeze started. We cooked dinner on a fire and looked at the stars until midnight. It was one of the best nights of my life.\n\nIn conclusion, summer is good for holidays, but I think winter is better because it lets us spend more time outside with our family and friends. (166 words)",
+  h11: "The text advises new roommates to talk honestly and agree on rules and on how to share the bills before they move in. It says that roommates do not have to be best friends, but they must respect each other, for example by not borrowing things without asking. When problems appear, they should be discussed calmly. The writer concludes that shared living teaches useful skills such as cooperation and responsibility.",
+  h12: "I believe that sharing a flat with roommates is a good idea for students, but only if everyone follows clear rules.\n\nThe first advantage is money. Rent and bills are expensive, and students don't have to pay everything alone when they share the costs. A student I know saved about a third of his money last year when he moved in with two friends.\n\nHowever, roommates have responsibilities. Everyone must clean the kitchen, and nobody should leave dirty dishes for other people. You also have to pay your part of the bills on time, and you mustn't make noise late at night.\n\nThe second problem is privacy. Some people need more quiet time than others, so roommates should respect each other's rooms and ask before they invite friends.\n\nIn conclusion, sharing a flat saves money and teaches responsibility. I think it is a good idea if roommates agree on a schedule and speak honestly. (154 words)"
+};
+const CHECK12 = ["I covered all three prompts in Task 1.2.", "I gave my opinion in paragraph 1.", "I used examples and an experience (past tense or must / have to).", "I wrote at least 150 words in paragraphs.", "I used linkers and the correct tenses or modals.", "I checked spelling and capital letters."];
+const RUBRIC = `<details class="gnotes" style="margin-top:10px"><summary>Practice scoring guides (classroom use, not the official rubric)</summary><table class="rtab"><tr><th>Task 1.1 (15)</th><th>Marks</th></tr><tr><td>Main ideas covered (all key points of the text)</td><td>6</td></tr><tr><td>Own words (no copying from the text)</td><td>4</td></tr><tr><td>Accuracy of grammar, spelling and punctuation</td><td>3</td></tr><tr><td>3–4 clear, connected sentences</td><td>2</td></tr></table><table class="rtab"><tr><th>Task 1.2 (25)</th><th>Marks</th></tr><tr><td>Opinion and all three prompts covered with reasons or examples</td><td>9</td></tr><tr><td>Organisation: paragraphs, topic sentences, linkers</td><td>6</td></tr><tr><td>Range and accuracy of language (tenses, modals, vocabulary)</td><td>6</td></tr><tr><td>Length (about 150 words) and handwriting / presentation</td><td>4</td></tr></table></details>`;
+
+// ---- Mock (new, original) ----
+const MOCK = {
+  vocab: { title: "A summer camp to remember", text: "Last July, Omar joined a two-week science camp in the mountains. He shared a small cabin with a [1] from another city, and at first he felt shy. On the first morning, the leaders gave everyone a [2] that showed the time of every activity, from breakfast to the evening campfire.\n\nThere was also a strict [3]: nobody could walk in the forest alone. The leaders explained that this was for everyone's [4], because the paths were steep and the weather could change quickly. By the end of the camp, Omar had learned how to read a map, build a shelter and work in a team. Most importantly, he discovered that he had the [5] to stay calm when things went wrong. \"I came home more confident,\" he said.",
+    items: [
+      ["Gap 1", ["roommate", "deadline", "climate"], "A", "Someone who shares your room (cabin) → roommate."],
+      ["Gap 2", ["schedule", "privacy", "fabric"], "A", "Shows the time of every activity → schedule."],
+      ["Gap 3", ["regulation", "humidity", "season"], "A", "nobody could walk alone = an official rule → regulation."],
+      ["Gap 4", ["safety", "damage", "authority"], "A", "Being protected from danger → safety."],
+      ["Gap 5", ["ability", "community", "temperature"], "A", "the power to do something → ability."]
+    ] },
+  grammar: { title: "The day the sky turned orange", text: "I will never forget the dust storm of last spring. It was a quiet Saturday afternoon, and my brother and I [1] football in the garden when the sky suddenly turned orange. A strong wind started to blow, and we ran inside.\n\nMy mother turned on the radio. A reporter [2] works at the National Centre of Meteorology was giving a warning. \"Could you tell me how long the storm [3]?\" my brother asked our father. He did not know, so we stayed inside and watched from the window. The wind was [4] than anything I had felt before, and we [5] not see the houses across the street. After two hours, the storm finally stopped, and everything was covered in fine yellow sand.",
+    items: [
+      ["Gap 1", ["were playing", "played", "are playing"], "A", "Action in progress interrupted by 'when the sky suddenly turned orange' → past continuous."],
+      ["Gap 2", ["who", "which", "whose"], "A", "A person (a reporter) → who."],
+      ["Gap 3", ["will last", "will the storm last", "does last"], "A", "Indirect question: statement order (the storm will last)."],
+      ["Gap 4", ["stronger", "more strong", "strongest"], "A", "than → comparative: stronger."],
+      ["Gap 5", ["could", "can", "couldn't"], "A", "Past ability with 'not' after the gap → could not."]
+    ] },
+  r3a: { title: "Fridges That Feed a Neighbourhood", paras: [
+    "Every year, households around the world throw away millions of tonnes of food that is still safe to eat. In some neighbourhoods, people have found a simple way to reduce this waste: the community fridge.",
+    "A community fridge is a public fridge, usually placed outside a shop, a mosque or a community centre. Anyone can put food into it, and anyone who needs food can take it for free. Most fridges have a few simple rules. For example, people can leave fruit, vegetables, bread and closed packets, but they must not leave raw meat or food that is past its date.",
+    "The idea began in Germany in 2012, and it soon spread to cities in Spain, the United Kingdom and India. In the UAE, the first community fridges appeared in 2016, and today there are hundreds of them during the holy month of Ramadan. A volunteer usually cleans each fridge once a day and checks that the food is fresh.",
+    "Supporters say community fridges help in two ways. They give free food to families who need it, and they stop good food from going into the rubbish bin. They also make neighbours feel more connected, because people start to share instead of throwing things away.",
+    "However, the fridges are not always easy to look after. In hot weather, they use a lot of electricity, and some are emptied very quickly. Still, most organisers believe that the benefits are greater than the problems, and they hope that more neighbourhoods will join."
+  ], marks: 3, items: [
+    ["<span class='qt'>Specific information</span> Where did the idea of community fridges begin?", ["Germany", "Spain", "India"], "A", "Paragraph 3: the idea began in Germany."],
+    ["<span class='qt'>Specific information</span> When did the first community fridges appear in the UAE?", ["2016", "2012", "2020"], "A", "Paragraph 3: in 2016."],
+    ["<span class='qt'>Specific information</span> How often does a volunteer usually clean each fridge?", ["Once a day", "Once a week", "Once a month"], "A", "Paragraph 3: once a day."],
+    ["<span class='qt'>Specific information</span> Which food must people NOT leave in the fridge?", ["Raw meat", "Bread", "Closed packets"], "A", "Paragraph 2: they must not leave raw meat."],
+    ["<span class='qt'>Detail</span> How do community fridges help the environment?", ["They stop good food from going into the rubbish bin.", "They use less electricity than home fridges.", "They grow fresh vegetables."], "A", "Paragraph 4."],
+    ["<span class='qt'>Detail</span> Why are the fridges sometimes difficult to look after?", ["They use a lot of electricity in hot weather.", "Nobody wants to use them.", "They are too big to clean."], "A", "Paragraph 5."],
+    ["<span class='qt'>Inference</span> In paragraph 4, “connected” probably means:", ["closer to each other", "using the internet", "far away"], "A", "People start to share → they feel closer."],
+    ["<span class='qt'>Overall meaning</span> What is the best title for the text?", ["Sharing food to help people and reduce waste", "How to clean a fridge", "Food during Ramadan in Spain"], "A", "Covers the whole text, not one detail."]
+  ] },
+  r3b: { title: "Why Do Colds Spread in Cooler Months?", paras: [
+    "For generations, parents have warned children that going outside with wet hair in winter will make them catch a cold. Scientists now agree that cold weather does not directly cause a cold – viruses do. Nevertheless, there is growing evidence that cooler months create conditions in which these viruses spread more easily.",
+    "One reason is behaviour. When the weather turns cold or wet, people spend more time indoors, often in crowded rooms with the windows closed. In these spaces, tiny droplets from coughs and sneezes stay in the air for longer, so the virus can pass from one person to another.",
+    "Another explanation involves the air itself. Many cold viruses survive longer in cool, dry air than in warm, humid air. Some studies also suggest that breathing cold air may slightly weaken the natural defences inside our noses, although researchers stress that more evidence is needed.",
+    "Interestingly, the pattern is different in hot countries. In places like the UAE, people often spend the hottest months inside air-conditioned buildings, and some doctors notice more colds during this period than during the mild winter.",
+    "Whatever the season, simple habits make a significant difference. Washing hands regularly, opening windows to let in fresh air and staying at home when ill all reduce the spread of viruses. Some experts argue that schools and offices should also improve their ventilation systems."
+  ], marks: 2, items: [
+    ["<span class='qt'>Detail</span> According to scientists, what actually causes a cold?", ["Viruses", "Wet hair", "Cold weather itself"], "A", "Paragraph 1: viruses do."],
+    ["<span class='qt'>Detail</span> Why do viruses pass more easily in crowded indoor rooms?", ["Droplets stay in the air for longer.", "People wash their hands more.", "The rooms are always too hot."], "A", "Paragraph 2."],
+    ["<span class='qt'>Detail</span> What does the text say about cool, dry air?", ["Many cold viruses survive longer in it.", "It kills most viruses.", "It has no effect on viruses."], "A", "Paragraph 3."],
+    ["<span class='qt'>Detail</span> What do some doctors in the UAE notice?", ["More colds in the hottest months", "No colds at all", "More colds only in winter"], "A", "Paragraph 4: more colds during the air-conditioned hot months."],
+    ["<span class='qt'>Inference</span> In paragraph 5, “ventilation” probably means:", ["the movement of fresh air in a building", "heating water", "cleaning the floors"], "A", "Linked to opening windows and fresh air."],
+    ["<span class='qt'>Connections</span> Which student is following the advice in the text?", ["Mariam opens the classroom window and washes her hands before lunch.", "Khalid goes to school although he has a fever.", "Sara keeps all the windows closed all day."], "A", "Paragraph 5: fresh air and washing hands."],
+    ["<span class='qt'>Prediction</span> What is the writer most likely to discuss next?", ["How schools and offices can improve their ventilation", "The history of the cold virus", "Recipes for winter soup"], "A", "The last sentence introduces ventilation in schools and offices."],
+    ["<span class='qt'>Overall meaning</span> What is the main idea of the text?", ["Weather affects how easily cold viruses spread, and good habits can reduce this.", "Wet hair causes colds.", "Colds only happen in cold countries."], "A", "Covers the whole text."]
+  ] }
+};
+// spread correct answers across A/B/C (authored with the answer first)
+["vocab", "grammar", "r3a", "r3b"].forEach((k, ki) => MOCK[k].items.forEach((it, i) => { if (it[2] !== "A") return; const pos = [1, 0, 2, 2, 1, 0, 1, 2][(i + ki) % 8]; const opts = it[1].slice(1); opts.splice(pos, 0, it[1][0]); it[1] = opts; it[2] = "ABC"[pos]; }));
+["r3a", "r3b"].forEach(k => { MOCK[k].passage = { title: MOCK[k].title, paras: MOCK[k].paras }; });
+const W11_MOCK = "Many young people dream of living with friends when they start university or their first job. Sharing a flat has clear advantages. The rent and the bills are divided, so each person pays much less than if they lived alone. Roommates can also help each other with cooking, shopping and studying, and nobody feels lonely in the evenings.\n\nHowever, shared living is not always easy. People have different habits: one person may like to go to bed early, while another enjoys listening to music late at night. Arguments about cleaning and noise are very common. For this reason, experts say that roommates must agree on clear rules from the first day. They should make a cleaning schedule, decide when guests can visit and talk calmly when there is a problem. When everyone respects these rules, sharing a flat can become a very positive experience that teaches cooperation and responsibility.";
+const MODEL_M11 = "The text explains that sharing a flat helps young people save money and support each other. However, roommates often have different habits, which can cause arguments about cleaning and noise. Experts say that roommates must agree on rules, such as a cleaning schedule and visiting times, from the beginning. If everyone respects the rules, shared living can teach cooperation and responsibility.";
+const MODEL_M12 = "In my opinion, students should live with roommates during their first year at university, because it saves money and teaches them important skills.\n\nFirst, living with others is much cheaper. Students have to pay rent, electricity and internet bills, and sharing these costs means they can spend more money on books and food.\n\nHowever, roommates have to follow some rules. Everyone must clean the kitchen after cooking, and nobody should play loud music late at night. You also mustn't eat other people's food without asking. Last year my cousin moved into a flat with two friends. At first, they were arguing about the dishes every day, but then they made a schedule, and everything became calmer.\n\nIn addition, living with roommates helps you make new friends and feel less lonely far from home.\n\nIn conclusion, I believe that sharing a flat is a good idea for first-year students, as long as everyone agrees on clear rules and respects each other's privacy.";
+const MOCKCFG = {
+  intro: `<h3>Grade 10 mock paper · 100 marks</h3><p>Part 1 Vocabulary /10 · Part 2 Grammar /10 · Part 3A Reading /24 · Part 3B Reading /16 · Part 4 Writing /40.</p><p>All texts are new – they are not in the guide. Follow the test-day order if you like: Part 1 → Part 2 → Part 3A → Part 4 → Part 3B. Press <b>Submit mock</b> at the bottom: Reading & Viewing (60) is marked automatically; estimate your writing with the practice scoring guide.</p>`,
+  p1: "Part 1: Vocabulary (5 × 2 = 10)", p2: "Part 2: Grammar (5 × 2 = 10)", p3a: "Part 3A: Reading at grade level (8 × 3 = 24)", p3b: "Part 3B: Reading beyond grade level (8 × 2 = 16)", pw: "Part 4: Writing (40 marks) – Ready for a Shared-Living Experience?",
+  vocab: MOCK.vocab, grammar: MOCK.grammar, r3a: MOCK.r3a, r3b: MOCK.r3b,
+  w11: { title: "Mock Task 1.1", task: "<b>Task 1.1 (15 marks):</b> Read the text. Write the main ideas in your own words in 3–4 sentences.", source: W11_MOCK, model: MODEL_M11, sent: [3, 4] },
+  w12: { title: "Mock Task 1.2", task: "<b>Task 1.2 (25 marks):</b> Do you think first-year university students should live with roommates? Write an argumentative text of at least 150 words in paragraphs. Use all three prompts: • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • a personal experience or example (you can use the past tense).", min: 150, model: MODEL_M12, checks: CHECK12 },
+  rubric: RUBRIC
+};
+
+const CHECK = {
+  "Know the exam": ["I know the five parts and their marks (10 · 10 · 24 · 16 · 40).", "I know Reading & Viewing is online and Writing is on paper.", "I know the test-day order: Part 1, Part 2, Part 3A, Part 4, then Part 3B."],
+  "Vocabulary": ["I know the Meeting New People words (roommate, colleague, privacy…).", "I know the Come Rain or Shine words (humidity, absorb, reflect, hazardous…).", "I know the wild weather words (cumulus cloud, gale-force, warning…).", "I decide the part of speech before I choose an answer."],
+  "Grammar": ["Past continuous: was/were + -ing.", "Relative clauses: who / which / that / whose.", "Verb patterns: want to …, enjoy …ing, must + verb.", "Indirect questions: Could you tell me where it is?", "Ability: can / can't / could / couldn't.", "Linkers: however, therefore, as a result, in addition, for example.", "Comparatives: hotter, more dangerous, better, worse."],
+  "Reading": ["I can scan for specific information.", "I read the sentences before and after for detail questions.", "I use context for word meanings (inference).", "I choose overall meaning answers that cover the whole text.", "I don't stop at unknown words in Part 3B."],
+  "Writing (self-check)": ["I used my own words in Task 1.1.", "I covered all three prompts in Task 1.2.", "I wrote at least 150 words in paragraphs.", "I used linkers and the correct tenses or modals.", "I checked spelling and capital letters."]
+};
+
+const ACTS = {
+  vocab: [
+    ["flash", "🃏 Flashcards (32 words)", "All three word lists – flip, listen, test yourself.", el => flashcards(el)],
+    ["m1", "🔗 Practice 1: Vocabulary matching (10)", "From the guide – match each word to its meaning.", el => matching(el, "m1", MATCH10)],
+    ["m2", "🔗 Match: Meeting New People (10)", "", el => matching(el, "m2", GLOSS["Meeting New People, Learning New Things"].map(w => [w[0], strip(w[1])]))],
+    ["m3", "🔗 Match: Come Rain or Shine (14)", "", el => matching(el, "m3", GLOSS["Come Rain or Shine"].map(w => [w[0], strip(w[1])]))],
+    ["m4", "🔗 Match: Wild weather (8)", "Part 2 and Part 4 words.", el => matching(el, "m4", GLOSS["Wild weather"].map(w => [w[0], w[1]]))],
+    ["vp2", "📄 Practice 2: Part 1 exam style", "Meeting a new roommate – 5 gaps.", el => gapText(el, "vp2", SETS.vp2)],
+    ["spell", "🔡 Spelling (12)", "Read the meaning and type the word.", el => spelling(el, "spell")],
+    ["vbonus", "⭐ Bonus: Sentence gap-fill (15)", "Every word list in context.", el => mcq(el, "vbonus", SETS.vbonus.items)],
+    ["vpairs", "⭐ Bonus: Confusing pairs (12)", "absorb/reflect, climate/temperature…", el => mcq(el, "vpairs", SETS.vpairs.items)],
+    ["vtype", "⭐ Bonus: Noun, verb or adjective? (10)", "Step 3 of the Part 1 strategy.", el => mcq(el, "vtype", SETS.vtype.items)]
+  ],
+  grammar: [
+    ["t_pc", "G.14.3 Past continuous – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_pc", T.pc)],
+    ["gpc", "⭐ G.14.3 Past continuous – practice (6)", "", el => mcq(el, "gpc", SETS.gpc.items)],
+    ["t_rel", "G.4.1 Relative clauses – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_rel", T.rel)],
+    ["grel", "⭐ G.4.1 Relative clauses – practice (6)", "", el => mcq(el, "grel", SETS.grel.items)],
+    ["t_vp", "G.19.2 Verb patterns – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_vp", T.vp)],
+    ["gvp", "⭐ G.19.2 Verb patterns – practice (6)", "", el => mcq(el, "gvp", SETS.gvp.items)],
+    ["t_iq", "G.17.4 Indirect questions – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_iq", T.iq)],
+    ["giq", "⭐ G.17.4 Indirect questions – practice (6)", "", el => mcq(el, "giq", SETS.giq.items)],
+    ["t_mod", "G.8.1 Modals of ability – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_mod", T.mod)],
+    ["gmod", "⭐ G.8.1 Modals of ability – practice (6)", "", el => mcq(el, "gmod", SETS.gmod.items)],
+    ["t_lnk", "G.2.5 Adverbial linkers – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_lnk", T.lnk)],
+    ["glnk", "⭐ G.2.5 Adverbial linkers – practice (6)", "", el => mcq(el, "glnk", SETS.glnk.items)],
+    ["t_comp", "G.1.2 Comparatives – mini-exercise (3)", "Type the answer.", el => rewrite(el, "t_comp", T.comp)],
+    ["gcomp", "⭐ G.1.2 Comparatives – practice (6)", "", el => mcq(el, "gcomp", SETS.gcomp.items)],
+    ["lnk", "🏷 Name the linker (9)", "Contrast, result, adding, order or example?", el => nameLinker(el, "lnk")],
+    ["gclue", "⭐ What grammar is tested? (8)", "Use the clue words, like in the exam.", el => mcq(el, "gclue", SETS.gclue.items)],
+    ["gp3", "📄 Practice 3: Part 2 exam style", "A storm on the road – 5 gaps.", el => gapText(el, "gp3", SETS.gp3)],
+    ["mix", "⭐ Mixed grammar – type the answer (10)", "All seven grammar points.", el => rewrite(el, "mix", T.mix)]
+  ],
+  reading: [
+    ["rtype", "⭐ Name the question type (8)", "Specific information, details, inference…", el => mcq(el, "rtype", SETS.rtype.items)],
+    ["r3a", "📖 Practice 4: Part 3A – The Library of Things (8)", "Expository text at grade level · 3 marks each.", el => passageQuiz(el, "r3a", SETS.r3a)],
+    ["r3b", "📖 Practice 5: Part 3B – Can the Weather Change How We Feel? (8)", "B2.1 text · 2 marks each.", el => passageQuiz(el, "r3b", SETS.r3b)]
+  ],
+  writing: [
+    ["ord", "🔢 Put the steps in order (3 tasks)", "Part 1 strategy, Task 1.2 plan, test-day order.", el => orderSteps(el, "ord")],
+    ["wfl", "⭐ Useful language: opinion, past, must / have to (8)", "", el => mcq(el, "wfl", SETS.wfl.items)],
+    ["wsum", "⭐ Good summary or not? (5)", "Task 1.1 skills.", el => mcq(el, "wsum", SETS.wsum.items)],
+    ["ws11", "📝 Seasons – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "ws11", { title: "Seasons 1.1", task: "<b>Task 1.1</b> Read the text “Which Season Is Best?”. Write the main ideas in your own words in 3–4 sentences. Start with <i>The text is about …</i> or <i>The text explains that …</i>", source: W11_SEASONS, model: MODELS.s11, sent: [3, 4] })],
+    ["ws12", "📝 Seasons – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "ws12", { title: "Seasons 1.2", task: "<b>Task 1.2</b> Write about whether you think summer is better than winter. • what people can do in each season • problems of each season • a personal experience (use the past tense). At least 150 words in paragraphs.", min: 150, model: MODELS.s12, checks: CHECK12 })],
+    ["wh11", "📝 Shared living – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "wh11", { title: "Shared living 1.1", task: "<b>Task 1.1</b> Read the text “Ready for a Shared Flat?”. Write the main ideas in your own words in 3–4 sentences.", source: W11_SHARED, model: MODELS.h11, sent: [3, 4] })],
+    ["wh12", "📝 Shared living – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "wh12", { title: "Shared living 1.2", task: "<b>Task 1.2</b> Write about whether you think sharing a flat with roommates is a good idea for students. • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • privacy and personal space. At least 150 words in paragraphs.", min: 150, model: MODELS.h12, checks: CHECK12 })]
+  ]
+};
+
+const gl = (code, title, rule, ex) => `<details><summary><b>${code} ${title}</b></summary><p>${rule}</p><ul>${ex.map(e => `<li><i>${e}</i></li>`).join("")}</ul></details>`;
+const SEC_NOTES = {
+  vocab: `<div class="note"><b>Part 1 (10 marks):</b> one text of about 160 words with 5 gaps; choose from 3 options. Themes: <b>Meeting New People, Learning New Things</b> and <b>Come Rain or Shine</b>.<br><b>How to answer:</b> 1) Read the whole text first. 2) Look at the words before and after the gap. 3) Decide the part of speech (noun, verb, adjective). 4) Cross out options that do not fit the meaning. 5) Read the sentence again with your choice.</div>`,
+  grammar: `<div class="note"><b>Part 2 (10 marks):</b> one narrative of about 160 words (theme: <b>Writing a Description of Wild Weather</b>) with 5 gaps.<br><b>How to answer:</b> ask “What grammar is tested here?” Clue words: <i>when, while</i> (past continuous) · <i>than</i> (comparative) · <i>who / which</i> (relative clause) · <i>enjoy / decide / must</i> (verb pattern) · <i>Could you tell me …</i> (indirect question) · <i>However / As a result</i> (linker).</div>
+  <div class="gnotes">
+  ${gl("G.14.3", "Past continuous", "Use <b>was/were + verb-ing</b> for an action in progress at a past moment, or for a longer action interrupted by a shorter one (past simple).", ["I was walking home when the rain started.", "They were playing outside when the thunder began."])}
+  ${gl("G.4.1", "Defining relative clauses", "Use <b>who</b> for people, <b>which / that</b> for things, <b>whose</b> for possession. A defining clause gives necessary information and has <b>no commas</b>.", ["The man who gave the warning works at the weather centre.", "A cumulus cloud is a cloud which looks like cotton."])}
+  ${gl("G.19.2", "Verb + to + infinitive / infinitive / -ing", "Some verbs take <b>to + verb</b> (want, decide, hope, learn), some take <b>verb + -ing</b> (enjoy, avoid, finish, keep), and modals take the <b>bare infinitive</b> (can, must, should).", ["She decided to leave early.", "We enjoy watching storms.", "You must wear a hat."])}
+  ${gl("G.17.4", "Indirect questions", "Statement word order: <b>question word + subject + verb</b> (no inversion, no do/does/did).", ["Where is the bus stop? → Could you tell me where the bus stop is?", "What time does the storm start? → Do you know what time the storm starts?"])}
+  ${gl("G.8.1", "Modals of ability", "<b>can / can't</b> (present) and <b>could / couldn't</b> (past) + bare infinitive.", ["She can swim very well.", "When I was five, I could already read.", "He can't drive in the rain yet."])}
+  ${gl("G.2.5", "Adverbial linkers", "<b>however</b> (contrast) · <b>therefore / as a result</b> (result) · <b>in addition / also</b> (adding) · <b>first, then, finally</b> (order) · <b>for example</b> (example).", ["It was sunny. However, it was very humid.", "The road was hazardous. As a result, the school closed."])}
+  ${gl("G.1.2", "Comparatives", "Short: <b>adjective + -er + than</b> (hotter than). Long: <b>more + adjective + than</b> (more dangerous than). Irregular: good → better, bad → worse.", ["August is hotter than December.", "This storm is more dangerous than the last one.", "The weather today is worse than yesterday."])}
+  </div>`,
+  reading: `<table class="rtab"><tr><th>Question type</th><th>What it asks</th><th>Strategy</th></tr>
+  <tr><td>Specific information (CS.2.1)</td><td>a number, name, place or time</td><td>Scan for the key word or number; the answer is stated directly.</td></tr>
+  <tr><td>Details (CS.5.1)</td><td>how, why or what exactly</td><td>Find the sentence, then read the sentences before and after it.</td></tr>
+  <tr><td>Inference (CS.4.1)</td><td>meaning not stated directly, such as a word's meaning</td><td>Use clues in the context; check that your choice fits the whole sentence.</td></tr>
+  <tr><td>Overall meaning (CS.1.1)</td><td>the main idea or best title</td><td>Think about the whole text; the correct answer covers all paragraphs, not one detail.</td></tr>
+  <tr><td>Connections (CS.3.1)</td><td>link the text to a real-life situation</td><td>Find the advice or idea in the text, then match it to the situation.</td></tr>
+  <tr><td>Prediction (CS.4.2)</td><td>what the writer will discuss next</td><td>Look closely at the last sentence of the text.</td></tr></table>
+  <div class="note"><b>Part 3A (24 marks):</b> expository text of 250–270 words on <b>Sharing Things</b>; 8 questions × 3 marks: 4 specific information, 2 details, 1 inference, 1 overall meaning.<br><b>Part 3B (16 marks):</b> a harder B2.1 text of 250–270 words on <b>Feeling Under the Weather?</b>; 8 × 2 marks: 4 details, 1 inference, 1 connections, 1 prediction, 1 overall meaning.<br><b>Tip:</b> Do not stop at unknown words. Use the context and look at the question first. Do 3B last.</div>`,
+  writing: `<div class="note"><b>Part 4 (40 marks, on paper):</b> choose one theme – <b>Talking About Seasons</b> (FL.31 past experiences; FL.16 opinion) or <b>Ready for a Shared-Living Experience?</b> (FL.20 necessity and obligation; FL.16 opinion). Both tasks are about the same theme.</div>
+  <table class="rtab"><tr><th>Task</th><th>What you do</th><th>Marks</th></tr><tr><td>1.1</td><td>Read a text of about 170 words. Write the main ideas in your own words in 3–4 sentences.</td><td>15</td></tr><tr><td>1.2</td><td>Answer a question using all three prompts. Write an argumentative text of at least 150 words in paragraphs.</td><td>25</td></tr></table>
+  <div class="note"><b>Task 1.1 steps:</b> 1) Read the text twice; underline the main idea of each paragraph. 2) Don't copy sentences – change the words and the order. 3) Write 3–4 sentences starting <i>The text is about …</i> / <i>The text explains that …</i> 4) No opinion, no small details.</div>
+  <table class="rtab"><tr><th>Paragraph</th><th>What to write (Task 1.2)</th></tr><tr><td>1 Opinion</td><td>In my opinion … / I believe that …</td></tr><tr><td>2 Reasons / prompts</td><td>Cover all three prompts, one idea at a time, with examples. Linkers: First, … Also, … However, … For example, …</td></tr><tr><td>3 Experience or example</td><td>Past tense for Seasons (Last summer, I was … when …). must / have to / mustn't for Shared Living.</td></tr><tr><td>4 Conclusion</td><td>In conclusion, … Repeat your opinion in new words.</td></tr></table>
+  <table class="rtab"><tr><th>Function</th><th>Useful language</th></tr><tr><td>FL.16 Opinion</td><td>In my opinion … / I believe (that) … / I think … / As far as I am concerned …</td></tr><tr><td>FL.31 Past experiences and events</td><td>Last summer, … / I was …ing when … / It was … / We … (past simple)</td></tr><tr><td>FL.20 Necessity and obligation</td><td>You must … / You have to … / You don't have to … / You mustn't … / It is necessary to …</td></tr></table>${RUBRIC}`
+};
+</script>
+<script>// ===== APP =====
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const h = (tag, attrs = {}, html = "") => { const e = document.createElement(tag); for (const k in attrs) { if (k === "class") e.className = attrs[k]; else if (k.startsWith("on")) e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); } if (html) e.innerHTML = html; return e; };
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+// ---------- storage ----------
+const STORE_KEY = STORE;
+let STATE = { name: "", best: {}, check: {}, writing: {} };
+try { const s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (s) STATE = Object.assign(STATE, s); } catch (e) {}
+function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch (e) {} updateProgress(); }
+function record(key, score, total) { const pct = Math.round(100 * score / total); if (!(key in STATE.best) || pct > STATE.best[key]) { STATE.best[key] = pct; save(); } }
+
+// ---------- MCQ engine ----------
+function mcq(container, key, items, opts = {}) {
+  const box = h("div", { class: "quiz" });
+  const head = h("div", { class: "quizhead" });
+  const scoreEl = h("span", { class: "score" });
+  const resetBtn = h("button", { class: "btn ghost", onclick: () => mcq(container, key, items, opts) }, "↺ Restart");
+  head.append(scoreEl, resetBtn);
+  box.append(head);
+  let answered = 0, correct = 0;
+  const order = opts.keepOrder ? items.map((_, i) => i) : items.map((_, i) => i);
+  const upd = () => { scoreEl.innerHTML = `Score: <b>${correct}</b> / ${items.length} <small>(${answered} answered)</small>`; if (answered === items.length) { record(key, correct, items.length); scoreEl.innerHTML += ` <span class="badge ${correct / items.length >= .8 ? 'good' : correct / items.length >= .5 ? 'mid' : 'low'}">${Math.round(100 * correct / items.length)}%</span>`; } };
+  order.forEach((idx, n) => {
+    const [q, options, a, ex] = items[idx];
+    const card = h("div", { class: "q" });
+    card.append(h("div", { class: "qtext" }, `<span class="qn">${n + 1}</span> ${q.replace(/___/g, "<span class='blank'>_____</span>")}`));
+    const ol = h("div", { class: "opts" });
+    const correctText = options[L(a)];
+    const shown = opts.noShuffle || options.length === 2 || opts.tf ? options : shuffle(options);
+    shown.forEach((o, i) => {
+      const b = h("button", { class: "opt" }, `<span class="ol">${String.fromCharCode(65 + i)}</span> ${esc(o)}`); b.dataset.v = o;
+      b.onclick = () => {
+        if (card.dataset.done) return; card.dataset.done = 1; answered++;
+        const ok = o === correctText; if (ok) correct++;
+        $$(".opt", ol).forEach(x => { x.disabled = true; if (x.dataset.v === correctText) x.classList.add("right"); });
+        if (!ok) b.classList.add("wrong");
+        card.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, (ok ? "✔ Correct. " : "✘ Not quite. The answer is <b>" + esc(correctText) + "</b>. ") + (ex ? esc(ex) : "")));
+        upd();
+      };
+      ol.append(b);
+    });
+    card.append(ol); box.append(card);
+  });
+  upd();
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Gap text engine (inline selects) ----------
+function gapText(container, key, set, opts = {}) {
+  const wrap = h("div", { class: "quiz" });
+  const txt = h("div", { class: "passage gaptext" });
+  let html = esc(set.text).split("\n\n").map(p => `<p>${p}</p>`).join("");
+  set.items.forEach((it, i) => {
+    const sel = `<select data-g="${i}"><option value="">(${i + 1}) ……</option>${it[1].map(o => `<option>${esc(o)}</option>`).join("")}</select>`;
+    html = html.replace(`[${i + 1}]`, sel);
+  });
+  txt.innerHTML = html;
+  const res = h("div", { class: "gapres" });
+  const btn = h("button", { class: "btn" }, "Check answers");
+  btn.onclick = () => {
+    let c = 0; res.innerHTML = "";
+    set.items.forEach((it, i) => {
+      const s = $(`select[data-g="${i}"]`, txt); const right = it[1][L(it[2])]; const ok = s.value === right; if (ok) c++;
+      s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok);
+      res.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, `<b>Gap ${i + 1}:</b> ${ok ? "✔" : "✘ answer: <b>" + esc(right) + "</b> –"} ${esc(it[3])}`));
+    });
+    res.prepend(h("div", { class: "score big" }, `Score: ${c} / ${set.items.length}${set.marks ? ` (${c * set.marks} marks)` : ""}`));
+    record(key, c, set.items.length);
+  };
+  const reset = h("button", { class: "btn ghost", onclick: () => gapText(container, key, set, opts) }, "↺ Restart");
+  wrap.append(txt, h("div", { class: "row" }), res);
+  wrap.children[1].append(btn, reset);
+  container.innerHTML = ""; container.append(wrap);
+}
+
+// ---------- Passage + questions ----------
+function passageQuiz(container, key, set) {
+  const grid = h("div", { class: "pgrid" });
+  const p = h("div", { class: "passage sticky" }, `<h4>${esc(set.passage.title)}</h4>` + set.passage.paras.map((t, i) => `<p><span class="pn">${i + 1}</span>${esc(t)}</p>`).join(""));
+  const qs = h("div");
+  grid.append(p, qs);
+  container.innerHTML = ""; container.append(grid);
+  mcq(qs, key, set.items, { noShuffle: false });
+}
+
+// ---------- Flashcards ----------
+function flashcards(container) {
+  let deckName = "All words"; let deck = Object.values(GLOSS).flat(); let i = 0, flipped = false; const known = new Set();
+  const sel = h("select", {}, `<option>All words</option>` + Object.keys(GLOSS).map(k => `<option>${k}</option>`).join(""));
+  const card = h("div", { class: "flash" }); const info = h("div", { class: "muted center" });
+  const draw = () => { const w = deck[i]; card.classList.toggle("flipped", flipped); card.innerHTML = flipped ? `<div class="fm">${esc(w[1])}</div><div class="fe">“${esc(w[2])}”</div>` : `<div class="fw">${esc(w[0])}</div><div class="muted">tap to see meaning</div>`; info.textContent = `Card ${i + 1} / ${deck.length} · I know: ${known.size}`; };
+  card.onclick = () => { flipped = !flipped; draw(); };
+  sel.onchange = () => { deckName = sel.value; deck = deckName === "All words" ? Object.values(GLOSS).flat() : GLOSS[deckName].slice(); i = 0; flipped = false; known.clear(); draw(); };
+  const nav = h("div", { class: "row center" });
+  nav.append(
+    h("button", { class: "btn ghost", onclick: () => { i = (i - 1 + deck.length) % deck.length; flipped = false; draw(); } }, "◀ Prev"),
+    h("button", { class: "btn ok", onclick: () => { known.add(deck[i][0]); i = (i + 1) % deck.length; flipped = false; draw(); } }, "✔ I know it"),
+    h("button", { class: "btn", onclick: () => { i = (i + 1) % deck.length; flipped = false; draw(); } }, "Next ▶"),
+    h("button", { class: "btn ghost", onclick: () => { deck = shuffle(deck); i = 0; flipped = false; draw(); } }, "🔀 Shuffle"),
+    h("button", { class: "btn ghost", onclick: () => speak(deck[i][0]) }, "🔊 Say it"));
+  container.innerHTML = ""; container.append(h("div", { class: "row center" }, "Word list: "), card, info, nav);
+  container.firstChild.append(sel); draw();
+}
+function speak(t) { try { const u = new SpeechSynthesisUtterance(t); u.lang = "en-GB"; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+
+// ---------- Matching (dropdowns) ----------
+function matching(container, key, words) {
+  const defs = shuffle(words.map(w => w[1]));
+  const box = h("div", { class: "quiz" });
+  const list = h("div", { class: "match" });
+  words.forEach((w, i) => {
+    const row = h("div", { class: "mrow" });
+    row.append(h("div", { class: "mw" }, `<b>${i + 1}. ${esc(w[0])}</b>`));
+    const s = h("select", { "data-i": i }, `<option value="">— choose the meaning —</option>` + defs.map(d => `<option>${esc(d)}</option>`).join(""));
+    row.append(s); list.append(row);
+  });
+  const res = h("div");
+  const btn = h("button", { class: "btn" }, "Check matches");
+  btn.onclick = () => { let c = 0; $$("select", list).forEach(s => { const ok = s.value === words[+s.dataset.i][1]; if (ok) c++; s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok); }); res.innerHTML = `<div class="score big">Score: ${c} / ${words.length}</div>` + (c < words.length ? `<div class="muted">Red boxes are wrong – change them and check again, or press “Show answers”.</div>` : `<div class="fb ok">Excellent – all correct!</div>`); record(key, c, words.length); };
+  const show = h("button", { class: "btn ghost" }, "Show answers");
+  show.onclick = () => { $$("select", list).forEach(s => { s.value = words[+s.dataset.i][1]; s.classList.add("right"); s.classList.remove("wrong"); }); };
+  const r = h("div", { class: "row" }); r.append(btn, show, h("button", { class: "btn ghost", onclick: () => matching(container, key, words) }, "↺ Restart"));
+  box.append(list, r, res); container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Spelling ----------
+function spelling(container, key) {
+  const box = h("div", { class: "quiz" });
+  SPELL.forEach(([d, w], i) => {
+    const row = h("div", { class: "q" });
+    row.append(h("div", { class: "qtext" }, `<span class="qn">${i + 1}</span> ${esc(d)} <span class="hint">${w[0]} ${"_ ".repeat(w.length - 1)}(${w.length} letters)</span>`));
+    const inp = h("input", { type: "text", placeholder: "type the word…", autocomplete: "off", autocapitalize: "off", spellcheck: "false", "data-w": w });
+    const sp = h("button", { class: "btn ghost sm", onclick: () => speak(w) }, "🔊 hear it");
+    const r = h("div", { class: "row" }); r.append(inp, sp); row.append(r); box.append(row);
+  });
+  const res = h("div");
+  const btn = h("button", { class: "btn" }, "Check spelling");
+  btn.onclick = () => { let c = 0; $$("input", box).forEach(inp => { const ok = inp.value.trim().toLowerCase().replace("urbanization", "urbanisation").replace("kinesthetic", "kinaesthetic") === inp.dataset.w; if (ok) c++; inp.classList.toggle("right", ok); inp.classList.toggle("wrong", !ok); const old = inp.parentNode.parentNode.querySelector(".fb"); if (old) old.remove(); if (!ok) inp.parentNode.after(h("div", { class: "fb no" }, `Correct spelling: <b>${inp.dataset.w}</b>`)); }); res.innerHTML = `<div class="score big">Score: ${c} / ${SPELL.length}</div>`; record(key, c, SPELL.length); };
+  const r = h("div", { class: "row" }); r.append(btn, h("button", { class: "btn ghost", onclick: () => spelling(container, key) }, "↺ Restart"));
+  box.append(r, res); container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Name the linker ----------
+function nameLinker(container, key) {
+  const box = h("div", { class: "quiz" }); let c = 0, n = 0;
+  const sc = h("div", { class: "score" }); box.append(sc);
+  const grid = h("div", { class: "lgrid" });
+  shuffle(LINKERS).forEach(([w, a]) => {
+    const cell = h("div", { class: "lcell" }, `<div class="lw">${w}</div>`);
+    const r = h("div", { class: "row tight" });
+    Object.keys(LCAT).forEach(k => { const b = h("button", { class: "opt sm" }, LCAT[k]); b.onclick = () => { if (cell.dataset.done) return; cell.dataset.done = 1; n++; const ok = k === a; if (ok) c++; b.classList.add(ok ? "right" : "wrong"); if (!ok) $$("button", r).find(x => x.textContent === LCAT[a]).classList.add("right"); sc.innerHTML = `Score: <b>${c}</b> / ${LINKERS.length}`; if (n === LINKERS.length) record(key, c, n); }; r.append(b); });
+    cell.append(r); grid.append(cell);
+  });
+  sc.innerHTML = `Score: <b>0</b> / ${LINKERS.length}`;
+  box.append(grid, h("button", { class: "btn ghost", onclick: () => nameLinker(container, key) }, "↺ Restart"));
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Order the steps ----------
+function orderSteps(container, key) {
+  container.innerHTML = "";
+  Object.entries(ORDERS).forEach(([k, o]) => {
+    const box = h("div", { class: "quiz" }, `<h4>${esc(o.t)}</h4><p class="muted">Use ▲ ▼ to put the steps in the correct order.</p>`);
+    let cur = shuffle(o.s); while (cur.join() === o.s.join()) cur = shuffle(o.s);
+    const ul = h("div", { class: "olist" });
+    const draw = () => { ul.innerHTML = ""; cur.forEach((s, i) => { const li = h("div", { class: "oitem" }); li.append(h("span", { class: "qn" }, i + 1), h("span", { class: "otext" }, esc(s))); const up = h("button", { class: "btn ghost sm", onclick: () => { if (i > 0) { [cur[i - 1], cur[i]] = [cur[i], cur[i - 1]]; draw(); } } }, "▲"); const dn = h("button", { class: "btn ghost sm", onclick: () => { if (i < cur.length - 1) { [cur[i + 1], cur[i]] = [cur[i], cur[i + 1]]; draw(); } } }, "▼"); li.append(up, dn); ul.append(li); }); };
+    draw();
+    const res = h("div");
+    const btn = h("button", { class: "btn" }, "Check order");
+    btn.onclick = () => { let c = 0; $$(".oitem", ul).forEach((li, i) => { const ok = cur[i] === o.s[i]; if (ok) c++; li.classList.toggle("right", ok); li.classList.toggle("wrong", !ok); }); const n = o.s.length; res.innerHTML = `<div class="fb ${c === n ? "ok" : "no"}">${c} / ${n} in the right place. ${c === n ? "Perfect sequence!" : "Tip: look for order words and think about what must come first."}</div>`; record(key + k, c, n); };
+    box.append(ul, btn, res); container.append(box);
+  });
+}
+
+// ---------- Rewrite (typed) ----------
+const norm = s => s.toLowerCase().replace(/[“”"?.!,;:]/g, " ").replace(/\s+/g, " ").trim();
+function rewrite(container, key, items = REWRITE) {
+  const box = h("div", { class: "quiz" });
+  items.forEach(([type, src, ans, disp], i) => {
+    const q = h("div", { class: "q" }, `<div class="qtext"><span class="qn">${i + 1}</span> <span class="tag">${esc(type)}</span> ${esc(src)}</div>`);
+    const inp = h("input", { type: "text", placeholder: "Write the new sentence…", autocomplete: "off" });
+    const fb = h("div");
+    const b = h("button", { class: "btn sm" }, "Check");
+    b.onclick = () => { const ok = ans.map(norm).includes(norm(inp.value)); q.dataset.ok = ok ? 1 : 0; inp.classList.toggle("right", ok); inp.classList.toggle("wrong", !ok); const model = disp || ans[0].charAt(0).toUpperCase() + ans[0].slice(1) + (type.includes("Indirect") && !ans[0].startsWith("i wonder") ? "?" : "."); fb.innerHTML = ok ? `<div class="fb ok">✔ Correct.</div>` : `<div class="fb no">✘ Model answer: <b>${esc(model)}</b> <small>(small differences may still be acceptable – ask your teacher)</small></div>`; const done = $$(".q", box).filter(x => x.dataset.ok !== undefined); if (done.length === items.length) record(key, done.filter(x => x.dataset.ok === "1").length, items.length); };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") b.click(); });
+    const r = h("div", { class: "row" }); r.append(inp, b); q.append(r, fb); box.append(q);
+  });
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Writing pad ----------
+function wordCount(t) { return (t.trim().match(/\S+/g) || []).length; }
+function writingTask(container, id, opts) {
+  const box = h("div", { class: "quiz" });
+  if (opts.source) box.append(h("details", { class: "src", open: "" }, `<summary>Source text</summary>${opts.source.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}`));
+  box.append(h("div", { class: "task" }, opts.task));
+  const ta = h("textarea", { rows: opts.min > 100 ? 16 : 7, placeholder: "Write your answer here… (it is saved on this device)" });
+  ta.value = STATE.writing[id] || "";
+  const wc = h("div", { class: "wc" });
+  const upd = () => { const n = wordCount(ta.value); const sents = (ta.value.match(/[^.!?]+[.!?]/g) || []).length; wc.innerHTML = opts.min ? `Words: <b class="${n >= opts.min ? "okc" : "noc"}">${n}</b> / at least ${opts.min}` : `Words: <b>${n}</b> · Sentences: <b class="${sents >= (opts.sent || [4, 5])[0] && sents <= (opts.sent || [4, 5])[1] ? "okc" : "noc"}">${sents}</b> (aim for ${(opts.sent || [4, 5]).join("–")})`; STATE.writing[id] = ta.value; save(); };
+  ta.oninput = upd;
+  box.append(ta, wc);
+  if (opts.checks) { const cl = h("div", { class: "checks" }, "<b>Self-check:</b>"); opts.checks.forEach((c, i) => { const k = id + "_c" + i; const lab = h("label", {}, `<input type="checkbox" ${STATE.check[k] ? "checked" : ""}> ${esc(c)}`); $("input", lab).onchange = e => { STATE.check[k] = e.target.checked; save(); }; cl.append(lab); }); box.append(cl); }
+  const r = h("div", { class: "row" });
+  r.append(h("button", { class: "btn ghost", onclick: () => { const t = `${STATE.name || "Student"} – ${opts.title}\n\n${ta.value}\n\n(${wordCount(ta.value)} words)`; try { navigator.clipboard.writeText(t).then(() => toast("Copied – paste it to send to your teacher."), () => { ta.select(); toast("Press Ctrl+C / long-press to copy."); }); } catch (e) { ta.select(); toast("Press Ctrl+C / long-press to copy."); } } }, "📋 Copy my answer"));
+  if (opts.model) { const m = h("div", { class: "model hidden" }, `<b>Model answer</b>${opts.model.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}<p class="muted">Learn from its structure; don't memorise it.</p>`); r.append(h("button", { class: "btn ghost", onclick: () => m.classList.toggle("hidden") }, "👁 Show / hide model answer")); box.append(r, m); } else box.append(r);
+  container.innerHTML = ""; container.append(box); upd();
+}
+function toast(t) { const d = h("div", { class: "toast" }, esc(t)); document.body.append(d); setTimeout(() => d.remove(), 2500); }
+
+// ---------- Mock exam ----------
+function mockExam(container) {
+  const M = MOCKCFG;
+  container.innerHTML = "";
+  const intro = h("div", { class: "quiz" }, M.intro);
+  const timer = h("div", { class: "timer" }, "⏱ 00:00"); let t0 = Date.now();
+  const tick = setInterval(() => { if (!document.body.contains(timer)) return clearInterval(tick); const s = Math.floor((Date.now() - t0) / 1000); timer.textContent = `⏱ ${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; }, 1000);
+  intro.append(timer); container.append(intro);
+  const parts = [];
+  const mkGap = (title, set, mk) => { const sec = h("div", { class: "quiz" }, `<h4>${title}</h4>`); if (set.title) sec.append(h("div", { class: "muted" }, `<b>${esc(set.title)}</b>`)); const txt = h("div", { class: "passage gaptext" }); let html = esc(set.text).split("\n\n").map(p => `<p>${p}</p>`).join(""); set.items.forEach((it, i) => { html = html.replace(`[${i + 1}]`, `<select data-g="${i}"><option value="">(${i + 1}) ……</option>${it[1].map(o => `<option>${esc(o)}</option>`).join("")}</select>`); }); txt.innerHTML = html; sec.append(txt); container.append(sec); parts.push({ name: title, max: set.items.length * mk, grade: () => { let c = 0; const fb = []; set.items.forEach((it, i) => { const s = $(`select[data-g="${i}"]`, txt); const right = it[1][L(it[2])]; const ok = s.value === right; if (ok) c++; s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok); s.disabled = true; fb.push(`<div class="fb ${ok ? "ok" : "no"}">Gap ${i + 1}: ${ok ? "✔" : "✘ " + esc(right) + " –"} ${esc(it[3])}</div>`); }); sec.append(h("div", {}, fb.join(""))); return c * mk; } }); };
+  const mkRead = (title, set) => { const sec = h("div", { class: "quiz" }, `<h4>${title}</h4>`); const grid = h("div", { class: "pgrid" }); grid.append(h("div", { class: "passage sticky" }, `<h4>${esc(set.passage.title)}</h4>` + set.passage.paras.map((t, i) => `<p><span class="pn">${i + 1}</span>${esc(t)}</p>`).join(""))); const qs = h("div"); set.items.forEach(([q, o, a], i) => { const card = h("div", { class: "q" }, `<div class="qtext"><span class="qn">${i + 1}</span> ${q}</div>`); const opts = h("div", { class: "opts" }); o.forEach((x, j) => { const lab = h("label", { class: "ropt" }, `<input type="radio" name="${title}${i}" value="${j}"> <span class="ol">${String.fromCharCode(65 + j)}</span> ${esc(x)}`); opts.append(lab); }); card.append(opts); qs.append(card); }); grid.append(qs); sec.append(grid); container.append(sec); parts.push({ name: title, max: set.items.length * set.marks, grade: () => { let c = 0; set.items.forEach(([q, o, a, ex], i) => { const card = qs.children[i]; const v = $(`input[name="${title}${i}"]:checked`, card); const ok = v && +v.value === L(a); if (ok) c++; $$("input", card).forEach(x => x.disabled = true); $$("label", card)[L(a)].classList.add("right"); if (v && !ok) v.parentNode.classList.add("wrong"); card.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, (ok ? "✔ " : "✘ ") + esc(ex))); }); return c * set.marks; } }); };
+  mkGap(M.p1, M.vocab, 2);
+  mkGap(M.p2, M.grammar, 2);
+  mkRead(M.p3a, M.r3a);
+  mkRead(M.p3b, M.r3b);
+  const w1 = h("div"), w2 = h("div");
+  container.append(h("div", { class: "quiz" }, `<h4>${M.pw}</h4>`), w1, w2);
+  writingTask(w1, "mock11", M.w11);
+  writingTask(w2, "mock12", M.w12);
+  const est = h("div", { class: "quiz" }, `<b>Estimate your writing mark (optional):</b> Task 1.1 <input type="number" min="0" max="15" id="w11m" class="num"> /15 · Task 1.2 <input type="number" min="0" max="25" id="w12m" class="num"> /25` + (M.rubric || ""));
+  const res = h("div", { class: "result" });
+  const sub = h("button", { class: "btn big" }, "✅ Submit mock");
+  sub.onclick = () => {
+    if (!confirmBox()) return;
+    sub.disabled = true; clearInterval(tick);
+    const marks = parts.map(p => ({ n: p.name, m: p.grade(), max: p.max }));
+    const auto = marks.reduce((a, b) => a + b.m, 0);
+    const w11 = Math.min(15, +($("#w11m").value || 0)), w12 = Math.min(25, +($("#w12m").value || 0));
+    const wTot = w11 + w12;
+    record("mock", auto, 60);
+    res.innerHTML = `<h3>Your result${STATE.name ? " – " + esc(STATE.name) : ""}</h3><table class="rt">${marks.map(x => `<tr><td>${x.n}</td><td><b>${x.m}</b> / ${x.max}</td></tr>`).join("")}<tr><td>Reading & language</td><td><b>${auto}</b> / 60</td></tr><tr><td>Writing (self-estimate)</td><td><b>${wTot || "—"}</b> / 40</td></tr><tr class="tot"><td>TOTAL ${wTot ? "" : "(without writing)"}</td><td><b>${auto + wTot}</b> / ${wTot ? 100 : 60}</td></tr></table><p class="muted">Time taken: ${timer.textContent.replace("⏱ ", "")}. Scroll up to see the feedback on every question. Take a screenshot of this box to share it with your teacher.</p>`;
+    res.scrollIntoView({ behavior: "smooth" });
+  };
+  container.append(est, sub, res);
+}
+let mockWarned = false;
+function confirmBox() { const un = $$("#mock select").filter(s => !s.value).length + (MOCKCFG.r3a.items.length + MOCKCFG.r3b.items.length - $$("#mock input[type=radio]:checked").length); if (un <= 0 || mockWarned) return true; mockWarned = true; toast(un + " question(s) not answered yet – press Submit again to finish anyway."); return false; }
+
+// ---------- Quick random quiz ----------
+function quickQuiz(container) {
+  const pool = [];
+  Object.entries(SETS).forEach(([k, s]) => { if (!s.gap && !s.passage && !s.tf) s.items.forEach(it => pool.push(it)); });
+  mcq(container, "quick", shuffle(pool).slice(0, 20));
+}
+
+// ---------- Checklist ----------
+function checklist(container) {
+  container.innerHTML = "";
+  const all = Object.values(CHECK).flat().length;
+  const bar = h("div", { class: "pbar" }, "<div></div>"); const lbl = h("div", { class: "muted" });
+  const upd = () => { const n = Object.keys(STATE.check).filter(k => k.startsWith("cl_") && STATE.check[k]).length; bar.firstChild.style.width = (100 * n / all) + "%"; lbl.textContent = `${n} / ${all} ready`; };
+  container.append(bar, lbl);
+  Object.entries(CHECK).forEach(([sec, items]) => { const box = h("div", { class: "quiz" }, `<h4>${sec}</h4>`); items.forEach((t, i) => { const k = "cl_" + sec + i; const lab = h("label", { class: "cl" }, `<input type="checkbox" ${STATE.check[k] ? "checked" : ""}> ${esc(t)}`); $("input", lab).onchange = e => { STATE.check[k] = e.target.checked; save(); upd(); }; box.append(lab); }); container.append(box); });
+  upd();
+}
+
+// ---------- Activities registry ----------
+
+function renderSection(sec) {
+  const host = $("#sec-" + sec); host.innerHTML = SEC_NOTES[sec] || "";
+  const list = h("div", { class: "acts" });
+  ACTS[sec].forEach(([k, t, d, fn]) => {
+    const pct = bestFor(k);
+    const card = h("div", { class: "act" }, `<div class="at">${t}</div><div class="ad">${d}</div><div class="ab">${pct != null ? `<span class="badge ${pct >= 80 ? "good" : pct >= 50 ? "mid" : "low"}">best ${pct}%</span>` : ""}</div>`);
+    card.onclick = () => openActivity(t, fn);
+    list.append(card);
+  });
+  host.append(list);
+}
+function bestFor(k) { if (STATE.best[k] != null) return STATE.best[k]; const v = Object.keys(STATE.best).filter(x => x.length === k.length + 1 && x.startsWith(k) && /[A-Z]$/.test(x)).map(x => STATE.best[x]); return v.length ? Math.round(v.reduce((a, b) => a + b) / v.length) : null; }
+function openActivity(title, fn) {
+  const v = $("#activity"); v.innerHTML = "";
+  const back = h("button", { class: "btn ghost", onclick: () => { v.classList.add("hidden"); $("#main").classList.remove("hidden"); renderAll(); window.scrollTo(0, 0); } }, "← Back");
+  const body = h("div");
+  v.append(back, h("h2", {}, title), body); fn(body);
+  $("#main").classList.add("hidden"); v.classList.remove("hidden"); window.scrollTo(0, 0);
+}
+
+function updateProgress() {
+  const keys = Object.values(ACTS).flat().map(a => a[0]).filter(k => !/^(flash$|w[shp]\d)/.test(k));
+  const done = keys.filter(k => bestFor(k) != null);
+  const avg = done.length ? Math.round(done.reduce((a, k) => a + bestFor(k), 0) / done.length) : 0;
+  const el = $("#prog"); if (el) el.innerHTML = `<div class="pbar"><div style="width:${100 * done.length / keys.length}%"></div></div><div class="muted">${done.length} of ${keys.length} activities completed · average best score ${avg}%${STATE.best.mock != null ? ` · mock (reading & language) ${STATE.best.mock}%` : ""}</div>`;
+}
+function renderAll() { ["vocab", "grammar", "reading", "writing"].forEach(renderSection); updateProgress(); }
+
+function showTab(id) {
+  $$(".tab").forEach(t => t.classList.toggle("on", t.dataset.t === id));
+  $$(".page").forEach(p => p.classList.toggle("hidden", p.id !== "pg-" + id));
+  $("#activity").classList.add("hidden"); $("#main").classList.remove("hidden");
+  if (id === "mock" && !$("#mock").children.length) { mockWarned = false; mockExam($("#mock")); }
+  if (id === "check") checklist($("#checkhost"));
+  window.scrollTo(0, 0);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  $$(".tab").forEach(t => t.onclick = () => showTab(t.dataset.t));
+  const nm = $("#sname"); nm.value = STATE.name || ""; nm.oninput = () => { STATE.name = nm.value; save(); };
+  $("#quickbtn").onclick = () => openActivity("⚡ Quick quiz: 20 random questions", el => quickQuiz(el));
+  const ra = $("#resetall"); ra.onclick = () => { if (ra.dataset.arm) { STATE = { name: STATE.name, best: {}, check: {}, writing: {} }; save(); renderAll(); ra.textContent = "Reset my progress"; delete ra.dataset.arm; toast("Progress reset."); } else { ra.dataset.arm = 1; ra.textContent = "Click again to delete all saved scores"; setTimeout(() => { delete ra.dataset.arm; ra.textContent = "Reset my progress"; }, 4000); } };
+  $$("[data-go]").forEach(b => b.onclick = () => showTab(b.dataset.go));
+  renderAll();
+});
+</script>
+</body>
+</html>
