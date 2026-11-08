@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G12 Advanced · Term 1 Revision & Practice</title>
+<style>
+:root{--navy:#1f3864;--navy2:#2c4d85;--ink:#1d2330;--mut:#5d6677;--line:#dde3ec;--bg:#f4f6fa;--card:#fff;--ok:#1e8e4e;--okbg:#e6f6ec;--no:#c0392b;--nobg:#fdecea;--mid:#c98a00;--acc:#f2a900}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
+header{background:linear-gradient(120deg,var(--navy),var(--navy2));color:#fff;padding:22px 18px 0}
+.hwrap{max-width:1100px;margin:0 auto}
+.school{font-size:13px;opacity:.85;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+h1{margin:8px 0 2px;font-size:clamp(24px,4vw,34px);letter-spacing:-.3px}
+.sub{opacity:.9;font-size:14px;margin-bottom:14px}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tab{background:transparent;border:0;color:#dbe4f5;padding:11px 15px;font-size:15px;font-weight:600;cursor:pointer;border-radius:10px 10px 0 0;white-space:nowrap}
+.tab.on{background:var(--bg);color:var(--navy)}
+main{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h2{color:var(--navy);margin:12px 0 14px}
+h3{color:var(--navy);margin:6px 0 10px}
+h4{color:var(--navy);margin:4px 0 10px}
+.hidden{display:none!important}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.panel,.quiz{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+.rtab th,.rtab td,.map th,.map td,.rt td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.rtab th,.map th{background:#eef2f9;color:var(--navy)}
+.rtab{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.map td:last-child,.map th:last-child{text-align:right}
+.map tr:last-child td{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#eef2f9;border-radius:20px;padding:6px 12px;font-size:14px}
+.chip b{color:var(--navy)}
+.note{background:#fff8e6;border-left:4px solid var(--acc);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.act{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:4px}
+.act:hover{border-color:var(--navy2);box-shadow:0 4px 14px rgba(31,56,100,.12);transform:translateY(-2px)}
+.at{font-weight:700;color:var(--navy)}
+.ad{color:var(--mut);font-size:14px;flex:1}
+.badge{display:inline-block;border-radius:20px;padding:2px 9px;font-size:12.5px;font-weight:700}
+.badge.good{background:var(--okbg);color:var(--ok)}.badge.mid{background:#fff3d6;color:var(--mid)}.badge.low{background:var(--nobg);color:var(--no)}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--navy2)}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.btn.ok{background:var(--ok)}
+.btn.sm{padding:6px 10px;font-size:13.5px}
+.btn.big{font-size:18px;padding:14px 24px;margin:6px 0 16px}
+.btn:disabled{opacity:.5;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.row.tight{margin:4px 0;gap:4px}
+.center{justify-content:center;text-align:center}
+.muted{color:var(--mut);font-size:14px}
+.quizhead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;padding:6px 0 10px;z-index:2;border-bottom:1px solid var(--line);margin-bottom:6px}
+.score{font-size:15px}.score.big{font-size:18px;font-weight:700;color:var(--navy);margin:8px 0}
+.q{padding:12px 0;border-bottom:1px dashed var(--line)}
+.q:last-child{border-bottom:0}
+.qtext{font-weight:500;margin-bottom:8px}
+.qn{display:inline-grid;place-items:center;min-width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;margin-right:6px;padding:0 6px}
+.qt{display:inline-block;background:#eef2f9;color:var(--navy2);font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:4px;text-transform:uppercase;letter-spacing:.3px}
+.tag{background:#eef2f9;color:var(--navy2);font-size:12.5px;font-weight:700;border-radius:6px;padding:2px 7px}
+.blank{color:var(--navy2);font-weight:700;letter-spacing:1px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt,.ropt{text-align:left;background:#f8fafd;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;font-size:15px;cursor:pointer;color:var(--ink);display:block}
+.opt:hover:not(:disabled),.ropt:hover{border-color:var(--navy2)}
+.opt.sm{padding:5px 9px;font-size:13px;display:inline-block}
+.ol{display:inline-block;width:22px;font-weight:700;color:var(--navy2)}
+.right{border-color:var(--ok)!important;background:var(--okbg)!important}
+.wrong{border-color:var(--no)!important;background:var(--nobg)!important}
+.opt:disabled{cursor:default;color:var(--ink)}
+.fb{margin-top:8px;padding:8px 12px;border-radius:9px;font-size:14.5px}
+.fb.ok{background:var(--okbg);color:#145c33}.fb.no{background:var(--nobg);color:#8a2318}
+.passage{background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:15.5px;line-height:1.75}
+.passage p{margin:0 0 12px}
+.pn{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;margin-right:8px}
+.gaptext select{font-size:15px;padding:3px 6px;border-radius:8px;border:1.5px solid var(--navy2);background:#eef2f9;max-width:100%}
+.pgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;align-items:start}
+.sticky{position:sticky;top:10px;max-height:calc(100vh - 20px);overflow:auto}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr}.sticky{position:static;max-height:none}}
+.flash{margin:14px auto;max-width:520px;min-height:200px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;cursor:pointer;text-align:center;box-shadow:0 8px 24px rgba(31,56,100,.25);user-select:none}
+.flash.flipped{background:#fff;color:var(--ink);border:2px solid var(--navy)}
+.flash .muted{color:#cfd9ee}
+.fw{font-size:34px;font-weight:700}
+.fm{font-size:20px;font-weight:600;color:var(--navy)}
+.fe{margin-top:12px;color:var(--mut);font-style:italic}
+.match{display:flex;flex-direction:column;gap:8px}
+.mrow{display:grid;grid-template-columns:180px 1fr;gap:10px;align-items:center}
+@media(max-width:600px){.mrow{grid-template-columns:1fr}}
+select,input[type=text],input[type=number],textarea{font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+.match select{width:100%}
+input[type=text]{flex:1;min-width:220px}
+.num{width:70px}
+textarea{width:100%;line-height:1.6}
+.hint{color:var(--navy2);font-family:ui-monospace,Consolas,monospace;font-size:14px;margin-left:6px}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:10px 0}
+.lcell{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fbfcfe}
+.lw{font-weight:700;font-size:17px;color:var(--navy);margin-bottom:6px}
+.olist{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.oitem{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;background:#fbfcfe}
+.otext{flex:1}
+.task{background:#eef2f9;border-radius:10px;padding:12px 14px;margin:10px 0}
+.src{margin-bottom:10px}.src summary,.gnotes summary{cursor:pointer;color:var(--navy);font-weight:600}
+.src p{font-size:15px;background:#fbfcfe;border-left:3px solid var(--navy2);padding:8px 12px;margin:8px 0}
+.wc{font-size:14px;margin:4px 0 8px}.okc{color:var(--ok)}.noc{color:var(--no)}
+.checks{display:flex;flex-direction:column;gap:4px;background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14.5px}
+.model{background:#f1f8f3;border:1px solid #cfe8d8;border-radius:12px;padding:12px 16px;margin-top:10px;font-size:15px}
+.gnotes details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px}
+.gnotes details p{margin:8px 0 2px}
+details.gnotes{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:16px}
+.cl{display:block;padding:7px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+.cl input,.checks input{transform:scale(1.2);margin-right:8px}
+.pbar{height:12px;background:#e3e8f1;border-radius:8px;overflow:hidden;margin:6px 0}
+.pbar div{height:100%;background:linear-gradient(90deg,var(--ok),#3bb873);width:0;transition:width .4s}
+.timer{position:sticky;top:8px;float:right;background:var(--navy);color:#fff;border-radius:20px;padding:6px 14px;font-weight:700;z-index:3}
+.result{background:#fff;border:2px solid var(--navy);border-radius:14px;padding:0 18px}
+.result:empty{display:none}
+.rt{margin-bottom:10px}.rt .tot td{font-size:18px;color:var(--navy);border-top:2px solid var(--navy)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;z-index:99}
+.hero{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.namebox input{min-width:240px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
+.hublink{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;font-size:13px;font-weight:600}
+.hublink:hover{background:rgba(255,255,255,.28)}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.part{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fbfcfe}
+.part h4{margin:0 0 6px}
+.tips li{margin:4px 0}
+</style>
+</head>
+<body>
+<header><div class="hwrap">
+  <div class="school"><span><a class="hublink" href="index.html">← All grades</a>&nbsp; The Scientific Institute · English Department</span><span>Grade 12 Advanced · Teacher: Dr. Mahmoud Ananzeh</span></div>
+  <h1>Term 1 Revision & Practice</h1>
+  <div class="sub">End of Term 1 · 2026–2027 · Stage 9 · B2.2 programme · Reading challenge up to C1.1</div>
+  <nav>
+    <button class="tab on" data-t="home">🏠 Home</button>
+    <button class="tab" data-t="vocab">📚 Vocabulary</button>
+    <button class="tab" data-t="grammar">🧠 Grammar</button>
+    <button class="tab" data-t="reading">📖 Reading</button>
+    <button class="tab" data-t="writing">✍️ Writing</button>
+    <button class="tab" data-t="mock">📝 Mock exam</button>
+    <button class="tab" data-t="check">✅ Checklist</button>
+  </nav>
+</div></header>
+<main>
+<div id="main">
+  <section class="page" id="pg-home">
+    <div class="panel hero">
+      <div><h2 style="margin:0">Welcome! 👋</h2><div class="muted">Every activity gives you instant feedback. Your scores are saved on this device.</div></div>
+      <div class="namebox row"><label for="sname"><b>Your name:</b></label><input id="sname" type="text" placeholder="Type your name"></div>
+    </div>
+    <div class="panel"><h3>Your progress</h3><div id="prog"></div>
+      <div class="row"><button class="btn" id="quickbtn">⚡ Quick quiz: 20 random questions</button><button class="btn ghost" data-go="mock">📝 Take the mock exam</button><button class="btn ghost" id="resetall">Reset my progress</button></div></div>
+    <div class="grid2">
+      <div class="panel"><h3>1 · Exam map</h3>
+        <table class="map"><tr><th>Section</th><th>Format</th><th>Marks</th></tr>
+        <tr><td>Part 1: Vocabulary</td><td>One text (180 words ±10%), 5 gaps, A/B/C</td><td>10</td></tr>
+        <tr><td>Part 2: Grammar</td><td>One expository text (180 words ±10%), 5 gaps, A/B/C</td><td>10</td></tr>
+        <tr><td>Part 3A: Reading</td><td>Argumentative text (330–350 words), 8 A/B/C questions</td><td>24</td></tr>
+        <tr><td>Part 3B: Reading</td><td>Expository text (330–350 words), 8 A/B/C questions</td><td>16</td></tr>
+        <tr><td>Writing 1.1</td><td>Two-viewpoint text (200 words); write 4–5 sentences in your own words</td><td>15</td></tr>
+        <tr><td>Writing 1.2</td><td>Comparative essay; three prompts; at least 220 words in paragraphs</td><td>25</td></tr>
+        <tr><td>TOTAL</td><td>Reading & language 60 · Writing 40</td><td>100</td></tr></table>
+        <p class="muted">The writing function is comparing and contrasting. The exam runs on SwiftAssess.</p></div>
+      <div class="panel"><h3>Themes to prepare</h3>
+        <div class="chips">
+          <span class="chip"><b>Vocabulary:</b> Pushing Boundaries · Rise to the Challenge!</span>
+          <span class="chip"><b>Grammar:</b> My roof is alive! (green roofs)</span>
+          <span class="chip"><b>Reading 3A:</b> Personality — Nature or Nurture?</span>
+          <span class="chip"><b>Reading 3B:</b> Megacities and Small Towns</span>
+          <span class="chip"><b>Writing:</b> Smart Homes OR Comparing Places</span>
+        </div>
+        <h3 style="margin-top:18px">How to use this site</h3>
+        <ol class="muted" style="padding-left:18px;margin:0">
+          <li>Read the notes at the top of each section.</li>
+          <li>Do the activities – try first, then read the feedback.</li>
+          <li>Repeat any activity below 80% (the badge turns green at 80%).</li>
+          <li>Finish with the timed mock exam and the checklist.</li>
+        </ol>
+        <p class="muted">All practice texts and questions are original revision material, not official exam questions. Activities marked ⭐ are extra practice that isn't in the booklet.</p></div>
+    </div>
+  </section>
+  <section class="page hidden" id="pg-vocab"><h2>2 · Vocabulary</h2><div id="sec-vocab"></div></section>
+  <section class="page hidden" id="pg-grammar"><h2>3 · Grammar: notes and practice</h2><p class="muted">Tap a grammar point to open the rule, then practise.</p><div id="sec-grammar"></div></section>
+  <section class="page hidden" id="pg-reading"><h2>5 · Reading skills</h2><div id="sec-reading"></div></section>
+  <section class="page hidden" id="pg-writing"><h2>6 · Writing workshop</h2><div id="sec-writing"></div></section>
+  <section class="page hidden" id="pg-mock"><h2>7 · Mock paper (100 marks)</h2><div id="mock"></div></section>
+  <section class="page hidden" id="pg-check"><h2>8 · Final checklist</h2><div id="checkhost"></div></section>
+</div>
+<div id="activity" class="hidden"></div>
+</main>
+<footer>The Scientific Institute · Grade 12 Advanced · Term 1 Revision · Dr. Mahmoud Ananzeh</footer>
+<script>// ===== DATA: G12 Advanced Term 1 Revision (Dr. Mahmoud Ananzeh) =====
+const GLOSS = {
+  "Pushing Boundaries": [
+    ["privacy","Keeping personal information and activities protected.","Smart devices may put our privacy at risk."],
+    ["freedom","The ability or right to make your own choices.","Working remotely gives people greater freedom."],
+    ["automation","Using machines or software to perform tasks automatically.","Automation controls the lights when nobody is home."],
+    ["cost-effective","Giving good results for the money spent.","LED lighting is a cost-effective way to save energy."],
+    ["interruptions","Events that stop an activity for a short time.","Repeated interruptions made the task take longer."],
+    ["distractions","Things that draw your attention away from your task.","I silence my phone to avoid distractions."],
+    ["voyage","A long journey, especially by sea or through space.","The spacecraft began a voyage to Mars."],
+    ["destination","The place to which someone is travelling.","The final destination was a research station."],
+    ["heritable","Able to be passed from parents to offspring through genes.","Some physical characteristics are heritable."],
+    ["significant","Important or large enough to have an effect.","Training made a significant difference."],
+    ["consequence","A result or effect of an action or situation.","One consequence of poor sleep is reduced attention."],
+    ["database","An organised electronic collection of information.","Researchers store the results in a database."]
+  ],
+  "Rise to the Challenge!": [
+    ["megacity","A city with a population of more than ten million.","A megacity needs extensive public transport."],
+    ["urbanisation","The growth of towns and cities as more people live there.","Urbanisation increases demand for housing."],
+    ["congestion","Overcrowding, especially too much traffic.","Congestion delays buses during rush hour."],
+    ["pollution","Harmful substances or waste in the environment.","Cleaner transport can reduce air pollution."],
+    ["infrastructure","Basic systems such as roads, power, water and transport.","The city is investing in its infrastructure."],
+    ["innovative","Introducing new ideas or methods.","Engineers developed an innovative cooling system."],
+    ["kinaesthetic","Connected with movement and physical activity.","A kinaesthetic activity may involve building a model."],
+    ["auditory","Connected with hearing or sound.","An auditory task involves listening."],
+    ["insulation","Material that reduces the transfer of heat or sound.","Roof insulation helps keep the building cool."],
+    ["drainage","A system or process that removes excess water.","Good drainage prevents water from collecting."],
+    ["biodiversity","The variety of living organisms in an area.","Native plants can support biodiversity."],
+    ["vegetation","Plants growing in a particular area.","Vegetation provides shade and habitats."]
+  ],
+  "Green-roof terms": [
+    ["living roof","A roof covered with plants; also called a green roof.","The school added a living roof to its library."],
+    ["rooftop","The outer top surface of a building.","Solar panels were fitted on the rooftop."],
+    ["absorb","To take in a liquid, heat or another substance.","The soil absorbs rainwater."],
+    ["urban heat","Heat in built-up places, often increased by heat-storing surfaces.","Trees help to reduce urban heat."],
+    ["habitat","The natural home of a plant or animal.","The roof garden became a habitat for bees."],
+    ["sustainable","Able to continue while limiting harm to resources and the environment.","Rainwater harvesting is a sustainable practice."]
+  ]
+};
+const MEANING = {}; Object.values(GLOSS).flat().forEach(w => MEANING[w[0]] = w[1]);
+const L = s => s.charCodeAt(0) - 65; // 'A' -> 0
+// item: [question, options[], answerLetter, explanation?]
+function V(q, opts, a) { const w = opts[L(a)]; return [q, opts, a, (MEANING[w.toLowerCase()] ? w + ": " + MEANING[w.toLowerCase()] : "")]; }
+
+const SETS = {};
+
+SETS.vgap = { title: "Sentence gap-fill", sec: "vocab", items: [
+  V("The school introduced an ___ app that lets parents follow homework online.",["privacy","cost-effective","innovative"],"C"),
+  V("Factories use ___ so that robots can complete repetitive tasks quickly.",["automation","consequence","vegetation"],"A"),
+  V("Rapid ___ has created new suburbs around the capital.",["urbanisation","kinaesthetic","database"],"A"),
+  V("The exam was full of ___: the fire alarm rang twice and the lights went off.",["interruptions","automation","voyage"],"A"),
+  V("Listening to a podcast and answering questions is an ___ activity.",["voyage","auditory","kinaesthetic"],"B"),
+  V("Poor ___ caused the streets to flood after the storm.",["megacity","drainage","kinaesthetic"],"B"),
+  V("The library keeps a record of every book in an online ___.",["automation","vegetation","database"],"C"),
+  V("Building a bridge from paper is a ___ task because learners use their hands.",["significant","kinaesthetic","voyage"],"B"),
+  V("After the rains, the hillside was covered with green ___.",["vegetation","megacity","freedom"],"A"),
+  V("Thick roof ___ keeps the house cool in summer.",["insulation","megacity","innovative"],"A"),
+  V("The explorers prepared for a six-month ___ across the Pacific Ocean.",["congestion","distractions","voyage"],"C"),
+  V("There has been a ___ increase in the number of people buying electric cars.",["significant","vegetation","kinaesthetic"],"A"),
+  V("Waste from factories has increased water ___ in the river.",["privacy","pollution","significant"],"B"),
+  V("Online courses give students the ___ to study at their own pace.",["auditory","freedom","insulation"],"B"),
+  V("Road works caused heavy ___ on the main highway this morning.",["automation","congestion","cost-effective"],"B"),
+  V("Coral reefs are famous for their rich ___: thousands of species live there.",["biodiversity","interruptions","auditory"],"A"),
+  V("Eye colour is a ___ characteristic that children receive from their parents.",["auditory","heritable","consequence"],"B"),
+  V("Reliable ___, such as roads, power and water, attracts new businesses.",["cost-effective","infrastructure","significant"],"B"),
+  V("In winter, Dubai is a popular tourist ___.",["drainage","destination","megacity"],"B"),
+  V("With more than thirty million residents, Greater Tokyo is a ___.",["innovative","heritable","megacity"],"C"),
+  V("Many people worry that smart speakers record their conversations and threaten their ___.",["megacity","privacy","biodiversity"],"B"),
+  V("Phone notifications are common ___ when students are revising.",["megacity","distractions","consequence"],"B"),
+  V("Missing the deadline had a serious ___: the team lost the project.",["consequence","drainage","significant"],"A"),
+  V("A reusable water bottle is a ___ alternative to buying plastic bottles every day.",["cost-effective","infrastructure","privacy"],"A")
+]};
+
+SETS.vbest = { title: "Choose the best word", sec: "vocab", items: [
+  ["The spacecraft began a long ___ to another planet.",["destination","voyage","database"],"B","A voyage is a journey."],
+  ["The roof has a ___ system to remove extra rainwater.",["drainage","privacy","freedom"],"A","Drainage removes excess water."],
+  ["A characteristic passed through genes is ___.",["innovative","auditory","heritable"],"C","Heritable means passed through genes."],
+  ["Too many cars cause traffic ___.",["congestion","vegetation","insulation"],"A","Congestion means overcrowded traffic."],
+  ["This solution saves money and works well; it is ___.",["kinaesthetic","cost-effective","heritable"],"B","Cost-effective balances cost and results."],
+  ["The variety of species in the park is its ___.",["automation","biodiversity","destination"],"B","Biodiversity is the variety of living organisms."]
+]};
+
+SETS.vcoll = { title: "Collocations", sec: "vocab", items: [
+  ["traffic ___",["congestion","database","biodiversity"],"A","Traffic congestion means too many vehicles on the road."],
+  ["air ___",["pollution","freedom","voyage"],"A","Air pollution means harmful substances in the air."],
+  ["urban ___",["auditory","heritable","infrastructure"],"C","Urban infrastructure means a city's roads, power, water and transport."],
+  ["protect your ___",["destination","privacy","drainage"],"B","You protect your privacy."],
+  ["support ___",["biodiversity","megacity","interruptions"],"A","Native plants support biodiversity."],
+  ["improve ___",["heritable","drainage","significant"],"B","Engineers improve drainage to stop flooding."],
+  ["a ___ consequence",["kinaesthetic","auditory","significant"],"C","A significant consequence is an important result."],
+  ["avoid ___",["urbanisation","distractions","vegetation"],"B","Students avoid distractions when they study."],
+  ["a space ___",["insulation","database","voyage"],"C","A space voyage is a long journey through space."],
+  ["a holiday ___",["destination","automation","pollution"],"A","A holiday destination is a place people visit on holiday."],
+  ["roof ___",["insulation","freedom","consequence"],"A","Roof insulation keeps heat out or in."],
+  ["home ___",["automation","megacity","heritable"],"A","Home automation means smart devices controlling tasks at home."],
+  ["rapid ___",["auditory","urbanisation","privacy"],"B","Rapid urbanisation means cities growing very fast."],
+  ["an online ___",["vegetation","drainage","database"],"C","An online database stores information electronically."]
+]};
+
+SETS.vpairs = { title: "Confusing pairs", sec: "vocab", items: [
+  ["The phone call was an ___: I had to stop writing completely.",["interruption","distraction"],"A","It stopped the activity, so it was an interruption."],
+  ["Music with lyrics can be a ___ while you are reading.",["interruption","distraction"],"B","It pulls your attention away but doesn't stop you: a distraction."],
+  ["The ___ took three weeks because of storms at sea.",["voyage","destination"],"A","The journey itself is the voyage."],
+  ["After three weeks at sea, they finally reached their ___.",["voyage","destination"],"B","The place you reach is the destination."],
+  ["Teenagers often want more ___ to choose their own activities.",["freedom","privacy"],"A","Freedom is the right to make your own choices."],
+  ["Never share your password, so you can protect your ___.",["freedom","privacy"],"B","Privacy is keeping personal information protected."],
+  ["Exhaust fumes from cars increase air ___.",["congestion","pollution"],"B","Fumes are harmful substances: pollution."],
+  ["At 7:30 a.m. there are so many cars that ___ stops all movement.",["congestion","pollution"],"A","Too much traffic is congestion."],
+  ["The desert has very little ___, only a few small bushes.",["vegetation","biodiversity"],"A","Vegetation means the plants growing in an area."],
+  ["The forest has high ___: over 200 species of birds live there.",["vegetation","biodiversity"],"B","Biodiversity is the variety of living things."],
+  ["Good ___ in the walls keeps the room quiet and cool.",["insulation","drainage"],"A","Insulation reduces heat and sound transfer."],
+  ["Blocked pipes caused poor ___, and water collected on the roof.",["insulation","drainage"],"B","Drainage removes excess water."],
+  ["Listening to a recording and answering questions is an ___ task.",["auditory","kinaesthetic"],"A","Auditory = connected with hearing."],
+  ["Building a model bridge with your hands is a ___ task.",["auditory","kinaesthetic"],"B","Kinaesthetic = connected with movement."],
+  ["Lagos is a ___ with a population of over fifteen million.",["megacity","urbanisation"],"A","A megacity is a single city of more than ten million people."],
+  ["___ means more people moving into towns and cities.",["Megacity","Urbanisation"],"B","Urbanisation is the process of urban growth."]
+]};
+
+SETS.vforms = { title: "Word forms", sec: "vocab", items: [
+  ["Factories that ___ rivers should pay heavy fines.",["pollute","pollution","polluted"],"A","After that (subject) we need a verb: pollute."],
+  ["The company plans to ___ its customer service with chatbots.",["automation","automate","automatic"],"B","After to we need a base verb: automate."],
+  ["The area has become highly ___ over the last thirty years.",["urbanisation","urbanise","urbanised"],"C","After highly we need an adjective/participle: urbanised."],
+  ["She is famous for her ___ designs.",["innovative","innovation","innovate"],"A","An adjective describes the noun designs: innovative."],
+  ["The new phone was a real ___ when it was released.",["innovative","innovation","innovate"],"B","After a real we need a noun: innovation."],
+  ["Scientists explained the ___ of the results.",["significant","significance","significantly"],"B","After the we need a noun: significance."],
+  ["Prices have risen ___ this year.",["significant","significance","significantly"],"C","An adverb describes the verb have risen: significantly."],
+  ["The main road is always ___ at 8 a.m.",["congestion","congested","congest"],"B","After is always we need an adjective: congested."],
+  ["The house is well ___, so it stays cool.",["insulated","insulation","insulate"],"A","Passive/adjective after well: insulated."],
+  ["Sandy soil ___ quickly after rain.",["drainage","drains","drain"],"B","Present simple with a singular subject: drains."],
+  ["Could we speak ___? It's a personal matter.",["privacy","private","privately"],"C","An adverb describes speak: privately."],
+  ["Children ___ some characteristics from their parents.",["inherit","heritable","heredity"],"A","We need a verb: inherit."],
+  ["The bus broke down. ___, I was late for school.",["Consequence","Consequently","Consequent"],"B","A linking adverb at the start of a sentence: Consequently."],
+  ["Everyone should be ___ to express their opinions.",["freedom","free","freely"],"B","After be we need an adjective: free."]
+]};
+
+// ---- Bonus vocabulary (new) ----
+SETS.vbonus = { title: "Bonus: Definition challenge (new)", sec: "vocab", items: [
+  ["Which word means 'the natural home of a plant or animal'?",["habitat","rooftop","drainage"],"A","habitat: The natural home of a plant or animal."],
+  ["Which word means 'to take in a liquid, heat or another substance'?",["insulate","absorb","drain"],"B","absorb: The soil absorbs rainwater."],
+  ["A practice that can continue while limiting harm to the environment is ___.",["sustainable","heritable","auditory"],"A","sustainable: Able to continue while limiting harm to resources and the environment."],
+  ["Heat in built-up places, often increased by concrete and asphalt, is called ___.",["urban heat","insulation","pollution"],"A","urban heat: Heat in built-up places, often increased by heat-storing surfaces."],
+  ["Another name for a green roof is a ___.",["living roof","rooftop","habitat"],"A","living roof: A roof covered with plants; also called a green roof."],
+  ["The bees made the roof garden their ___.",["habitat","destination","database"],"A","A habitat is a natural home for animals or plants."],
+  ["Phone notifications that pull your attention away from homework are ___.",["distractions","destinations","databases"],"A","Things that draw attention away from your task are distractions."],
+  ["Which sentence uses 'consequence' correctly?",["A consequence of heavy rain was flooding.","The consequence was very innovative.","She consequenced the project."],"A","A consequence is a result: flooding resulted from heavy rain."],
+  ["Which sentence uses 'cost-effective' correctly?",["Solar lights are a cost-effective choice for the garden.","The cost-effective of the plan is high.","He cost-effectived the budget."],"A","cost-effective is an adjective: a cost-effective choice."],
+  ["'Kinaesthetic' and 'auditory' describe types of ___, not types of learner.",["task","city","roof"],"A","The booklet reminds you: they describe types of task."],
+  ["Which pair is a correct collocation?",["support biodiversity","support congestion","support pollution"],"A","We support biodiversity (e.g. with native plants)."],
+  ["The city's water pipes, roads and power lines are its ___.",["infrastructure","vegetation","biodiversity"],"A","infrastructure: Basic systems such as roads, power, water and transport."]
+]};
+
+SETS.vtf = { title: "Bonus: True or false? (new)", sec: "vocab", tf: true, items: [
+  ["A destination is the journey itself.",["True","False"],"B","False – the voyage is the journey; the destination is the place you reach."],
+  ["An interruption actually stops an activity.",["True","False"],"A","True – a distraction only takes your attention away."],
+  ["A megacity has more than ten million people.",["True","False"],"A","True."],
+  ["Vegetation and biodiversity mean exactly the same thing.",["True","False"],"B","False – vegetation = plants; biodiversity = the variety of living organisms."],
+  ["'Heritable' means a characteristic is fixed and can never change.",["True","False"],"B","False – heritable does not mean fixed."],
+  ["Insulation reduces the transfer of heat or sound.",["True","False"],"A","True."],
+  ["Drainage adds water to a roof.",["True","False"],"B","False – drainage removes excess water."],
+  ["Urbanisation is the growth of towns and cities as more people live there.",["True","False"],"A","True."],
+  ["'Innovative' is a noun.",["True","False"],"B","False – it is an adjective; the noun is innovation."],
+  ["A database is an organised electronic collection of information.",["True","False"],"A","True."]
+]};
+
+// ---- Grammar ----
+SETS.gzero = { title: "Zero conditional", sec: "grammar", items: [
+  ["If the soil becomes dry, the sensor ___ a signal.",["sends","sent","will sending"],"A","Present simple result in a zero conditional."],
+  ["When rain ___, the tank collects water.",["fall","falls","is fall"],"B","Falls agrees with rain."],
+  ["Plants grow if they ___ enough light.",["received","receive","receives"],"B","Receive agrees with they."],
+  ["If you heat ice, it ___.",["melts","melted","will melted"],"A","General fact: present simple in both clauses."],
+  ["When the temperature ___ below zero, water freezes.",["drop","drops","dropped"],"B","Singular subject the temperature → drops."],
+  ["If plants ___ sunlight, they cannot produce food.",["don't get","doesn't get","didn't got"],"A","Plural plants → don't get."],
+  ["Metal expands if you ___ it.",["heat","heats","heated"],"A","You + base form heat."],
+  ["If people ___ too little, they feel tired.",["sleeps","sleep","slept"],"B","Plural people → sleep."],
+  ["When a roof has no insulation, the rooms ___ hot.",["become","became","becomes"],"A","Plural rooms → become."],
+  ["Which sentence is correct?",["If it rains, the streets get wet.","If it rains, the streets will got wet.","If it rain, the streets get wet."],"A","Present simple + present simple, with correct agreement."],
+  ["Which sentence is punctuated correctly?",["If water boils it turns into steam.","If water boils, it turns into steam.","If water boils it, turns into steam."],"B","Put a comma after the if-clause when it comes first."]
+]};
+SETS.gcomp = { title: "Comparative adjectives", sec: "grammar", items: [
+  ["A shaded roof is ___ than an exposed roof.",["cool","coolest","cooler"],"C","Cooler compares two surfaces."],
+  ["Native planting is ___ than frequent replanting.",["more sustainable","sustainabler","most sustainable"],"A","Long adjective → more + adjective."],
+  ["This design is ___ than the previous one.",["gooder","best","better"],"C","Better is the irregular comparative of good."],
+  ["The metro is ___ than the bus.",["fast","faster","more fast"],"B","Short adjective + -er."],
+  ["Life in a megacity is ___ than life in a village.",["more expensive","expensiver","most expensive"],"A","Long adjective → more expensive."],
+  ["My new phone is ___ than my old one: it keeps crashing.",["worse","badder","more bad"],"A","Irregular: bad → worse."],
+  ["Traffic today is ___ than yesterday.",["heavy","heavier","heavyer"],"B","Consonant + y → -ier: heavier."],
+  ["Small towns are often ___ than big cities.",["quiet","quieter","more quieter"],"B","Quieter; never use more and -er together."],
+  ["Solar panels are ___ expensive than they were ten years ago.",["less","fewer","least"],"A","Less + adjective + than = a lower degree."],
+  ["Online classes can be as effective ___ face-to-face classes.",["than","as","like"],"B","Equality: as … as."],
+  ["Summer in the UAE is ___ than winter.",["hoter","hotter","more hot"],"B","One vowel + one consonant → double it: hotter."]
+]};
+SETS.gqty = { title: "Adverbs of quantity and degree", sec: "grammar", items: [
+  ["A living roof can be ___ cooler than concrete.",["very","much","many"],"B","Much modifies a comparative."],
+  ["This system uses ___ water than the old one.",["fewer","many","less"],"C","Less + uncountable water."],
+  ["There are ___ weeds after regular maintenance.",["less","much","fewer"],"C","Fewer + countable plural weeds."],
+  ["The train is ___ faster than the bus.",["very","much","many"],"B","Much + comparative."],
+  ["Small towns have ___ hospitals than megacities.",["less","fewer","much"],"B","Hospitals is countable plural → fewer."],
+  ["There isn't ___ space on the roof for a garden.",["enough","many","fewer"],"A","Enough = the amount needed."],
+  ["This model is ___ more expensive: only five dirhams more.",["slightly","far","very"],"A","A small difference → slightly."],
+  ["We have ___ water: the tank is overflowing.",["too much","too many","enough of"],"A","Uncountable water → too much."],
+  ["The new building uses ___ less energy than the old one.",["considerably","very","many"],"A","Considerably + comparative = a big difference."],
+  ["___ people now work from home at least once a week.",["Much","Many","Less"],"B","Countable plural people → Many."],
+  ["The city is ___ more crowded than it was in 2000.",["far","very","too"],"A","Far + comparative = much."]
+]};
+SETS.gpass = { title: "Present simple passive", sec: "grammar", items: [
+  ["The plants ___ by a sensor-controlled system.",["watered","are watered","is watered"],"B","Plural plants + are + past participle."],
+  ["Rainwater ___ in a tank.",["is stored","are stored","stores"],"A","Uncountable rainwater + is stored."],
+  ["The material ___ for its low weight.",["is choose","is chosen","are chosen"],"B","Singular material + is + chosen."],
+  ["English ___ in many countries.",["speaks","is spoken","are spoken"],"B","Singular subject + is spoken."],
+  ["The solar panels ___ every month.",["is cleaned","are cleaned","clean"],"B","Plural panels → are cleaned."],
+  ["Coffee ___ by farmers in Brazil.",["grows","is grown","are grown"],"B","by farmers shows the passive: is grown."],
+  ["The information ___ in a secure database.",["is stored","are store","stores"],"A","Uncountable information → is stored."],
+  ["Which is the passive form of “Engineers design the system”?",["The system is designed by engineers.","The system designed engineers.","The system is design by engineers."],"A","is + past participle designed."],
+  ["The roof ___ every day; once a week is enough.",["is not watered","not is watered","does not watered"],"A","Negative passive: is not + past participle."],
+  ["___ the plants checked regularly?",["Is","Are","Do"],"B","Plural plants → Are … checked?"],
+  ["Most smartphones ___ in Asia.",["make","are made","is made"],"B","Plural subject + are made."]
+]};
+SETS.gind = { title: "Indirect questions", sec: "grammar", items: [
+  ["Could you explain where ___?",["does water collect","water collects","collects water"],"B","Statement word order: subject + verb."],
+  ["Do you know ___ the roof needs repairs?",["if","what","where"],"A","If introduces a yes/no question."],
+  ["Could you tell me how much ___?",["does it cost","it costs","costs it"],"B","Statement word order after the introduction."],
+  ["Can you tell me where the station ___?",["is","is it","does"],"A","Statement order: the station is."],
+  ["Do you know what time the museum ___?",["does open","opens","open"],"B","Remove does; add -s to the verb."],
+  ["I wonder ___ the bus is late.",["if","what","does"],"A","Yes/no question → if."],
+  ["Could you tell me how long the journey ___?",["takes","does take","take"],"A","Statement order: the journey takes."],
+  ["Do you know ___ they live?",["where","where do","do where"],"A","No do in an indirect question: where they live."],
+  ["“Why did the flight leave late?” → Could you tell me why ___?",["did the flight leave late","the flight left late","the flight did leave late"],"B","Remove did and use the past form: left."],
+  ["“Is the library open?” → Do you know ___?",["is the library open","if the library is open","if is the library open"],"B","if + subject + verb."],
+  ["“How much does the ticket cost?” → Can you tell me how much ___?",["the ticket costs","does the ticket cost","costs the ticket"],"A","Statement order + costs."]
+]};
+SETS.glink = { title: "Adverbial linkers", sec: "grammar", items: [
+  ["It is costly. ___, it offers long-term savings.",["Therefore","Finally","However"],"C","However shows the contrast between cost and savings."],
+  ["The soil holds water. ___, less water reaches the street immediately.",["Consequently","However","First"],"A","Consequently gives the result."],
+  ["Megacities offer many jobs. ___, housing is very expensive.",["However","Moreover","Therefore"],"A","Positive → negative = contrast: However."],
+  ["Small towns are quiet. ___, they are often safer for children.",["Nevertheless","Furthermore","However"],"B","Another positive point = addition: Furthermore."],
+  ["The main road was blocked. ___, we arrived late.",["As a result","In addition","However"],"A","Cause → effect: As a result."],
+  ["The course was very difficult. ___, she passed with high marks.",["Nevertheless","Therefore","Moreover"],"A","Unexpected result = contrast: Nevertheless."],
+  ["Public transport reduces congestion. ___, it saves passengers money.",["In addition","However","Nevertheless"],"A","Another benefit = addition: In addition."],
+  ["Which sentence is punctuated correctly?",["The bus is cheap, however it is slow.","The bus is cheap. However, it is slow.","The bus is cheap however, it is slow."],"B","Full stop before However, comma after it."],
+  ["Which linker shows a result?",["moreover","therefore","nevertheless"],"B","therefore = result."],
+  ["Which linker adds a similar idea?",["furthermore","however","consequently"],"A","furthermore = addition."]
+]};
+SETS.gseq = { title: "Sequencing adverbs", sec: "grammar", items: [
+  ["First, inspect the roof. ___, add the protective layer.",["Because","Next","However"],"B","Next gives the second stage."],
+  ["___, remove the old soil. Next, add the drainage layer.",["First","Finally","However"],"A","The beginning → First."],
+  ["First, check the roof. ___, install the waterproof layer.",["Then","Firstly","Because"],"A","The following stage → Then."],
+  ["Next, spread the soil. ___, plant the seeds and water them.",["Finally","First","Therefore"],"A","The last stage → Finally."],
+  ["Which word shows the LAST stage?",["next","afterwards","finally"],"C","finally = the last stage."],
+  ["Which word does NOT show order?",["then","however","afterwards"],"B","however shows contrast, not order."],
+  ["I finished my homework. ___, I watched a film.",["Afterwards","Firstly","Moreover"],"A","Later stage → Afterwards."]
+]};
+SETS.gspot = { title: "Spot the correct sentence", sec: "grammar", items: [
+  ["Choose the correct sentence.",["The roof is much cooler now.","The roof is more cooler now.","The roof is very cooler now."],"A","much + comparative; never more cooler or very cooler."],
+  ["Choose the correct sentence.",["Could you tell me where he lives?","Could you tell me where does he live?","Could you tell me where lives he?"],"A","Indirect question → statement word order."],
+  ["Choose the correct sentence.",["The plants is watered daily.","The plants are watered daily.","The plants are water daily."],"B","Plural subject + are + past participle."],
+  ["Choose the correct sentence.",["If you mix red and white, you got pink.","If you mix red and white, you get pink.","If you will mix red and white, you get pink."],"B","Zero conditional: present + present."],
+  ["Choose the correct sentence.",["There are fewer cars on the road today.","There are much cars on the road today.","There are less cars on the road today."],"A","Countable plural → fewer."],
+  ["Choose the correct sentence.",["It is expensive however it saves money.","It is expensive, however it saves money.","It is expensive. However, it saves money."],"C","Full stop + However + comma."],
+  ["Choose the correct sentence.",["This plan is gooder than that one.","This plan is better than that one.","This plan is more better than that one."],"B","good → better."],
+  ["Choose the correct sentence.",["Do you know is the shop open?","Do you know if the shop is open?","Do you know if is the shop open?"],"B","if + subject + verb."],
+  ["Choose the correct sentence.",["The windows is cleaned every week.","The windows cleaned every week.","The windows are cleaned every week."],"C","Plural → are cleaned."],
+  ["Choose the correct sentence.",["City life is stressfuller than town life.","City life is more stressful than town life.","City life is most stressful than town life."],"B","Long adjective → more stressful than."],
+  ["Choose the correct sentence.",["When water reaches 100°C, it boils.","When water reaches 100°C, it will boiling.","When water reach 100°C, it boils."],"A","Zero conditional with correct agreement."],
+  ["Choose the correct sentence.",["Then, we plan the design. However, we build it. Finally, we test it.","Finally, we plan the design. Then, we build it. Firstly, we test it.","Firstly, we plan the design. Then, we build it. Finally, we test it."],"C","First → Then → Finally."]
+]};
+SETS.gerr = { title: "Bonus: Find the mistake (new)", sec: "grammar", items: [
+  ["“If the tank is full, the water <u>will flows</u> out.” Which correction is right?",["flows","flowed","is flow"],"A","Zero conditional: present simple in both clauses → flows."],
+  ["“The roof <u>are inspected</u> twice a year.” Correct it:",["is inspected","inspected","are inspect"],"A","Singular roof → is inspected."],
+  ["“Could you tell me where <u>is the library</u>?” Correct it:",["the library is","does the library","is it the library"],"A","Indirect question: statement order → the library is."],
+  ["“This route is <u>more faster</u> than that one.” Correct it:",["faster","most fast","fastest"],"A","Never use more with -er."],
+  ["“There are <u>less</u> buses at night.” Correct it:",["fewer","much","little"],"A","Buses is countable plural → fewer."],
+  ["“The flat is expensive<u>, however</u> it is central.” Correct it:",[". However,",", therefore",", moreover"],"A","Use a full stop (or semicolon) before However and a comma after it."],
+  ["“The panels <u>are clean</u> every month.” Correct it:",["are cleaned","is cleaned","cleaned"],"A","Passive needs the past participle: are cleaned."],
+  ["“Do you know <u>does the bus stop</u> here?” Correct it:",["if the bus stops","the bus does stop","stops the bus"],"A","Yes/no indirect question → if + statement order."],
+  ["“A living roof is <u>very cooler</u> than concrete.” Correct it:",["much cooler","very cool than","more cool"],"A","Use much/far before a comparative, not very."],
+  ["“<u>Finally</u>, read the prompts. Then, plan. First, write.” Which word should open the sequence?",["First","Then","However"],"A","The beginning of a process → First."]
+]};
+
+SETS.gtext1 = { title: "Grammar exam text: Cool roofs", sec: "grammar", gap: true,
+  text: "In many hot cities, dark roofs and roads absorb heat during the day. If a surface [1] dark, it absorbs more sunlight and becomes very hot. One simple solution is the ‘cool roof’, which [2] with a light-coloured coating that reflects sunlight back into the sky.\n\nOn a summer afternoon, a cool roof can be [3] cooler than a traditional black roof. [4], residents may use their air conditioners less, which saves both money and energy. Many homeowners ask, “Can you tell me how much the coating [5]?” The answer depends on the size of the roof, but the price is often lower than people expect.",
+  items: [
+    ["Gap 1",["is","are","will be"],"A","Zero conditional: If a surface is dark (present simple, singular)."],
+    ["Gap 2",["is painted","are painted","paints"],"A","Present simple passive, singular which (= the roof): is painted."],
+    ["Gap 3",["very","much","many"],"B","much + comparative cooler."],
+    ["Gap 4",["As a result","However","First"],"A","A cooler roof → less air conditioning = result."],
+    ["Gap 5",["costs","does cost","cost"],"A","Indirect question, statement order: the coating costs."]
+  ]};
+SETS.gtext2 = { title: "Grammar exam text: Collecting rainwater", sec: "grammar", gap: true,
+  text: "Rainwater harvesting is a simple way to save water at home. [1], rain is collected from the roof through gutters and pipes. Then the water [2] in a large tank, usually next to the house or underground.\n\nIf the tank [3] full, the extra water flows out through an overflow pipe. Collected rainwater is not normally used for drinking, but it is ideal for watering gardens and washing cars, and it is [4] expensive than tap water. People who are interested often ask whether the system [5] a lot of maintenance. In fact, a quick check of the filters every few months is usually enough.",
+  items: [
+    ["Gap 1",["First","However","Therefore"],"A","The first stage of the process: First (followed by Then)."],
+    ["Gap 2",["is stored","are stored","stores"],"A","Passive, uncountable water: is stored."],
+    ["Gap 3",["becomes","become","will became"],"A","Zero conditional, singular tank: becomes."],
+    ["Gap 4",["less","fewer","least"],"A","less + adjective + than."],
+    ["Gap 5",["needs","does need","need"],"A","Indirect yes/no question: whether the system needs."]
+  ]};
+
+SETS.vtext1 = { title: "Vocabulary exam text: A voyage to Mars", sec: "vocab", gap: true,
+  text: "Space agencies are planning a long [1] to Mars, a journey that could take around seven months in each direction. Before the astronauts leave, scientists will store information about their health in a secure [2], so that doctors on Earth can monitor them throughout the mission. Life on board will not be easy. The crew will have very little [3] because they will share a small living space for many months. Alarms and system checks may also cause frequent [4] during their work and sleep. To reduce stress, engineers are designing spacecraft in which [5] controls routine tasks, such as adjusting the temperature and recycling water. Supporters say the mission could teach us how humans adapt to extreme conditions, while critics question its enormous cost.",
+  items: [
+    ["Gap 1",["destination","voyage","database"],"B","A long voyage … a journey: voyage = the journey."],
+    ["Gap 2",["database","consequence","freedom"],"A","Information is stored in a database."],
+    ["Gap 3",["pollution","vegetation","privacy"],"C","Sharing a small space means little privacy."],
+    ["Gap 4",["interruptions","destinations","biodiversity"],"A","Alarms stop work and sleep, so they are interruptions."],
+    ["Gap 5",["congestion","automation","drainage"],"B","Machines doing tasks automatically = automation."]
+  ]};
+SETS.vtext2 = { title: "Vocabulary exam text: Growing cities", sec: "vocab", gap: true,
+  text: "By 2050, around two-thirds of the world's population is expected to live in urban areas. This rapid [1] is changing the way people live, travel and work. In a [2] such as Cairo or Mumbai, millions of people travel every day, and traffic [3] can turn a ten-kilometre journey into a two-hour trip.\n\nCities are responding with [4] ideas, from driverless buses to apps that show the quickest route in real time. However, new roads, power lines and water pipes are expensive, and governments must decide which [5] projects deserve investment first. Planners agree that cities which ignore these challenges will face serious problems in the future.",
+  items: [
+    ["Gap 1",["insulation","urbanisation","auditory"],"B","More people living in cities = urbanisation."],
+    ["Gap 2",["megacity","database","voyage"],"A","Cairo and Mumbai have more than ten million people: megacity."],
+    ["Gap 3",["vegetation","privacy","congestion"],"C","Traffic congestion makes journeys slow."],
+    ["Gap 4",["heritable","innovative","auditory"],"B","New ideas such as driverless buses are innovative."],
+    ["Gap 5",["infrastructure","biodiversity","freedom"],"A","Roads, power lines and pipes = infrastructure."]
+  ]};
+SETS.vtext3 = { title: "Vocabulary exam text: Learning by doing", sec: "vocab", gap: true,
+  text: "Teachers often use a variety of activities to help students remember new information. In an [1] task, learners listen to a recording or discuss ideas in pairs. In a [2] task, they move around the room or build a model with their hands.\n\nResearch suggests that teaching every student in only one preferred 'style' brings no [3] benefit; variety is what really helps. Some abilities may be partly [4], passed down from parents, but practice and good teaching still make a huge difference. One positive [5] of offering varied activities is that students who struggle with one method get another chance to succeed.",
+  items: [
+    ["Gap 1",["infrastructure","auditory","insulation"],"B","Listening = auditory."],
+    ["Gap 2",["kinaesthetic","heritable","megacity"],"A","Moving and using your hands = kinaesthetic."],
+    ["Gap 3",["auditory","significant","heritable"],"B","No significant benefit = no important effect."],
+    ["Gap 4",["cost-effective","innovative","heritable"],"C","Passed down from parents = heritable."],
+    ["Gap 5",["consequence","destination","pollution"],"A","A result of an action = consequence."]
+  ]};
+
+// ---- Reading ----
+SETS.rsignal = { title: "Signal words for tone and inference", sec: "reading", items: [
+  ["A writer says urban benefits are “distributed unevenly”. This suggests…",["not everyone gains equally","everyone gains the same","there are no benefits"],"A","Unevenly = some people benefit more than others."],
+  ["“In principle, this allows residents to reach more opportunities. In practice, however…” The writer is about to…",["give more support for the idea","show a gap between theory and reality","change the topic completely"],"B","In principle … in practice contrasts theory with reality."],
+  ["Words like may, can, tends to, depends on usually show a ___ position.",["qualified, careful","angry, emotional","certain, absolute"],"A","Hedging language shows a measured, qualified view."],
+  ["A text weighs benefits and limitations and uses careful language. The best tone description is…",["nostalgic and dismissive","measured and analytical","enthusiastic and excited"],"B","Balanced evidence + qualifications = measured and analytical."],
+  ["“A heritable tendency is not an instruction that must be followed.” We can infer that the writer believes…",["genes decide everything","people can change","inheritance is not real"],"B","The writer accepts inheritance but says behaviour can develop."],
+  ["Which option is most likely to be WRONG in an inference question?",["One that uses always, never or guarantees","One that uses may","One supported by two clues in the text"],"A","Absolute words like always and guarantees often go beyond the text."],
+  ["“Conversely, poorly planned urban development can remove vegetation.” Conversely introduces…",["an example","the opposite case","a conclusion"],"B","Conversely = looking at it from the opposite side."],
+  ["An option names one example from paragraph 2 only. For an overall meaning question it is probably…",["too narrow","the best answer","too general"],"A","Overall meaning must cover the whole text."]
+]};
+
+const R3A = { title: "Nature and nurture: a false choice?", paras: [
+  "Why do people respond differently to the same challenge? One student enjoys speaking to an unfamiliar audience, while another would rather prepare a written report. It is tempting to explain such differences entirely through genes or entirely through experience. However, this either-or approach creates a misleading picture of personality. A stronger explanation recognises that inherited tendencies and the environment influence each other throughout life.",
+  "Supporters of biological explanations point to similarities between relatives, including twins who grow up in different households. Such patterns suggest that some personality differences have a heritable component. Yet a heritable tendency is not an instruction that must be followed. A person who initially avoids unfamiliar situations may become more confident through repeated, manageable experiences. Evidence of inheritance therefore cannot establish that change is impossible, or tell us exactly how one individual will behave.",
+  "Environmental explanations emphasise family relationships, school experiences and cultural expectations. A classroom that allows pupils to make mistakes safely may encourage participation, whereas constant ridicule may discourage it. Nevertheless, the same environment does not affect everyone identically. One pupil may interpret a difficult task as an exciting opportunity; another may regard it as a threat. Their previous experiences and individual tendencies can shape these interpretations.",
+  "The interaction also works in the opposite direction. People help to create the environments they experience. Someone who enjoys conversation may join a debating club, gaining further opportunities to practise speaking. A quieter student may choose an activity that rewards careful observation. These choices can strengthen existing tendencies, although new opportunities may also broaden a person's behaviour. This feedback helps explain why personality can show both continuity and development.",
+  "Schools should therefore avoid fixed labels such as “a natural leader” or “not a people person”. Labels may lower expectations and restrict opportunities before students have had a chance to improve. Recognising inherited differences does not require accepting educational limits. Instead, teachers can provide varied activities and supportive feedback, allowing learners to develop strengths and practise less familiar skills. Personality is better understood as a developing pattern than as a finished product."
+]};
+SETS.r3a = { title: "Reading 3A: Nature and nurture", sec: "reading", passage: R3A, marks: 3, items: [
+  ["<span class='qt'>Specific information</span> Which activity is specifically mentioned as providing speaking practice?",["A debating club","A research voyage","A coding workshop"],"A","Paragraph 4 names a debating club."],
+  ["<span class='qt'>Detail</span> What do similarities between relatives suggest?",["Every personality trait is fixed","Some differences may involve inherited influences","School experiences have no effect"],"B","Paragraph 2: a heritable component, not that every trait is fixed."],
+  ["<span class='qt'>Detail</span> Why does the writer discuss manageable experiences?",["To show that initial tendencies can develop","To argue that confidence is entirely inherited","To prove that unfamiliar situations are harmful"],"A","Paragraph 2: someone may gain confidence through manageable experiences."],
+  ["<span class='qt'>Detail</span> According to the text, a safe classroom may encourage pupils to…",["avoid every challenge","participate more readily","ignore cultural expectations"],"B","Paragraph 3 links making mistakes safely with participation."],
+  ["<span class='qt'>Detail</span> How can people strengthen existing tendencies?",["By choosing activities that suit those tendencies","By receiving identical experiences","By avoiding all feedback"],"A","Paragraph 4: people choose environments that suit them."],
+  ["<span class='qt'>Main point</span> What is the main point of paragraph 3?",["Schools influence everyone in exactly the same way","Family relationships matter more than every other influence","Environmental effects depend partly on individual interpretation"],"C","The same environment is interpreted differently."],
+  ["<span class='qt'>Inference</span> What can be inferred about offering a quieter pupil a supportive speaking role?",["It is pointless because quietness cannot change","It may broaden behaviour without denying current tendencies","It guarantees that the pupil will become a leader"],"B","Paragraphs 4–5 support broadening behaviour; nothing is guaranteed."],
+  ["<span class='qt'>Overall meaning</span> Which statement best captures the whole argument?",["Personality reflects an interaction of inheritance and experience","Genetic explanations should replace educational support","People should only practise their strongest skills"],"A","The opening and closing present personality as an interaction."]
+]};
+
+const R3B = { title: "Beyond the city-or-town divide", paras: [
+  "Comparisons between megacities and small towns often begin with a familiar contrast: the city offers opportunity, while the town offers tranquillity. This distinction is appealing because it turns a complicated decision into a simple choice. Yet settlement size alone is a poor guide to everyday experience. Access to employment, reliable services and social networks matters as much as the number of people sharing a place.",
+  "Large cities can concentrate universities, hospitals and specialised employers within a relatively small geographical area. In principle, this concentration allows residents to reach more opportunities without travelling between regions. In practice, however, proximity does not guarantee accessibility. Expensive housing can push workers towards distant districts, while congested or poorly connected transport routes make apparently short journeys exhausting. The benefits of urban concentration are therefore distributed unevenly.",
+  "Small towns present a different combination of possibilities and constraints. Local journeys may be shorter, and familiar neighbours can provide informal support. Nevertheless, specialist treatment or advanced training may require travel to a larger centre. Digital services can reduce some disadvantages: remote consultations and online courses extend access without eliminating distance entirely. A screen cannot replace every medical examination, and an unreliable connection can turn a promised opportunity into another barrier.",
+  "Environmental comparisons are similarly conditional. Dense neighbourhoods can support efficient public transport because many passengers live near the same routes. A small town with scattered housing may generate more car travel per resident, despite having cleaner-looking streets. Conversely, poorly planned urban development can remove vegetation and intensify heat. Neither density nor open space is automatically sustainable; outcomes depend on infrastructure, building design and residents' practical choices.",
+  "The most useful question is therefore not which type of settlement is universally superior, but which arrangements allow different people to live well. A student, a parent and an older resident may value the same place differently. Planners who listen to these varied needs can improve connections between towns and cities rather than forcing them into competition. A settlement succeeds when its advantages are accessible, its limitations are acknowledged, and public investment responds to the people who actually live there."
+]};
+SETS.r3b = { title: "Reading 3B: Megacities and small towns", sec: "reading", passage: R3B, marks: 2, items: [
+  ["<span class='qt'>Detail</span> What may force workers to live farther from city opportunities?",["Expensive housing","Too many online courses","A lack of neighbouring towns"],"A","Paragraph 2: expensive housing pushes workers to distant districts."],
+  ["<span class='qt'>Detail</span> What limitation of digital medical services is mentioned?",["They always cost more than hospital visits","They cannot replace every physical examination","They are available only in megacities"],"B","Paragraph 3: a screen cannot replace every examination."],
+  ["<span class='qt'>Detail</span> Why can dense neighbourhoods support public transport?",["They remove the need for infrastructure","They guarantee free transport","Many passengers live near the same routes"],"C","Paragraph 4."],
+  ["<span class='qt'>Inference</span> What can be inferred from the distinction between proximity and accessibility?",["Nearby services may still be difficult to use","All city services are equally accessible","Distance is the only factor that matters"],"A","Cost and connections matter as well as distance."],
+  ["<span class='qt'>Inference</span> What would the writer probably infer about a town with scattered housing and weak bus services?",["Its open space guarantees sustainability","Residents may rely heavily on cars","It will have no environmental impact"],"B","Scattered housing → more car travel."],
+  ["<span class='qt'>Tone</span> Which description best matches the tone?",["Nostalgic and dismissive","Angry and accusatory","Measured and analytical"],"C","Qualified, balanced language."],
+  ["<span class='qt'>Connections</span> How are the transport and digital-service examples connected?",["Both show that potential benefits depend on enabling systems","Both prove that technology removes every disadvantage","Both show that cities should compete against towns"],"A","A possible advantage depends on infrastructure or reliable connections."],
+  ["<span class='qt'>Overall meaning</span> Which statement best expresses the overall meaning?",["Megacities are always better for all residents","Small towns should avoid investment","Quality of life depends on accessible systems and different needs"],"C","No universal winner; access and needs matter."]
+]};
+
+// Bonus reading (new, original)
+const RBONUS = { title: "Smart cities: who really benefits?", paras: [
+  "City leaders often describe ‘smart’ technology as a simple route to better urban life. Sensors can measure traffic, adjust street lighting and warn residents about air pollution. In theory, these systems allow a city to respond quickly to problems that once took weeks to notice.",
+  "However, the advantages are not shared automatically. A transport app is useful only to residents who own a smartphone and can afford mobile data. Older people and low-income families may therefore gain less than younger, wealthier users. Some critics also worry that the same sensors which count cars could collect information about individuals, raising questions about privacy.",
+  "Supporters reply that careful design can reduce these risks. Data can be collected anonymously, and information screens at bus stops can serve people without phones. When residents are consulted before new systems are installed, the technology is more likely to solve real problems rather than impressive but unnecessary ones.",
+  "Smart technology, then, is neither a guaranteed solution nor a threat to be rejected. Its value depends on whether planners consider who will use it, who might be excluded and how personal information is protected."
+]};
+SETS.rbonus = { title: "Bonus reading (new): Smart cities", sec: "reading", passage: RBONUS, marks: 2, items: [
+  ["<span class='qt'>Specific information</span> Which group may gain less from a transport app?",["Residents without smartphones or mobile data","Bus drivers","City leaders"],"A","Paragraph 2: only residents who own a smartphone and can afford data benefit."],
+  ["<span class='qt'>Detail</span> What privacy concern is mentioned?",["Sensors could collect information about individuals","Street lights are too bright","Apps are too expensive to build"],"A","Paragraph 2: sensors that count cars could collect information about individuals."],
+  ["<span class='qt'>Detail</span> According to supporters, how can people without phones be served?",["By information screens at bus stops","By free smartphones for everyone","By removing all sensors"],"A","Paragraph 3."],
+  ["<span class='qt'>Inference</span> What can be inferred about consulting residents?",["It helps make technology useful in practice","It always delays projects","It is unnecessary if the technology is modern"],"A","Consultation makes it more likely that technology solves real problems."],
+  ["<span class='qt'>Tone</span> The writer's tone is best described as…",["balanced and cautious","enthusiastic and uncritical","angry and hostile"],"A","Neither a guaranteed solution nor a threat: balanced."],
+  ["<span class='qt'>Overall meaning</span> Which title best fits the whole text?",["The value of smart technology depends on careful, inclusive planning","Sensors measure traffic","Smartphones are expensive"],"A","Other options cover only one detail."]
+]};
+
+// ---- Writing ----
+SETS.wpara = { title: "Paraphrase practice", sec: "writing", items: [
+  ["Original: Housing in large cities is often very expensive.",["Big cities never have cheap houses.","Homes in big cities frequently cost a lot.","Housing in large cities is often very expensive indeed."],"B","A good paraphrase keeps the meaning (including often) but changes the words."],
+  ["Original: Small towns usually have stronger community ties.",["Small towns usually have stronger community ties.","Everyone in a small town is friends.","People in smaller places often know and support each other more."],"C","Same meaning, new words; the second option exaggerates and the first just copies."],
+  ["Original: Public transport can reduce the need to own a car.",["Owning a car is the need of public transport.","With good buses and trains, people may not need a car.","Public transport always replaces cars."],"B","Keeps can as may; doesn't exaggerate."],
+  ["Original: Critics worry that smart devices collect personal data.",["Critics worry that smart devices collect personal data.","Smart devices are illegal.","Some people are concerned that connected technology may gather private information."],"C","Changes vocabulary and structure, but the meaning stays."],
+  ["Original: Specialist medical care may be limited in rural areas.",["People in the countryside may find it harder to get expert treatment.","Specialist medical care may be limited in rural areas, they say.","Rural areas have no doctors."],"A","Accurate and in new words."],
+  ["Original: Automated devices reduce unnecessary electricity use.",["Electricity is unnecessary in automated homes.","Automated devices reduce unnecessary electricity use.","Smart systems can help households avoid wasting power."],"C","Good paraphrase: new words, same idea."]
+]};
+SETS.wlink = { title: "Comparison linkers in context", sec: "writing", items: [
+  ["___ cities offer more schools, small towns offer shorter journeys.",["Whereas","Therefore","Similarly"],"A","Two contrasting ideas in one sentence → Whereas."],
+  ["___ settings can provide a good education for children.",["Both","Unlike","However"],"A","A similarity → Both."],
+  ["___ city flats, town houses often have gardens.",["Unlike","Similarly","Because"],"A","Unlike + noun shows contrast."],
+  ["Cities have many hospitals. ___, small towns usually have a local clinic.",["Similarly","Therefore","For example"],"A","Both have health services → similarity."],
+  ["Small towns are calm. ___, specialist services may be far away.",["On the other hand","As a result","Similarly"],"A","A contrasting point → On the other hand."],
+  ["___, a connected small town is the best choice for my family.",["On balance","For instance","Unlike"],"A","A final judgement → On balance."],
+  ["Many families choose cities ___ there are more job opportunities.",["because","whereas","although"],"A","A reason → because."],
+  ["___ housing is expensive, many families still prefer the city.",["Although","Because","Similarly"],"A","A concession → Although."]
+]};
+SETS.wdev = { title: "Bonus: Developed or basic? (new)", sec: "writing", items: [
+  ["Which is the best-developed comparison about transport?",["Cities have buses.","Large cities often offer frequent buses, whereas small towns may have limited services, so city life can be more practical for students who do not drive.","Buses are good and towns are quiet."],"B","It compares both places, uses a linker and explains why the difference matters."],
+  ["Which sentence compares the SAME feature in both options?",["Smart homes have voice controls. Conventional homes are cheaper.","Smart homes can switch lights off automatically, while in conventional homes residents must do this themselves.","Smart homes are modern."],"B","Same feature (lighting control) in both homes."],
+  ["Which sentence gives a qualified (careful) view?",["Small towns are always boring.","Small towns may offer fewer activities, although this depends on transport links.","Cities are the best place for everyone."],"B","may / depends on = qualification."],
+  ["Which is the best opening for a 1.1 summary?",["I think smart homes are great.","Both viewpoints consider whether connected technology improves life at home.","Smart homes have sensors, alarms and voice controls."],"B","Introduce the shared issue; keep your own opinion out."],
+  ["Which sentence best acknowledges an advantage of the other option?",["Cities are bad.","Although small towns offer closer communities, I believe a city suits my family better because of its schools.","Small towns are cheaper."],"B","Concession (Although…) + clear judgement + reason."],
+  ["Which conclusion confirms a judgement?",["Overall, cities offer variety, whereas towns offer convenience; for my family, a connected small town is the better choice.","Cities have many people.","In conclusion, there are buses."],"A","Brings the comparison together and confirms the judgement."]
+]};
+
+// ---- Mock ----
+const MOCK = {
+  vocab: { text: "A school research team is designing a neighbourhood for the future. Its first priority is reducing traffic [1], because long queues make journeys slower and less predictable. The students propose better public transport and safe walking routes rather than simply building wider roads. They also suggest collecting information in a shared [2] so that planners can compare travel patterns before choosing a solution. However, they insist that residents should understand how their personal information is protected.\n\nThe second part of the project concerns buildings. Students recommend adding [3] to suitable rooftops because plants can provide shade and create small habitats. They argue that careful planning can support [4] by providing homes for different living organisms, rather than planting a single species everywhere. The team knows that new systems must be affordable as well as attractive. For this reason, it will compare installation and maintenance costs to identify the most [5] option. Their final proposal will explain both the advantages and the practical limits of each design, using evidence instead of relying only on impressive pictures.",
+    items: [
+      ["Gap 1",["freedom","congestion","destination"],"B","Traffic congestion explains queues."],
+      ["Gap 2",["database","voyage","consequence"],"A","A database stores information for comparison."],
+      ["Gap 3",["interruptions","privacy","vegetation"],"C","Vegetation refers to rooftop plants."],
+      ["Gap 4",["automation","biodiversity","pollution"],"B","Different living organisms indicate biodiversity."],
+      ["Gap 5",["heritable","auditory","cost-effective"],"C","Comparing costs identifies a cost-effective option."]
+    ]},
+  grammar: { text: "A living roof is a system in which plants grow above a protective surface. First, the structure [1] by qualified workers to ensure that it can support the additional weight. A waterproof layer and suitable drainage are then installed. The aim is to protect the building while allowing excess water to leave safely.\n\nIf rain [2] on the roof, the growing material absorbs some of the water. This can slow the movement of runoff towards street drains. On hot days, a planted surface may be [3] than an uncovered concrete surface, although performance depends on local conditions and maintenance. These benefits do not mean that every building is suitable. Owners should ask an engineer whether their roof can carry the load.\n\nResidents often ask, “Could you explain how the drainage system [4]?” Understanding this process helps them recognise problems early. Regular checks are necessary because blocked outlets may cause water to collect. The initial cost can be high. [5], a well-designed system may offer environmental benefits for many years, particularly when plants are chosen carefully and maintenance is planned from the beginning.",
+    items: [
+      ["Gap 1",["is checked","are checked","checks"],"A","Singular structure + present passive: is checked."],
+      ["Gap 2",["will fall","falls","fall"],"B","Zero conditional: if rain falls."],
+      ["Gap 3",["coolest","more cooler","much cooler"],"C","much cooler is a correctly modified comparative."],
+      ["Gap 4",["does work","works","work"],"B","Indirect question, statement order: works."],
+      ["Gap 5",["However","Therefore","Finally"],"A","However contrasts the high cost with the benefits."]
+    ]}
+};
+const W11_SMART = "Supporters of smart homes argue that connected technology makes daily life more convenient and efficient. Sensors can switch off lights in empty rooms, while automated systems adjust cooling according to household routines. Residents can check a security alert when they are away, and people with limited mobility may find voice controls particularly helpful. Although installation requires investment, supporters believe that suitable devices can reduce unnecessary energy use over time. They also say that users can choose only the features they need, rather than buying a complete system. From this perspective, thoughtful automation gives residents more control over their homes.\n\nCritics prefer homes that depend less on connected devices. They point out that household information may be collected by companies, making privacy a serious concern. Repairs, subscriptions and updates can also increase costs after installation. A network failure may prevent residents from using some functions, while complicated controls can frustrate people who prefer simple switches. Critics accept that technology can be helpful, but argue that benefits depend on reliable support and clear choices about data. They therefore recommend keeping manual alternatives and assessing each device carefully, instead of assuming that a more connected home is always a better home.";
+const W11_PLACES = "Some people believe that a large city is the best place for young adults to begin independent life. They value the range of universities, employers and cultural activities available within one area. Public transport can also allow people to travel without owning a car, especially when they live near reliable routes. Supporters acknowledge that housing may be expensive and crowded streets can be tiring. However, they argue that the chance to gain qualifications, meet people from different backgrounds and try different careers makes these difficulties worthwhile. For them, access to opportunity is the most important consideration when choosing a home.\n\nOthers argue that a small town offers a better starting point. They value quieter surroundings, familiar neighbours and housing that may be more affordable. A supportive community can make independent living feel less overwhelming, while shorter local journeys may leave more time for family and interests. Supporters accept that specialist courses and jobs may be limited, and some residents must travel elsewhere. Nevertheless, they believe that online learning and flexible work can reduce these disadvantages. In their view, a manageable daily routine and a sense of belonging are more valuable than having the widest possible range of opportunities nearby.";
+const MODELS = {
+  smart11: "Both viewpoints consider whether connected technology improves life at home. Supporters emphasise easier daily routines, potential energy savings and greater independence for some residents. Critics focus on data protection, ongoing expenses and difficulties when technology fails. Both recognise that devices can be useful when they are selected carefully. Their main difference is that supporters prioritise the benefits of automation, whereas critics emphasise caution and reliable manual alternatives.",
+  smart12: "Choosing between a highly automated home and a mainly conventional home involves more than deciding how many devices to buy. Both can be comfortable, but they differ in convenience, running costs and the amount of control residents keep over their daily routines. In my view, a mainly conventional home with a few carefully selected smart features offers the best balance.\n\nAutomation can make ordinary tasks easier. For example, lights that switch off in empty rooms remove the need to check every room before leaving. Voice controls may also help someone who finds physical switches difficult to reach. By contrast, conventional controls require more direct action, although their familiar design can make them easier for visitors and less confident users to understand.\n\nCosts also deserve careful comparison. A smart cooling system may reduce wasted electricity by responding to household routines. However, the initial price, possible subscriptions and future repairs can reduce those savings. A conventional home may be cheaper to maintain, particularly when residents already use energy carefully. The better option therefore depends on actual needs rather than impressive advertising.\n\nI would choose limited automation because it provides useful support without making every activity depend on a connected system. For instance, I would install efficient lighting controls but keep ordinary switches available. I would also check privacy settings before adding any device that collects personal information.\n\nOverall, smart homes offer valuable conveniences, while conventional homes provide simplicity and predictable control. Combining a reliable basic design with selected technology is, for me, a practical and affordable way to enjoy the advantages of both.",
+  places11: "Both viewpoints discuss where young adults can build a satisfying independent life. The city supporters prioritise access to education, employment, transport and varied social experiences. Those who favour small towns emphasise affordable living, community support and a calmer routine. Each side accepts that its preferred setting has limitations, including urban costs or fewer local opportunities. The central contrast is between choosing a wider range of opportunities and choosing a more manageable lifestyle with a stronger sense of belonging.",
+  places12: "Families with school-age children need a place that supports learning and makes everyday life manageable. Large cities and small towns can both meet these needs, although they offer different advantages. I would generally choose a well-connected small town, provided that it has reliable schools and basic services.\n\nLarge cities usually offer a wider choice of schools, libraries and specialist activities. A child who enjoys science, for example, may have access to museums and organised workshops. Specialist medical care may also be easier to find. However, availability does not always mean convenient access: high costs and long journeys can prevent families from using these opportunities regularly.\n\nSmall towns may have fewer institutions, but shorter local journeys can make school routines simpler. Parents may spend less time travelling and more time helping with homework or joining community activities. A family that lives near its school and a local clinic could find this arrangement very practical. Nevertheless, it might need to travel to a city for specialist treatment or an unusual course.\n\nMy preference is based on the value of a manageable daily routine. If children have a suitable school, safe recreation spaces and supportive neighbours, they do not necessarily need every possible activity nearby. For example, a local sports club can provide regular friendships and exercise, while occasional city visits can offer additional experiences.\n\nOverall, cities provide variety and specialist services, whereas small towns can offer convenience and close community ties. The best choice depends on the actual services available. For my family, a connected small town would combine everyday stability with access to wider opportunities when necessary."
+};
+
+const SPELL = [["Overcrowding, especially too much traffic.", "congestion"], ["Introducing new ideas or methods.", "innovative"], ["Connected with movement and physical activity.", "kinaesthetic"], ["The variety of living organisms in an area.", "biodiversity"], ["The place to which someone is travelling.", "destination"], ["Plants growing in a particular area.", "vegetation"], ["A city with a population of more than ten million.", "megacity"], ["Harmful substances or waste in the environment.", "pollution"], ["The growth of towns and cities as more people live there.", "urbanisation"], ["An organised electronic collection of information.", "database"], ["Using machines or software to perform tasks automatically.", "automation"], ["Able to be passed from parents to offspring through genes.", "heritable"]];
+
+const LINKERS = [["moreover", "A"], ["however", "C"], ["therefore", "R"], ["first", "S"], ["nevertheless", "C"], ["consequently", "R"], ["in addition", "A"], ["finally", "S"], ["as a result", "R"], ["furthermore", "A"], ["next", "S"], ["afterwards", "S"]];
+const LCAT = { A: "Addition", C: "Contrast", R: "Result", S: "Sequence" };
+
+const ORDERS = {
+  A: { t: "How a living roof is installed", s: ["First, an engineer checks that the roof can support the extra weight.", "Next, a waterproof layer is installed to protect the building.", "Then, a drainage layer is added so that excess water can escape.", "After that, the growing material is spread across the roof.", "Finally, the plants are placed and watered."] },
+  B: { t: "How to write a comparative essay", s: ["First, read all three prompts and decide on your position.", "Next, plan two comparison points with reasons and examples.", "Then, write an introduction that names both options and gives your view.", "After that, develop each comparison in a separate paragraph.", "Finally, check your verbs, spelling and word count."] },
+  C: { t: "Bonus (new): How rainwater harvesting works", s: ["First, rain falls on the roof and runs into the gutters.", "Next, the water is carried through pipes to a filter.", "Then, the clean water is stored in a large tank.", "After that, a pump sends the water to the garden taps.", "Finally, any extra water leaves through an overflow pipe."] }
+};
+
+const REWRITE = [
+  ["Passive", "Workers check the roof every month.", ["the roof is checked every month", "the roof is checked by workers every month", "every month the roof is checked", "every month, the roof is checked", "the roof is checked every month by workers"]],
+  ["Passive", "Gardeners water the plants twice a week.", ["the plants are watered twice a week", "the plants are watered by gardeners twice a week", "the plants are watered twice a week by gardeners"]],
+  ["Passive", "Engineers choose a light material for the roof.", ["a light material is chosen for the roof", "a light material is chosen for the roof by engineers", "a light material is chosen by engineers for the roof"]],
+  ["Passive", "The tank stores rainwater.", ["rainwater is stored in the tank", "rainwater is stored by the tank", "rainwater is stored in a tank"]],
+  ["Indirect question", "Where does the rainwater go? → Could you tell me …", ["could you tell me where the rainwater goes"]],
+  ["Indirect question", "Is the roof strong enough? → Do you know …", ["do you know if the roof is strong enough", "do you know whether the roof is strong enough"]],
+  ["Indirect question", "How much does a living roof cost? → Can you explain …", ["can you explain how much a living roof costs"]],
+  ["Indirect question", "When did they install the panels? → Do you know …", ["do you know when they installed the panels"]],
+  ["Zero conditional", "Plants get enough sunlight. They grow quickly. (If …)", ["if plants get enough sunlight they grow quickly", "if plants get enough sunlight, they grow quickly"]],
+  ["Comparative", "A bare roof is hot. A living roof is not as hot. (… cooler than …)", ["a living roof is cooler than a bare roof"]],
+  ["Bonus (new) · Passive", "Companies collect household data.", ["household data is collected", "household data is collected by companies", "household data are collected", "household data are collected by companies"]],
+  ["Bonus (new) · Indirect question", "Why is the bus late? → I wonder …", ["i wonder why the bus is late"]],
+  ["Bonus (new) · Linker", "Smart homes are convenient. They can be expensive. (However)", ["smart homes are convenient however they can be expensive", "smart homes are convenient. however, they can be expensive", "smart homes are convenient; however, they can be expensive"]],
+  ["Bonus (new) · Comparative", "The town is quiet. The city is not as quiet. (… quieter than …)", ["the town is quieter than the city"]]
+];
+
+const CHECK = {
+  "Vocabulary": ["I can explain and use all the Part 1 words.", "I can tell apart distractions/interruptions and voyage/destination.", "I understand every green-roof term and common word combinations."],
+  "Grammar": ["Zero conditional: if + present simple, present simple.", "Comparatives: cooler; more effective; better; worse.", "Quantity and degree: much cooler; slightly higher; less water; fewer plants.", "Present simple passive: is/are + past participle.", "Indirect questions: where it goes; whether it is safe.", "Linkers: addition, contrast and result.", "Sequencing: first, next, then, finally."],
+  "Reading": ["I can support each reading answer with evidence.", "I can distinguish details, main points and overall meaning.", "I can infer carefully and recognise a qualified, analytical tone.", "I can explain connections between examples and wider ideas."],
+  "Writing": ["I can summarise two viewpoints in 4–5 original sentences.", "I can write a comparative essay of at least 220 words, with reasons and examples.", "I have prepared both themes: smart homes and comparing places."]
+};
+
+const ACTS = {
+  vocab: [
+    ["flash", "🃏 Flashcards (30 words)", "Flip, listen and test yourself on every word.", el => flashcards(el)],
+    ["m1", "🔗 Matching 1: Pushing Boundaries", "12 words – choose the meaning.", el => matching(el, "m1", GLOSS["Pushing Boundaries"])],
+    ["m2", "🔗 Matching 2: Rise to the Challenge!", "12 words – choose the meaning.", el => matching(el, "m2", GLOSS["Rise to the Challenge!"])],
+    ["m3", "🔗 Matching 3: Green-roof terms (new)", "6 words – choose the meaning.", el => matching(el, "m3", GLOSS["Green-roof terms"])],
+    ["vgap", "✏️ Sentence gap-fill (24)", "Choose the word that completes each sentence.", el => mcq(el, "vgap", SETS.vgap.items)],
+    ["vbest", "✏️ Choose the best word (6)", "", el => mcq(el, "vbest", SETS.vbest.items)],
+    ["vcoll", "🧩 Collocations (14)", "Which word goes naturally with the words given?", el => mcq(el, "vcoll", SETS.vcoll.items)],
+    ["vpairs", "⚖️ Confusing pairs (16)", "distraction/interruption, voyage/destination…", el => mcq(el, "vpairs", SETS.vpairs.items)],
+    ["vforms", "🔤 Word forms (14)", "Noun, verb, adjective or adverb?", el => mcq(el, "vforms", SETS.vforms.items)],
+    ["spell", "🔡 Spelling puzzle (12)", "Read the meaning and type the word.", el => spelling(el, "spell")],
+    ["vtext1", "📄 Exam-style text 1: A voyage to Mars", "5 gaps, A/B/C – like Part 1.", el => gapText(el, "vtext1", SETS.vtext1)],
+    ["vtext2", "📄 Exam-style text 2: Growing cities", "5 gaps, A/B/C – like Part 1.", el => gapText(el, "vtext2", SETS.vtext2)],
+    ["vtext3", "📄 Exam-style text 3: Learning by doing", "5 gaps, A/B/C – like Part 1.", el => gapText(el, "vtext3", SETS.vtext3)],
+    ["vbonus", "⭐ Bonus: Definition challenge (12, new)", "Green-roof terms and usage.", el => mcq(el, "vbonus", SETS.vbonus.items)],
+    ["vtf", "⭐ Bonus: True or false? (10, new)", "Quick meaning check.", el => mcq(el, "vtf", SETS.vtf.items, { tf: true })]
+  ],
+  grammar: [
+    ["gzero", "G.5.1 Zero conditional (11)", "", el => mcq(el, "gzero", SETS.gzero.items)],
+    ["gcomp", "G.1.2 Comparative adjectives (11)", "", el => mcq(el, "gcomp", SETS.gcomp.items)],
+    ["gqty", "G.2.9 Quantity & degree (11)", "", el => mcq(el, "gqty", SETS.gqty.items)],
+    ["gpass", "G.10.1 Present simple passive (11)", "", el => mcq(el, "gpass", SETS.gpass.items)],
+    ["gind", "G.17.4 Indirect questions (11)", "", el => mcq(el, "gind", SETS.gind.items)],
+    ["glink", "G.2.5 Adverbial linkers (10)", "", el => mcq(el, "glink", SETS.glink.items)],
+    ["gseq", "G.2.2 Sequencing adverbs (7)", "", el => mcq(el, "gseq", SETS.gseq.items)],
+    ["gspot", "🔍 Spot the correct sentence (12)", "Mixed grammar.", el => mcq(el, "gspot", SETS.gspot.items)],
+    ["lnk", "🏷 Name the linker (12)", "Addition, contrast, result or sequence?", el => nameLinker(el, "lnk")],
+    ["ord", "🔢 Put the steps in order (3 tasks)", "Reorder the sentences.", el => orderSteps(el, "ord")],
+    ["rew", "✍️ Rewrite the sentence (14)", "Type the passive, indirect question, conditional…", el => rewrite(el, "rew")],
+    ["gtext1", "📄 Exam-style text: Cool roofs", "5 gaps – like Part 2.", el => gapText(el, "gtext1", SETS.gtext1)],
+    ["gtext2", "📄 Exam-style text: Collecting rainwater", "5 gaps – like Part 2.", el => gapText(el, "gtext2", SETS.gtext2)],
+    ["gerr", "⭐ Bonus: Find the mistake (10, new)", "Choose the correction.", el => mcq(el, "gerr", SETS.gerr.items)]
+  ],
+  reading: [
+    ["rsignal", "🔎 Signal words for tone & inference (8)", "", el => mcq(el, "rsignal", SETS.rsignal.items)],
+    ["r3a", "📖 Reading 3A practice: Nature and nurture (8)", "Argumentative text.", el => passageQuiz(el, "r3a", SETS.r3a)],
+    ["r3b", "📖 Reading 3B practice: Megacities and small towns (8)", "Expository text, C1.1.", el => passageQuiz(el, "r3b", SETS.r3b)],
+    ["rbonus", "⭐ Bonus reading (new): Smart cities (6)", "All question types.", el => passageQuiz(el, "rbonus", SETS.rbonus)]
+  ],
+  writing: [
+    ["wpara", "🔁 Paraphrase practice (6)", "", el => mcq(el, "wpara", SETS.wpara.items)],
+    ["wlink", "🔗 Comparison linkers in context (8)", "", el => mcq(el, "wlink", SETS.wlink.items)],
+    ["wdev", "⭐ Bonus: Developed or basic? (6, new)", "Recognise strong comparative writing.", el => mcq(el, "wdev", SETS.wdev.items)],
+    ["ws11", "📝 Smart homes – Task 1.1 summary", "4–5 sentences; model answer included.", el => writingTask(el, "ws11", { title: "Smart homes 1.1", task: "<b>1.1</b> Compare and contrast the two viewpoints. Summarise the main ideas in your own words in 4–5 sentences.<br><span class='muted'>Plan: (1) shared issue (2) Viewpoint A + reason (3) Viewpoint B + reason (4) similarity (5) central contrast.</span>", source: W11_SMART, model: MODELS.smart11 })],
+    ["ws12", "📝 Smart homes – Task 1.2 essay", "At least 220 words; model answer included.", el => writingTask(el, "ws12", { title: "Smart homes 1.2", task: "<b>1.2</b> Compare a highly automated home with a mainly conventional home. Discuss convenience and running costs; explain which type you prefer and why; support your choice with examples. Write at least 220 words in paragraphs.", min: 220, model: MODELS.smart12, checks: ["Introduction names both options + clear position", "Body paragraphs compare the SAME feature in both", "Reasons and realistic examples", "Acknowledged one advantage of the other option", "Comparison linkers used", "Conclusion confirms my judgement"] })],
+    ["wp1", "📝 Comparing places – paragraph", "Access to education: linker + reason + example.", el => writingTask(el, "wp1", { title: "Comparing places paragraph", task: "Write a comparative paragraph about <b>access to education</b> in a megacity and a small town. Include one similarity or contrast linker, a reason and an example.", checks: ["I used a similarity or contrast linker", "I gave a reason", "I gave an example", "I compared BOTH places"] })]
+  ]
+};
+const SEC_NOTES = {
+  vocab: `<div class="note">Remember: a <b>distraction</b> takes your attention away; an <b>interruption</b> actually stops the activity. A <b>voyage</b> is the journey; a <b>destination</b> is the place you reach. <b>Kinaesthetic</b> and <b>auditory</b> describe types of task, not types of learner.<br><b>Useful combinations:</b> traffic congestion · air pollution · urban infrastructure · significant consequence · protect privacy · improve drainage · support biodiversity</div>`,
+  grammar: `<div class="gnotes">
+  <details><summary><b>G.5.1 Zero conditional</b> – general facts and rules</summary><p><b>If/When + present simple, present simple.</b><br><i>If plants receive enough water, they grow.</i><br>Clauses can change order: <i>Plants grow if they receive enough water.</i> Comma after the if-clause when it comes first. Don't use <i>will</i>.</p></details>
+  <details><summary><b>G.1.2 Comparative adjectives</b></summary><p>Short: <b>-er than</b> (cool → cooler, hot → hotter, busy → busier). Long: <b>more + adj + than</b> (more efficient). Irregular: good → better, bad → worse. <i>less expensive than</i> = lower degree; <i>as effective as</i> = equal. ✘ more cooler ✘ gooder</p></details>
+  <details><summary><b>G.2.9 Quantity and degree</b></summary><p><b>much, far, a lot, slightly, considerably</b> + comparative: much cooler, far more effective. <b>very</b> + base adjective only (very cool ✔ very cooler ✘).<br><b>much/less</b> + uncountable (water) · <b>many/fewer</b> + countable plural (plants) · too much water · enough plants</p></details>
+  <details><summary><b>G.10.1 Present simple passive</b></summary><p><b>am/is/are + past participle.</b> <i>A drainage layer is installed.</i> <i>Water is absorbed by plants.</i> Negative: <i>The roof is not watered daily.</i> Question: <i>Is the roof inspected regularly?</i> Check: subject controls is/are; use the past participle (built, grown, chosen, made).</p></details>
+  <details><summary><b>G.17.4 Indirect questions</b></summary><p>Could you tell me…? / Do you know…? / Can you explain…? + <b>statement word order</b>.<br><i>Where does the water go?</i> → <i>Could you tell me where the water goes?</i><br><i>Is the roof safe?</i> → <i>Do you know if/whether the roof is safe?</i> Remove do/does/did.</p></details>
+  <details><summary><b>G.2.5 Adverbial linkers</b></summary><p><b>Addition:</b> moreover, furthermore, in addition · <b>Contrast:</b> however, nevertheless · <b>Result:</b> therefore, consequently, as a result.<br>Full stop or semicolon before the linker: <i>The installation is expensive. However, it can reduce cooling costs.</i></p></details>
+  <details><summary><b>G.2.2 Sequencing adverbs</b></summary><p><b>First/Firstly</b> = beginning · <b>Next/Then/Afterwards</b> = following stage · <b>Finally</b> = last stage. Sequencing shows order, not a reason or a contrast.</p></details></div>`,
+  reading: `<table class="rtab"><tr><th>Task</th><th>What to do</th><th>Trap to avoid</th></tr>
+  <tr><td>Specific information</td><td>Scan for a name, number, example or condition, then check the sentence around it.</td><td>A familiar word that doesn't match the detail.</td></tr>
+  <tr><td>Details</td><td>Match every part of the option with the text; expect paraphrases.</td><td>An answer that is only partly true.</td></tr>
+  <tr><td>Main points</td><td>Identify the central claim of a paragraph or argument.</td><td>An interesting example that is too narrow.</td></tr>
+  <tr><td>Inference</td><td>Combine clues from the text with careful reasoning.</td><td>Using your personal opinions as evidence.</td></tr>
+  <tr><td>Overall meaning</td><td>Read the introduction and conclusion, then check the whole text.</td><td>A title that covers only one paragraph.</td></tr>
+  <tr><td>Tone / attitude</td><td>Notice evaluative words, qualifications and the balance of evidence.</td><td>Calling a balanced text angry or enthusiastic.</td></tr>
+  <tr><td>Connections</td><td>Explain how two ideas, examples or perspectives relate.</td><td>Assuming similar vocabulary means the same argument.</td></tr></table>
+  <div class="note"><b>Routine:</b> Skim → read the question → locate evidence → eliminate unsupported options → check the complete answer.<br><b>3A Nature or nurture:</b> nature = inherited, biological; nurture = experience, education, surroundings. Heritable ≠ fixed.<br><b>3B Megacities & small towns:</b> track trade-offs (jobs, services, transport, housing, networks, pollution, costs, access). <i>may, depends, unevenly</i> = a qualified position.</div>`,
+  writing: `<div class="note"><b>Task 1.1 (15 marks):</b> 4–5 sentences. Identify the main claim and reasons in each viewpoint, say what they share and how they differ. Paraphrase; keep your own opinion out.<br><b>Plan:</b> (1) shared issue (2) Viewpoint A + reason (3) Viewpoint B + reason (4) a similarity (5) the central contrast.</div>
+  <div class="note"><b>Task 1.2 (25 marks):</b> at least 220 words (aim 240–280), answer all three prompts.<br>Introduction: both options + clear position → Body 1: same feature in both → Body 2: another feature + effects → Body 3: justify preference + realistic example → Conclusion: confirm judgement.</div>
+  <table class="rtab"><tr><th>Function</th><th>Language</th></tr><tr><td>Similarity</td><td>both, similarly, in the same way, likewise</td></tr><tr><td>Contrast</td><td>whereas, while, however, in contrast, unlike, on the other hand</td></tr><tr><td>Reasons</td><td>because, since, one reason is that, this is due to</td></tr><tr><td>Examples</td><td>for example, for instance, such as</td></tr><tr><td>Qualification</td><td>may, can, tends to, depends on, in some cases</td></tr><tr><td>Judgement</td><td>on balance, in my view, overall, I would argue that</td></tr></table>
+  <details class="gnotes"><summary><b>Theme tables: Smart homes & Comparing places</b></summary>
+  <table class="rtab"><tr><th>Point</th><th>Smart home</th><th>Conventional home</th></tr><tr><td>Convenience</td><td>Automatic lighting, remote control, alerts</td><td>Manual control; familiar routines</td></tr><tr><td>Costs</td><td>Installation and repair costs; potential energy savings</td><td>Lower technology costs; savings depend on habits</td></tr><tr><td>Privacy</td><td>Connected systems may collect household data</td><td>Fewer connected devices can reduce data exposure</td></tr><tr><td>Reliability</td><td>May depend on connectivity, updates or electricity</td><td>Manual features may be easier to use during faults</td></tr><tr><td>Accessibility</td><td>Voice controls may support independence</td><td>Physical switches can be simpler for some users</td></tr></table>
+  <table class="rtab"><tr><th>Criterion</th><th>Megacity</th><th>Small town</th></tr><tr><td>Education & employment</td><td>Wider range of institutions and jobs</td><td>Fewer local options; remote work may help</td></tr><tr><td>Transport & access</td><td>Extensive networks, but congestion and crowding</td><td>Short local journeys; limited public transport</td></tr><tr><td>Environment</td><td>Heat and pollution may be challenges</td><td>More open space, but car dependence may remain</td></tr><tr><td>Community</td><td>Diverse networks; anonymity is possible</td><td>Closer relationships; privacy may feel limited</td></tr><tr><td>Affordability</td><td>High housing demand can increase prices</td><td>Housing may cost less; travel costs can offset savings</td></tr></table>
+  <p><b>Developed comparison:</b> <i>Large cities often offer frequent buses, whereas small towns may have limited services. This can make city life more practical for students who do not drive, even though crowded journeys can be tiring.</i></p></details>`
+};
+
+const STORE = "g12t1rev";
+const MOCKCFG = {
+  intro: `<h3>Mock paper · 100 marks</h3><p>Part 1 Vocabulary /10 · Part 2 Grammar /10 · Reading 3A /24 · Reading 3B /16 · Writing /40.</p><p>Answer everything, then press <b>Submit mock</b> at the bottom. Reading & language (60 marks) is marked automatically; estimate your writing mark with the self-check, or send it to your teacher.</p>`,
+  p1: "Part 1: Vocabulary (5 × 2 = 10)", p2: "Part 2: Grammar (5 × 2 = 10)", p3a: "Reading 3A (8 × 3 = 24)", p3b: "Reading 3B (8 × 2 = 16)", pw: "Writing (40 marks)",
+  vocab: MOCK.vocab, grammar: MOCK.grammar, r3a: SETS.r3a, r3b: SETS.r3b,
+  w11: { title: "Mock Task 1.1", task: "<b>Task 1.1 (15 marks):</b> Compare and contrast the two points of view. Summarise the main ideas in your own words. Write 4–5 sentences.", source: W11_PLACES, model: MODELS.places11 },
+  w12: { title: "Mock Task 1.2", task: "<b>Task 1.2 (25 marks):</b> Compare living in a large city with living in a small town for a family with school-age children. In your essay: • compare access to education and everyday services; • explain which setting you think is more suitable and give reasons; • support your choice with examples, acknowledging one advantage of the other setting. Write at least 220 words in paragraphs.", min: 220, model: MODELS.places12, checks: ["I answered all three prompts.", "My introduction names both options and gives a clear position.", "Each body paragraph compares the same feature in both places.", "I gave reasons and at least one realistic example.", "I acknowledged one advantage of the other option.", "I used comparison linkers (whereas, however, both, unlike…).", "My conclusion confirms my judgement.", "I wrote at least 220 words in paragraphs.", "I checked verbs, spelling and punctuation."] }
+};
+</script>
+<script>// ===== APP =====
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const h = (tag, attrs = {}, html = "") => { const e = document.createElement(tag); for (const k in attrs) { if (k === "class") e.className = attrs[k]; else if (k.startsWith("on")) e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]); } if (html) e.innerHTML = html; return e; };
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+// ---------- storage ----------
+const STORE_KEY = STORE;
+let STATE = { name: "", best: {}, check: {}, writing: {} };
+try { const s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (s) STATE = Object.assign(STATE, s); } catch (e) {}
+function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch (e) {} updateProgress(); }
+function record(key, score, total) { const pct = Math.round(100 * score / total); if (!(key in STATE.best) || pct > STATE.best[key]) { STATE.best[key] = pct; save(); } }
+
+// ---------- MCQ engine ----------
+function mcq(container, key, items, opts = {}) {
+  const box = h("div", { class: "quiz" });
+  const head = h("div", { class: "quizhead" });
+  const scoreEl = h("span", { class: "score" });
+  const resetBtn = h("button", { class: "btn ghost", onclick: () => mcq(container, key, items, opts) }, "↺ Restart");
+  head.append(scoreEl, resetBtn);
+  box.append(head);
+  let answered = 0, correct = 0;
+  const order = opts.keepOrder ? items.map((_, i) => i) : items.map((_, i) => i);
+  const upd = () => { scoreEl.innerHTML = `Score: <b>${correct}</b> / ${items.length} <small>(${answered} answered)</small>`; if (answered === items.length) { record(key, correct, items.length); scoreEl.innerHTML += ` <span class="badge ${correct / items.length >= .8 ? 'good' : correct / items.length >= .5 ? 'mid' : 'low'}">${Math.round(100 * correct / items.length)}%</span>`; } };
+  order.forEach((idx, n) => {
+    const [q, options, a, ex] = items[idx];
+    const card = h("div", { class: "q" });
+    card.append(h("div", { class: "qtext" }, `<span class="qn">${n + 1}</span> ${q.replace(/___/g, "<span class='blank'>_____</span>")}`));
+    const ol = h("div", { class: "opts" });
+    const correctText = options[L(a)];
+    const shown = opts.noShuffle || options.length === 2 || opts.tf ? options : shuffle(options);
+    shown.forEach((o, i) => {
+      const b = h("button", { class: "opt" }, `<span class="ol">${String.fromCharCode(65 + i)}</span> ${esc(o)}`); b.dataset.v = o;
+      b.onclick = () => {
+        if (card.dataset.done) return; card.dataset.done = 1; answered++;
+        const ok = o === correctText; if (ok) correct++;
+        $$(".opt", ol).forEach(x => { x.disabled = true; if (x.dataset.v === correctText) x.classList.add("right"); });
+        if (!ok) b.classList.add("wrong");
+        card.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, (ok ? "✔ Correct. " : "✘ Not quite. The answer is <b>" + esc(correctText) + "</b>. ") + (ex ? esc(ex) : "")));
+        upd();
+      };
+      ol.append(b);
+    });
+    card.append(ol); box.append(card);
+  });
+  upd();
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Gap text engine (inline selects) ----------
+function gapText(container, key, set, opts = {}) {
+  const wrap = h("div", { class: "quiz" });
+  const txt = h("div", { class: "passage gaptext" });
+  let html = esc(set.text).split("\n\n").map(p => `<p>${p}</p>`).join("");
+  set.items.forEach((it, i) => {
+    const sel = `<select data-g="${i}"><option value="">(${i + 1}) ……</option>${it[1].map(o => `<option>${esc(o)}</option>`).join("")}</select>`;
+    html = html.replace(`[${i + 1}]`, sel);
+  });
+  txt.innerHTML = html;
+  const res = h("div", { class: "gapres" });
+  const btn = h("button", { class: "btn" }, "Check answers");
+  btn.onclick = () => {
+    let c = 0; res.innerHTML = "";
+    set.items.forEach((it, i) => {
+      const s = $(`select[data-g="${i}"]`, txt); const right = it[1][L(it[2])]; const ok = s.value === right; if (ok) c++;
+      s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok);
+      res.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, `<b>Gap ${i + 1}:</b> ${ok ? "✔" : "✘ answer: <b>" + esc(right) + "</b> –"} ${esc(it[3])}`));
+    });
+    res.prepend(h("div", { class: "score big" }, `Score: ${c} / ${set.items.length}${set.marks ? ` (${c * set.marks} marks)` : ""}`));
+    record(key, c, set.items.length);
+  };
+  const reset = h("button", { class: "btn ghost", onclick: () => gapText(container, key, set, opts) }, "↺ Restart");
+  wrap.append(txt, h("div", { class: "row" }), res);
+  wrap.children[1].append(btn, reset);
+  container.innerHTML = ""; container.append(wrap);
+}
+
+// ---------- Passage + questions ----------
+function passageQuiz(container, key, set) {
+  const grid = h("div", { class: "pgrid" });
+  const p = h("div", { class: "passage sticky" }, `<h4>${esc(set.passage.title)}</h4>` + set.passage.paras.map((t, i) => `<p><span class="pn">${i + 1}</span>${esc(t)}</p>`).join(""));
+  const qs = h("div");
+  grid.append(p, qs);
+  container.innerHTML = ""; container.append(grid);
+  mcq(qs, key, set.items, { noShuffle: false });
+}
+
+// ---------- Flashcards ----------
+function flashcards(container) {
+  let deckName = "All words"; let deck = Object.values(GLOSS).flat(); let i = 0, flipped = false; const known = new Set();
+  const sel = h("select", {}, `<option>All words</option>` + Object.keys(GLOSS).map(k => `<option>${k}</option>`).join(""));
+  const card = h("div", { class: "flash" }); const info = h("div", { class: "muted center" });
+  const draw = () => { const w = deck[i]; card.classList.toggle("flipped", flipped); card.innerHTML = flipped ? `<div class="fm">${esc(w[1])}</div><div class="fe">“${esc(w[2])}”</div>` : `<div class="fw">${esc(w[0])}</div><div class="muted">tap to see meaning</div>`; info.textContent = `Card ${i + 1} / ${deck.length} · I know: ${known.size}`; };
+  card.onclick = () => { flipped = !flipped; draw(); };
+  sel.onchange = () => { deckName = sel.value; deck = deckName === "All words" ? Object.values(GLOSS).flat() : GLOSS[deckName].slice(); i = 0; flipped = false; known.clear(); draw(); };
+  const nav = h("div", { class: "row center" });
+  nav.append(
+    h("button", { class: "btn ghost", onclick: () => { i = (i - 1 + deck.length) % deck.length; flipped = false; draw(); } }, "◀ Prev"),
+    h("button", { class: "btn ok", onclick: () => { known.add(deck[i][0]); i = (i + 1) % deck.length; flipped = false; draw(); } }, "✔ I know it"),
+    h("button", { class: "btn", onclick: () => { i = (i + 1) % deck.length; flipped = false; draw(); } }, "Next ▶"),
+    h("button", { class: "btn ghost", onclick: () => { deck = shuffle(deck); i = 0; flipped = false; draw(); } }, "🔀 Shuffle"),
+    h("button", { class: "btn ghost", onclick: () => speak(deck[i][0]) }, "🔊 Say it"));
+  container.innerHTML = ""; container.append(h("div", { class: "row center" }, "Word list: "), card, info, nav);
+  container.firstChild.append(sel); draw();
+}
+function speak(t) { try { const u = new SpeechSynthesisUtterance(t); u.lang = "en-GB"; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} }
+
+// ---------- Matching (dropdowns) ----------
+function matching(container, key, words) {
+  const defs = shuffle(words.map(w => w[1]));
+  const box = h("div", { class: "quiz" });
+  const list = h("div", { class: "match" });
+  words.forEach((w, i) => {
+    const row = h("div", { class: "mrow" });
+    row.append(h("div", { class: "mw" }, `<b>${i + 1}. ${esc(w[0])}</b>`));
+    const s = h("select", { "data-i": i }, `<option value="">— choose the meaning —</option>` + defs.map(d => `<option>${esc(d)}</option>`).join(""));
+    row.append(s); list.append(row);
+  });
+  const res = h("div");
+  const btn = h("button", { class: "btn" }, "Check matches");
+  btn.onclick = () => { let c = 0; $$("select", list).forEach(s => { const ok = s.value === words[+s.dataset.i][1]; if (ok) c++; s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok); }); res.innerHTML = `<div class="score big">Score: ${c} / ${words.length}</div>` + (c < words.length ? `<div class="muted">Red boxes are wrong – change them and check again, or press “Show answers”.</div>` : `<div class="fb ok">Excellent – all correct!</div>`); record(key, c, words.length); };
+  const show = h("button", { class: "btn ghost" }, "Show answers");
+  show.onclick = () => { $$("select", list).forEach(s => { s.value = words[+s.dataset.i][1]; s.classList.add("right"); s.classList.remove("wrong"); }); };
+  const r = h("div", { class: "row" }); r.append(btn, show, h("button", { class: "btn ghost", onclick: () => matching(container, key, words) }, "↺ Restart"));
+  box.append(list, r, res); container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Spelling ----------
+function spelling(container, key) {
+  const box = h("div", { class: "quiz" });
+  SPELL.forEach(([d, w], i) => {
+    const row = h("div", { class: "q" });
+    row.append(h("div", { class: "qtext" }, `<span class="qn">${i + 1}</span> ${esc(d)} <span class="hint">${w[0]} ${"_ ".repeat(w.length - 1)}(${w.length} letters)</span>`));
+    const inp = h("input", { type: "text", placeholder: "type the word…", autocomplete: "off", autocapitalize: "off", spellcheck: "false", "data-w": w });
+    const sp = h("button", { class: "btn ghost sm", onclick: () => speak(w) }, "🔊 hear it");
+    const r = h("div", { class: "row" }); r.append(inp, sp); row.append(r); box.append(row);
+  });
+  const res = h("div");
+  const btn = h("button", { class: "btn" }, "Check spelling");
+  btn.onclick = () => { let c = 0; $$("input", box).forEach(inp => { const ok = inp.value.trim().toLowerCase().replace("urbanization", "urbanisation").replace("kinesthetic", "kinaesthetic") === inp.dataset.w; if (ok) c++; inp.classList.toggle("right", ok); inp.classList.toggle("wrong", !ok); const old = inp.parentNode.parentNode.querySelector(".fb"); if (old) old.remove(); if (!ok) inp.parentNode.after(h("div", { class: "fb no" }, `Correct spelling: <b>${inp.dataset.w}</b>`)); }); res.innerHTML = `<div class="score big">Score: ${c} / ${SPELL.length}</div>`; record(key, c, SPELL.length); };
+  const r = h("div", { class: "row" }); r.append(btn, h("button", { class: "btn ghost", onclick: () => spelling(container, key) }, "↺ Restart"));
+  box.append(r, res); container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Name the linker ----------
+function nameLinker(container, key) {
+  const box = h("div", { class: "quiz" }); let c = 0, n = 0;
+  const sc = h("div", { class: "score" }); box.append(sc);
+  const grid = h("div", { class: "lgrid" });
+  shuffle(LINKERS).forEach(([w, a]) => {
+    const cell = h("div", { class: "lcell" }, `<div class="lw">${w}</div>`);
+    const r = h("div", { class: "row tight" });
+    Object.keys(LCAT).forEach(k => { const b = h("button", { class: "opt sm" }, LCAT[k]); b.onclick = () => { if (cell.dataset.done) return; cell.dataset.done = 1; n++; const ok = k === a; if (ok) c++; b.classList.add(ok ? "right" : "wrong"); if (!ok) $$("button", r).find(x => x.textContent === LCAT[a]).classList.add("right"); sc.innerHTML = `Score: <b>${c}</b> / ${LINKERS.length}`; if (n === LINKERS.length) record(key, c, n); }; r.append(b); });
+    cell.append(r); grid.append(cell);
+  });
+  sc.innerHTML = `Score: <b>0</b> / ${LINKERS.length}`;
+  box.append(grid, h("button", { class: "btn ghost", onclick: () => nameLinker(container, key) }, "↺ Restart"));
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Order the steps ----------
+function orderSteps(container, key) {
+  container.innerHTML = "";
+  Object.entries(ORDERS).forEach(([k, o]) => {
+    const box = h("div", { class: "quiz" }, `<h4>${esc(o.t)}</h4><p class="muted">Use ▲ ▼ to put the steps in the correct order.</p>`);
+    let cur = shuffle(o.s); while (cur.join() === o.s.join()) cur = shuffle(o.s);
+    const ul = h("div", { class: "olist" });
+    const draw = () => { ul.innerHTML = ""; cur.forEach((s, i) => { const li = h("div", { class: "oitem" }); li.append(h("span", { class: "qn" }, i + 1), h("span", { class: "otext" }, esc(s))); const up = h("button", { class: "btn ghost sm", onclick: () => { if (i > 0) { [cur[i - 1], cur[i]] = [cur[i], cur[i - 1]]; draw(); } } }, "▲"); const dn = h("button", { class: "btn ghost sm", onclick: () => { if (i < cur.length - 1) { [cur[i + 1], cur[i]] = [cur[i], cur[i + 1]]; draw(); } } }, "▼"); li.append(up, dn); ul.append(li); }); };
+    draw();
+    const res = h("div");
+    const btn = h("button", { class: "btn" }, "Check order");
+    btn.onclick = () => { let c = 0; $$(".oitem", ul).forEach((li, i) => { const ok = cur[i] === o.s[i]; if (ok) c++; li.classList.toggle("right", ok); li.classList.toggle("wrong", !ok); }); const n = o.s.length; res.innerHTML = `<div class="fb ${c === n ? "ok" : "no"}">${c} / ${n} in the right place. ${c === n ? "Perfect sequence!" : "Tip: look for order words and think about what must come first."}</div>`; record(key + k, c, n); };
+    box.append(ul, btn, res); container.append(box);
+  });
+}
+
+// ---------- Rewrite (typed) ----------
+const norm = s => s.toLowerCase().replace(/[“”"?.!,;:]/g, " ").replace(/\s+/g, " ").trim();
+function rewrite(container, key, items = REWRITE) {
+  const box = h("div", { class: "quiz" });
+  items.forEach(([type, src, ans, disp], i) => {
+    const q = h("div", { class: "q" }, `<div class="qtext"><span class="qn">${i + 1}</span> <span class="tag">${esc(type)}</span> ${esc(src)}</div>`);
+    const inp = h("input", { type: "text", placeholder: "Write the new sentence…", autocomplete: "off" });
+    const fb = h("div");
+    const b = h("button", { class: "btn sm" }, "Check");
+    b.onclick = () => { const ok = ans.map(norm).includes(norm(inp.value)); q.dataset.ok = ok ? 1 : 0; inp.classList.toggle("right", ok); inp.classList.toggle("wrong", !ok); const model = disp || ans[0].charAt(0).toUpperCase() + ans[0].slice(1) + (type.includes("Indirect") && !ans[0].startsWith("i wonder") ? "?" : "."); fb.innerHTML = ok ? `<div class="fb ok">✔ Correct.</div>` : `<div class="fb no">✘ Model answer: <b>${esc(model)}</b> <small>(small differences may still be acceptable – ask your teacher)</small></div>`; const done = $$(".q", box).filter(x => x.dataset.ok !== undefined); if (done.length === items.length) record(key, done.filter(x => x.dataset.ok === "1").length, items.length); };
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") b.click(); });
+    const r = h("div", { class: "row" }); r.append(inp, b); q.append(r, fb); box.append(q);
+  });
+  container.innerHTML = ""; container.append(box);
+}
+
+// ---------- Writing pad ----------
+function wordCount(t) { return (t.trim().match(/\S+/g) || []).length; }
+function writingTask(container, id, opts) {
+  const box = h("div", { class: "quiz" });
+  if (opts.source) box.append(h("details", { class: "src", open: "" }, `<summary>Source text</summary>${opts.source.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}`));
+  box.append(h("div", { class: "task" }, opts.task));
+  const ta = h("textarea", { rows: opts.min > 100 ? 16 : 7, placeholder: "Write your answer here… (it is saved on this device)" });
+  ta.value = STATE.writing[id] || "";
+  const wc = h("div", { class: "wc" });
+  const upd = () => { const n = wordCount(ta.value); const sents = (ta.value.match(/[^.!?]+[.!?]/g) || []).length; wc.innerHTML = opts.min ? `Words: <b class="${n >= opts.min ? "okc" : "noc"}">${n}</b> / at least ${opts.min}` : `Words: <b>${n}</b> · Sentences: <b class="${sents >= (opts.sent || [4, 5])[0] && sents <= (opts.sent || [4, 5])[1] ? "okc" : "noc"}">${sents}</b> (aim for ${(opts.sent || [4, 5]).join("–")})`; STATE.writing[id] = ta.value; save(); };
+  ta.oninput = upd;
+  box.append(ta, wc);
+  if (opts.checks) { const cl = h("div", { class: "checks" }, "<b>Self-check:</b>"); opts.checks.forEach((c, i) => { const k = id + "_c" + i; const lab = h("label", {}, `<input type="checkbox" ${STATE.check[k] ? "checked" : ""}> ${esc(c)}`); $("input", lab).onchange = e => { STATE.check[k] = e.target.checked; save(); }; cl.append(lab); }); box.append(cl); }
+  const r = h("div", { class: "row" });
+  r.append(h("button", { class: "btn ghost", onclick: () => { const t = `${STATE.name || "Student"} – ${opts.title}\n\n${ta.value}\n\n(${wordCount(ta.value)} words)`; try { navigator.clipboard.writeText(t).then(() => toast("Copied – paste it to send to your teacher."), () => { ta.select(); toast("Press Ctrl+C / long-press to copy."); }); } catch (e) { ta.select(); toast("Press Ctrl+C / long-press to copy."); } } }, "📋 Copy my answer"));
+  if (opts.model) { const m = h("div", { class: "model hidden" }, `<b>Model answer</b>${opts.model.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}<p class="muted">Learn from its structure; don't memorise it.</p>`); r.append(h("button", { class: "btn ghost", onclick: () => m.classList.toggle("hidden") }, "👁 Show / hide model answer")); box.append(r, m); } else box.append(r);
+  container.innerHTML = ""; container.append(box); upd();
+}
+function toast(t) { const d = h("div", { class: "toast" }, esc(t)); document.body.append(d); setTimeout(() => d.remove(), 2500); }
+
+// ---------- Mock exam ----------
+function mockExam(container) {
+  const M = MOCKCFG;
+  container.innerHTML = "";
+  const intro = h("div", { class: "quiz" }, M.intro);
+  const timer = h("div", { class: "timer" }, "⏱ 00:00"); let t0 = Date.now();
+  const tick = setInterval(() => { if (!document.body.contains(timer)) return clearInterval(tick); const s = Math.floor((Date.now() - t0) / 1000); timer.textContent = `⏱ ${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; }, 1000);
+  intro.append(timer); container.append(intro);
+  const parts = [];
+  const mkGap = (title, set, mk) => { const sec = h("div", { class: "quiz" }, `<h4>${title}</h4>`); if (set.title) sec.append(h("div", { class: "muted" }, `<b>${esc(set.title)}</b>`)); const txt = h("div", { class: "passage gaptext" }); let html = esc(set.text).split("\n\n").map(p => `<p>${p}</p>`).join(""); set.items.forEach((it, i) => { html = html.replace(`[${i + 1}]`, `<select data-g="${i}"><option value="">(${i + 1}) ……</option>${it[1].map(o => `<option>${esc(o)}</option>`).join("")}</select>`); }); txt.innerHTML = html; sec.append(txt); container.append(sec); parts.push({ name: title, max: set.items.length * mk, grade: () => { let c = 0; const fb = []; set.items.forEach((it, i) => { const s = $(`select[data-g="${i}"]`, txt); const right = it[1][L(it[2])]; const ok = s.value === right; if (ok) c++; s.classList.toggle("right", ok); s.classList.toggle("wrong", !ok); s.disabled = true; fb.push(`<div class="fb ${ok ? "ok" : "no"}">Gap ${i + 1}: ${ok ? "✔" : "✘ " + esc(right) + " –"} ${esc(it[3])}</div>`); }); sec.append(h("div", {}, fb.join(""))); return c * mk; } }); };
+  const mkRead = (title, set) => { const sec = h("div", { class: "quiz" }, `<h4>${title}</h4>`); const grid = h("div", { class: "pgrid" }); grid.append(h("div", { class: "passage sticky" }, `<h4>${esc(set.passage.title)}</h4>` + set.passage.paras.map((t, i) => `<p><span class="pn">${i + 1}</span>${esc(t)}</p>`).join(""))); const qs = h("div"); set.items.forEach(([q, o, a], i) => { const card = h("div", { class: "q" }, `<div class="qtext"><span class="qn">${i + 1}</span> ${q}</div>`); const opts = h("div", { class: "opts" }); o.forEach((x, j) => { const lab = h("label", { class: "ropt" }, `<input type="radio" name="${title}${i}" value="${j}"> <span class="ol">${String.fromCharCode(65 + j)}</span> ${esc(x)}`); opts.append(lab); }); card.append(opts); qs.append(card); }); grid.append(qs); sec.append(grid); container.append(sec); parts.push({ name: title, max: set.items.length * set.marks, grade: () => { let c = 0; set.items.forEach(([q, o, a, ex], i) => { const card = qs.children[i]; const v = $(`input[name="${title}${i}"]:checked`, card); const ok = v && +v.value === L(a); if (ok) c++; $$("input", card).forEach(x => x.disabled = true); $$("label", card)[L(a)].classList.add("right"); if (v && !ok) v.parentNode.classList.add("wrong"); card.append(h("div", { class: "fb " + (ok ? "ok" : "no") }, (ok ? "✔ " : "✘ ") + esc(ex))); }); return c * set.marks; } }); };
+  mkGap(M.p1, M.vocab, 2);
+  mkGap(M.p2, M.grammar, 2);
+  mkRead(M.p3a, M.r3a);
+  mkRead(M.p3b, M.r3b);
+  const w1 = h("div"), w2 = h("div");
+  container.append(h("div", { class: "quiz" }, `<h4>${M.pw}</h4>`), w1, w2);
+  writingTask(w1, "mock11", M.w11);
+  writingTask(w2, "mock12", M.w12);
+  const est = h("div", { class: "quiz" }, `<b>Estimate your writing mark (optional):</b> Task 1.1 <input type="number" min="0" max="15" id="w11m" class="num"> /15 · Task 1.2 <input type="number" min="0" max="25" id="w12m" class="num"> /25` + (M.rubric || ""));
+  const res = h("div", { class: "result" });
+  const sub = h("button", { class: "btn big" }, "✅ Submit mock");
+  sub.onclick = () => {
+    if (!confirmBox()) return;
+    sub.disabled = true; clearInterval(tick);
+    const marks = parts.map(p => ({ n: p.name, m: p.grade(), max: p.max }));
+    const auto = marks.reduce((a, b) => a + b.m, 0);
+    const w11 = Math.min(15, +($("#w11m").value || 0)), w12 = Math.min(25, +($("#w12m").value || 0));
+    const wTot = w11 + w12;
+    record("mock", auto, 60);
+    res.innerHTML = `<h3>Your result${STATE.name ? " – " + esc(STATE.name) : ""}</h3><table class="rt">${marks.map(x => `<tr><td>${x.n}</td><td><b>${x.m}</b> / ${x.max}</td></tr>`).join("")}<tr><td>Reading & language</td><td><b>${auto}</b> / 60</td></tr><tr><td>Writing (self-estimate)</td><td><b>${wTot || "—"}</b> / 40</td></tr><tr class="tot"><td>TOTAL ${wTot ? "" : "(without writing)"}</td><td><b>${auto + wTot}</b> / ${wTot ? 100 : 60}</td></tr></table><p class="muted">Time taken: ${timer.textContent.replace("⏱ ", "")}. Scroll up to see the feedback on every question. Take a screenshot of this box to share it with your teacher.</p>`;
+    res.scrollIntoView({ behavior: "smooth" });
+  };
+  container.append(est, sub, res);
+}
+let mockWarned = false;
+function confirmBox() { const un = $$("#mock select").filter(s => !s.value).length + (MOCKCFG.r3a.items.length + MOCKCFG.r3b.items.length - $$("#mock input[type=radio]:checked").length); if (un <= 0 || mockWarned) return true; mockWarned = true; toast(un + " question(s) not answered yet – press Submit again to finish anyway."); return false; }
+
+// ---------- Quick random quiz ----------
+function quickQuiz(container) {
+  const pool = [];
+  Object.entries(SETS).forEach(([k, s]) => { if (!s.gap && !s.passage && !s.tf) s.items.forEach(it => pool.push(it)); });
+  mcq(container, "quick", shuffle(pool).slice(0, 20));
+}
+
+// ---------- Checklist ----------
+function checklist(container) {
+  container.innerHTML = "";
+  const all = Object.values(CHECK).flat().length;
+  const bar = h("div", { class: "pbar" }, "<div></div>"); const lbl = h("div", { class: "muted" });
+  const upd = () => { const n = Object.keys(STATE.check).filter(k => k.startsWith("cl_") && STATE.check[k]).length; bar.firstChild.style.width = (100 * n / all) + "%"; lbl.textContent = `${n} / ${all} ready`; };
+  container.append(bar, lbl);
+  Object.entries(CHECK).forEach(([sec, items]) => { const box = h("div", { class: "quiz" }, `<h4>${sec}</h4>`); items.forEach((t, i) => { const k = "cl_" + sec + i; const lab = h("label", { class: "cl" }, `<input type="checkbox" ${STATE.check[k] ? "checked" : ""}> ${esc(t)}`); $("input", lab).onchange = e => { STATE.check[k] = e.target.checked; save(); upd(); }; box.append(lab); }); container.append(box); });
+  upd();
+}
+
+// ---------- Activities registry ----------
+
+function renderSection(sec) {
+  const host = $("#sec-" + sec); host.innerHTML = SEC_NOTES[sec] || "";
+  const list = h("div", { class: "acts" });
+  ACTS[sec].forEach(([k, t, d, fn]) => {
+    const pct = bestFor(k);
+    const card = h("div", { class: "act" }, `<div class="at">${t}</div><div class="ad">${d}</div><div class="ab">${pct != null ? `<span class="badge ${pct >= 80 ? "good" : pct >= 50 ? "mid" : "low"}">best ${pct}%</span>` : ""}</div>`);
+    card.onclick = () => openActivity(t, fn);
+    list.append(card);
+  });
+  host.append(list);
+}
+function bestFor(k) { if (STATE.best[k] != null) return STATE.best[k]; const v = Object.keys(STATE.best).filter(x => x.length === k.length + 1 && x.startsWith(k) && /[A-Z]$/.test(x)).map(x => STATE.best[x]); return v.length ? Math.round(v.reduce((a, b) => a + b) / v.length) : null; }
+function openActivity(title, fn) {
+  const v = $("#activity"); v.innerHTML = "";
+  const back = h("button", { class: "btn ghost", onclick: () => { v.classList.add("hidden"); $("#main").classList.remove("hidden"); renderAll(); window.scrollTo(0, 0); } }, "← Back");
+  const body = h("div");
+  v.append(back, h("h2", {}, title), body); fn(body);
+  $("#main").classList.add("hidden"); v.classList.remove("hidden"); window.scrollTo(0, 0);
+}
+
+function updateProgress() {
+  const keys = Object.values(ACTS).flat().map(a => a[0]).filter(k => !/^(flash$|w[shp]\d)/.test(k));
+  const done = keys.filter(k => bestFor(k) != null);
+  const avg = done.length ? Math.round(done.reduce((a, k) => a + bestFor(k), 0) / done.length) : 0;
+  const el = $("#prog"); if (el) el.innerHTML = `<div class="pbar"><div style="width:${100 * done.length / keys.length}%"></div></div><div class="muted">${done.length} of ${keys.length} activities completed · average best score ${avg}%${STATE.best.mock != null ? ` · mock (reading & language) ${STATE.best.mock}%` : ""}</div>`;
+}
+function renderAll() { ["vocab", "grammar", "reading", "writing"].forEach(renderSection); updateProgress(); }
+
+function showTab(id) {
+  $$(".tab").forEach(t => t.classList.toggle("on", t.dataset.t === id));
+  $$(".page").forEach(p => p.classList.toggle("hidden", p.id !== "pg-" + id));
+  $("#activity").classList.add("hidden"); $("#main").classList.remove("hidden");
+  if (id === "mock" && !$("#mock").children.length) { mockWarned = false; mockExam($("#mock")); }
+  if (id === "check") checklist($("#checkhost"));
+  window.scrollTo(0, 0);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  $$(".tab").forEach(t => t.onclick = () => showTab(t.dataset.t));
+  const nm = $("#sname"); nm.value = STATE.name || ""; nm.oninput = () => { STATE.name = nm.value; save(); };
+  $("#quickbtn").onclick = () => openActivity("⚡ Quick quiz: 20 random questions", el => quickQuiz(el));
+  const ra = $("#resetall"); ra.onclick = () => { if (ra.dataset.arm) { STATE = { name: STATE.name, best: {}, check: {}, writing: {} }; save(); renderAll(); ra.textContent = "Reset my progress"; delete ra.dataset.arm; toast("Progress reset."); } else { ra.dataset.arm = 1; ra.textContent = "Click again to delete all saved scores"; setTimeout(() => { delete ra.dataset.arm; ra.textContent = "Reset my progress"; }, 4000); } };
+  $$("[data-go]").forEach(b => b.onclick = () => showTab(b.dataset.go));
+  renderAll();
+});
+</script>
+</body>
+</html>
