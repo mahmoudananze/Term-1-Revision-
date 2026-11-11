@@ -125,6 +125,12 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 .part{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fbfcfe}
 .part h4{margin:0 0 6px}
 .tips li{margin:4px 0}
+.markbox{border:2px solid var(--navy);border-radius:14px;padding:12px 16px;margin-top:12px;background:#fff}
+.markhead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bigmark{font-size:40px;font-weight:800;color:var(--navy)}.bigmark small{font-size:18px;color:var(--mut)}
+.band{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;font-weight:800}
+.b5{background:#1e8e4e}.b4{background:#3bb873}.b3{background:#e0a526}.b2{background:#e07b26}.b1,.b0{background:#c0392b}
+.mt{margin-top:8px}.rtab td{font-size:14px}
 </style>
 <style>:root{--navy:#2b4a1f;--navy2:#3f6b2d;--acc:#e0a526}header{background:linear-gradient(120deg,#24461b,#3f6b2d)}.tab.on{color:var(--navy)}</style>
 </head>
@@ -192,6 +198,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 <div id="activity" class="hidden"></div>
 </main>
 <footer>Scientific Institute for Secondary Education · English Department · Grade 10 GLG · Dr. Mahmoud Ananzeh</footer>
+<script src="dict.js"></script>
 <script>// ===== DATA: Grade 10 GLG · Stage 6 · B1.2 (Mahmoud Ananzeh) =====
 const STORE = "g10glg";
 const L = s => s.charCodeAt(0) - 65;
@@ -475,7 +482,12 @@ const MODELS = {
   h12: "I believe that sharing a flat with roommates is a good idea for students, but only if everyone follows clear rules.\n\nThe first advantage is money. Rent and bills are expensive, and students don't have to pay everything alone when they share the costs. A student I know saved about a third of his money last year when he moved in with two friends.\n\nHowever, roommates have responsibilities. Everyone must clean the kitchen, and nobody should leave dirty dishes for other people. You also have to pay your part of the bills on time, and you mustn't make noise late at night.\n\nThe second problem is privacy. Some people need more quiet time than others, so roommates should respect each other's rooms and ask before they invite friends.\n\nIn conclusion, sharing a flat saves money and teaches responsibility. I think it is a good idea if roommates agree on a schedule and speak honestly. (154 words)"
 };
 const CHECK12 = ["I covered all three prompts in Task 1.2.", "I gave my opinion in paragraph 1.", "I used examples and an experience (past tense or must / have to).", "I wrote at least 150 words in paragraphs.", "I used linkers and the correct tenses or modals.", "I checked spelling and capital letters."];
-const RUBRIC = `<details class="gnotes" style="margin-top:10px"><summary>Practice scoring guides (classroom use, not the official rubric)</summary><table class="rtab"><tr><th>Task 1.1 (15)</th><th>Marks</th></tr><tr><td>Main ideas covered (all key points of the text)</td><td>6</td></tr><tr><td>Own words (no copying from the text)</td><td>4</td></tr><tr><td>Accuracy of grammar, spelling and punctuation</td><td>3</td></tr><tr><td>3–4 clear, connected sentences</td><td>2</td></tr></table><table class="rtab"><tr><th>Task 1.2 (25)</th><th>Marks</th></tr><tr><td>Opinion and all three prompts covered with reasons or examples</td><td>9</td></tr><tr><td>Organisation: paragraphs, topic sentences, linkers</td><td>6</td></tr><tr><td>Range and accuracy of language (tenses, modals, vocabulary)</td><td>6</td></tr><tr><td>Length (about 150 words) and handwriting / presentation</td><td>4</td></tr></table></details>`;
+const RUBRIC = `<details class="gnotes" style="margin-top:10px"><summary>Writing rubric (5 criteria × 5 marks)</summary><table class="rtab"><tr><th>Band</th><th>Task Completion</th><th>Structure</th><th>Grammar</th><th>Vocabulary</th><th>Spelling & Punctuation</th></tr>
+<tr><td><b>5</b></td><td>All parts fully, detailed reasons, examples</td><td>Well-developed paragraphs, wide range of connectors</td><td>Wide range of simple + complex sentences, accurate</td><td>Wide range, less common + topic words</td><td>Almost all correct; wide range of punctuation</td></tr>
+<tr><td><b>4</b></td><td>All parts; one less developed</td><td>Clear paragraphs and topic sentences</td><td>Range of sentences, good control</td><td>Wide range, some repetition</td><td>Most correct; range of punctuation</td></tr>
+<tr><td><b>3</b></td><td>Most parts; one missing</td><td>Paragraphs, weak topic sentences</td><td>Simple + compound, few complex</td><td>Mostly common words</td><td>Common words correct; capitals and full stops mostly correct</td></tr>
+<tr><td><b>2</b></td><td>Only part of the prompt</td><td>One paragraph or connected sentences</td><td>Simple sentences, frequent errors</td><td>Limited, repetitive</td><td>Frequent errors; capitals inconsistent</td></tr>
+<tr><td><b>1</b></td><td>A few loosely related ideas</td><td>Little order</td><td>Mainly fragments</td><td>Too few words</td><td>Little correct spelling</td></tr></table><p class="muted">Task 1.2 = the 5 criteria out of 25. Task 1.1 is converted to 15. A response copied from the source text gets 0. Press ✨ Mark my writing for an automatic estimate.</p></details>`;
 
 // ---- Mock (new, original) ----
 const MOCK = {
@@ -534,12 +546,47 @@ const MOCK = {
 const W11_MOCK = "Many young people dream of living with friends when they start university or their first job. Sharing a flat has clear advantages. The rent and the bills are divided, so each person pays much less than if they lived alone. Roommates can also help each other with cooking, shopping and studying, and nobody feels lonely in the evenings.\n\nHowever, shared living is not always easy. People have different habits: one person may like to go to bed early, while another enjoys listening to music late at night. Arguments about cleaning and noise are very common. For this reason, experts say that roommates must agree on clear rules from the first day. They should make a cleaning schedule, decide when guests can visit and talk calmly when there is a problem. When everyone respects these rules, sharing a flat can become a very positive experience that teaches cooperation and responsibility.";
 const MODEL_M11 = "The text explains that sharing a flat helps young people save money and support each other. However, roommates often have different habits, which can cause arguments about cleaning and noise. Experts say that roommates must agree on rules, such as a cleaning schedule and visiting times, from the beginning. If everyone respects the rules, shared living can teach cooperation and responsibility.";
 const MODEL_M12 = "In my opinion, students should live with roommates during their first year at university, because it saves money and teaches them important skills.\n\nFirst, living with others is much cheaper. Students have to pay rent, electricity and internet bills, and sharing these costs means they can spend more money on books and food.\n\nHowever, roommates have to follow some rules. Everyone must clean the kitchen after cooking, and nobody should play loud music late at night. You also mustn't eat other people's food without asking. Last year my cousin moved into a flat with two friends. At first, they were arguing about the dishes every day, but then they made a schedule, and everything became calmer.\n\nIn addition, living with roommates helps you make new friends and feel less lonely far from home.\n\nIn conclusion, I believe that sharing a flat is a good idea for first-year students, as long as everyone agrees on clear rules and respects each other's privacy.";
+
+const TOPIC10 = ["roommate","colleague","privacy","community","deadline","schedule","authority","regulation","manage","cope","humidity","temperature","climate","season","absorb","reflect","hazardous","severe","ability","skill","rescue","safety","textile","fabric","responsib","cooperat","outdoor","activit","weather","rent","bills","personal space"];
+const MARK = {
+  ws11: { kind: "summary", level: "g10", topic: TOPIC10, ideas: [
+    { label: "winter is popular / cooler weather", kw: ["winter", "cool", "cooler"] },
+    { label: "outdoor activities", kw: ["outdoor", "outside", "picnic", "park", "beach", "camp", "football", "activit"] },
+    { label: "summer is hot and humid", kw: ["hot", "humid", "heat", "temperature", "fifty", "50"] },
+    { label: "summer advantages (holidays, travel, skills)", kw: ["holiday", "travel", "skill", "school", "grandparent", "free time"] },
+    { label: "the best season depends on the person", kw: ["depend", "different", "each season", "every season"] } ] },
+  ws12: { kind: "essay", level: "g10", min: 150, topic: TOPIC10, prompts: [
+    { label: "what people can do in each season", kw: ["activit", "play", "picnic", "camp", "beach", "park", "travel", "outdoor", "sport", "swim", "football"] },
+    { label: "problems of each season", kw: ["problem", "hot", "heat", "humid", "cold", "wind", "dust", "difficult", "rain"] },
+    { label: "a personal experience (past tense)", kw: ["last summer", "last winter", "last year", "i remember", "when i was", "i was", "we were", "we went", "i went", "ago"] } ] },
+  wh11: { kind: "summary", level: "g10", topic: TOPIC10, ideas: [
+    { label: "talk and agree on rules", kw: ["talk", "honest", "agree", "rules", "discuss"] },
+    { label: "share the bills fairly", kw: ["bill", "pay", "cost", "account", "app", "money", "rent"] },
+    { label: "respect each other", kw: ["respect", "borrow", "ask", "late"] },
+    { label: "solve problems calmly", kw: ["problem", "calm", "argu"] },
+    { label: "it teaches useful skills", kw: ["skill", "cooperat", "patien", "responsib", "teach", "learn"] } ] },
+  wh12: { kind: "essay", level: "g10", min: 150, topic: TOPIC10, prompts: [
+    { label: "money (rent and bills)", kw: ["rent", "bill", "money", "cost", "pay", "cheap", "expens", "save"] },
+    { label: "rules and responsibilities", kw: ["must", "have to", "has to", "mustn't", "rule", "responsib", "clean"] },
+    { label: "privacy and personal space", kw: ["privacy", "private", "personal space", "quiet", "own room", "alone"] } ] },
+  mock11: { kind: "summary", level: "g10", topic: TOPIC10, ideas: [
+    { label: "sharing saves money", kw: ["money", "rent", "bill", "cheap", "less", "save", "pay"] },
+    { label: "roommates help each other", kw: ["help", "support", "lonely", "cook", "study"] },
+    { label: "different habits cause arguments", kw: ["habit", "argu", "noise", "clean", "music", "different"] },
+    { label: "agree on clear rules", kw: ["rule", "schedule", "agree", "guest", "talk"] },
+    { label: "it teaches cooperation and responsibility", kw: ["cooperat", "responsib", "positive", "teach", "learn"] } ] },
+  mock12: { kind: "essay", level: "g10", min: 150, topic: TOPIC10, prompts: [
+    { label: "money (rent and bills)", kw: ["rent", "bill", "money", "cost", "pay", "cheap", "expens", "save"] },
+    { label: "rules and responsibilities", kw: ["must", "have to", "has to", "mustn't", "rule", "responsib", "clean"] },
+    { label: "a personal experience or example", kw: ["for example", "for instance", "last year", "last summer", "my cousin", "my brother", "my sister", "my friend", "i remember", "once"] } ] }
+};
+
 const MOCKCFG = {
-  intro: `<h3>Grade 10 mock paper · 100 marks</h3><p>Part 1 Vocabulary /10 · Part 2 Grammar /10 · Part 3A Reading /24 · Part 3B Reading /16 · Part 4 Writing /40.</p><p>All texts are new – they are not in the guide. Follow the test-day order if you like: Part 1 → Part 2 → Part 3A → Part 4 → Part 3B. Press <b>Submit mock</b> at the bottom: Reading & Viewing (60) is marked automatically; estimate your writing with the practice scoring guide.</p>`,
+  intro: `<h3>Grade 10 mock paper · 100 marks</h3><p>Part 1 Vocabulary /10 · Part 2 Grammar /10 · Part 3A Reading /24 · Part 3B Reading /16 · Part 4 Writing /40.</p><p>All texts are new – they are not in the guide. Follow the test-day order if you like: Part 1 → Part 2 → Part 3A → Part 4 → Part 3B. Press <b>Submit mock</b> at the bottom: Reading & Viewing (60) is marked automatically, and writing (40) gets a generous estimate based on the exam rubric. Your teacher's mark is final.</p>`,
   p1: "Part 1: Vocabulary (5 × 2 = 10)", p2: "Part 2: Grammar (5 × 2 = 10)", p3a: "Part 3A: Reading at grade level (8 × 3 = 24)", p3b: "Part 3B: Reading beyond grade level (8 × 2 = 16)", pw: "Part 4: Writing (40 marks) – Ready for a Shared-Living Experience?",
   vocab: MOCK.vocab, grammar: MOCK.grammar, r3a: MOCK.r3a, r3b: MOCK.r3b,
-  w11: { title: "Mock Task 1.1", task: "<b>Task 1.1 (15 marks):</b> Read the text. Write the main ideas in your own words in 3–4 sentences.", source: W11_MOCK, model: MODEL_M11, sent: [3, 4] },
-  w12: { title: "Mock Task 1.2", task: "<b>Task 1.2 (25 marks):</b> Do you think first-year university students should live with roommates? Write an argumentative text of at least 150 words in paragraphs. Use all three prompts: • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • a personal experience or example (you can use the past tense).", min: 150, model: MODEL_M12, checks: CHECK12 },
+  w11: { mark: MARK.mock11, title: "Mock Task 1.1", task: "<b>Task 1.1 (15 marks):</b> Read the text. Write the main ideas in your own words in 3–4 sentences.", source: W11_MOCK, model: MODEL_M11, sent: [3, 4] },
+  w12: { mark: MARK.mock12, title: "Mock Task 1.2", task: "<b>Task 1.2 (25 marks):</b> Do you think first-year university students should live with roommates? Write an argumentative text of at least 150 words in paragraphs. Use all three prompts: • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • a personal experience or example (you can use the past tense).", min: 150, model: MODEL_M12, checks: CHECK12 },
   rubric: RUBRIC
 };
 
@@ -593,10 +640,10 @@ const ACTS = {
     ["ord", "🔢 Put the steps in order (3 tasks)", "Part 1 strategy, Task 1.2 plan, test-day order.", el => orderSteps(el, "ord")],
     ["wfl", "⭐ Useful language: opinion, past, must / have to (8)", "", el => mcq(el, "wfl", SETS.wfl.items)],
     ["wsum", "⭐ Good summary or not? (5)", "Task 1.1 skills.", el => mcq(el, "wsum", SETS.wsum.items)],
-    ["ws11", "📝 Seasons – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "ws11", { title: "Seasons 1.1", task: "<b>Task 1.1</b> Read the text “Which Season Is Best?”. Write the main ideas in your own words in 3–4 sentences. Start with <i>The text is about …</i> or <i>The text explains that …</i>", source: W11_SEASONS, model: MODELS.s11, sent: [3, 4] })],
-    ["ws12", "📝 Seasons – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "ws12", { title: "Seasons 1.2", task: "<b>Task 1.2</b> Write about whether you think summer is better than winter. • what people can do in each season • problems of each season • a personal experience (use the past tense). At least 150 words in paragraphs.", min: 150, model: MODELS.s12, checks: CHECK12 })],
-    ["wh11", "📝 Shared living – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "wh11", { title: "Shared living 1.1", task: "<b>Task 1.1</b> Read the text “Ready for a Shared Flat?”. Write the main ideas in your own words in 3–4 sentences.", source: W11_SHARED, model: MODELS.h11, sent: [3, 4] })],
-    ["wh12", "📝 Shared living – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "wh12", { title: "Shared living 1.2", task: "<b>Task 1.2</b> Write about whether you think sharing a flat with roommates is a good idea for students. • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • privacy and personal space. At least 150 words in paragraphs.", min: 150, model: MODELS.h12, checks: CHECK12 })]
+    ["ws11", "📝 Seasons – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "ws11", { mark: MARK.ws11, title: "Seasons 1.1", task: "<b>Task 1.1</b> Read the text “Which Season Is Best?”. Write the main ideas in your own words in 3–4 sentences. Start with <i>The text is about …</i> or <i>The text explains that …</i>", source: W11_SEASONS, model: MODELS.s11, sent: [3, 4] })],
+    ["ws12", "📝 Seasons – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "ws12", { mark: MARK.ws12, title: "Seasons 1.2", task: "<b>Task 1.2</b> Write about whether you think summer is better than winter. • what people can do in each season • problems of each season • a personal experience (use the past tense). At least 150 words in paragraphs.", min: 150, model: MODELS.s12, checks: CHECK12 })],
+    ["wh11", "📝 Shared living – Task 1.1 summary", "3–4 sentences · model answer included.", el => writingTask(el, "wh11", { mark: MARK.wh11, title: "Shared living 1.1", task: "<b>Task 1.1</b> Read the text “Ready for a Shared Flat?”. Write the main ideas in your own words in 3–4 sentences.", source: W11_SHARED, model: MODELS.h11, sent: [3, 4] })],
+    ["wh12", "📝 Shared living – Task 1.2 argumentative text", "At least 150 words · model answer included.", el => writingTask(el, "wh12", { mark: MARK.wh12, title: "Shared living 1.2", task: "<b>Task 1.2</b> Write about whether you think sharing a flat with roommates is a good idea for students. • money (rent and bills) • rules and responsibilities (what you must / have to / mustn't do) • privacy and personal space. At least 150 words in paragraphs.", min: 150, model: MODELS.h12, checks: CHECK12 })]
   ]
 };
 
@@ -836,7 +883,10 @@ function writingTask(container, id, opts) {
   if (opts.checks) { const cl = h("div", { class: "checks" }, "<b>Self-check:</b>"); opts.checks.forEach((c, i) => { const k = id + "_c" + i; const lab = h("label", {}, `<input type="checkbox" ${STATE.check[k] ? "checked" : ""}> ${esc(c)}`); $("input", lab).onchange = e => { STATE.check[k] = e.target.checked; save(); }; cl.append(lab); }); box.append(cl); }
   const r = h("div", { class: "row" });
   r.append(h("button", { class: "btn ghost", onclick: () => { const t = `${STATE.name || "Student"} – ${opts.title}\n\n${ta.value}\n\n(${wordCount(ta.value)} words)`; try { navigator.clipboard.writeText(t).then(() => toast("Copied – paste it to send to your teacher."), () => { ta.select(); toast("Press Ctrl+C / long-press to copy."); }); } catch (e) { ta.select(); toast("Press Ctrl+C / long-press to copy."); } } }, "📋 Copy my answer"));
+  let mres = null;
+  if (opts.mark) { mres = h("div"); const cfg = Object.assign({ source: opts.source, min: opts.min, sent: opts.sent }, opts.mark); r.prepend(h("button", { class: "btn", onclick: () => { const res = markWriting(ta.value, cfg); mres.innerHTML = renderMark(res, cfg); const inp = document.getElementById(id === "mock11" ? "w11m" : id === "mock12" ? "w12m" : "none"); if (inp) inp.value = res.mark; record("w_" + id, res.mark, res.max); mres.scrollIntoView({ behavior: "smooth", block: "nearest" }); } }, "✨ Mark my writing")); }
   if (opts.model) { const m = h("div", { class: "model hidden" }, `<b>Model answer</b>${opts.model.split("\n\n").map(p => `<p>${esc(p)}</p>`).join("")}<p class="muted">Learn from its structure; don't memorise it.</p>`); r.append(h("button", { class: "btn ghost", onclick: () => m.classList.toggle("hidden") }, "👁 Show / hide model answer")); box.append(r, m); } else box.append(r);
+  if (mres) box.append(mres);
   container.innerHTML = ""; container.append(box); upd();
 }
 function toast(t) { const d = h("div", { class: "toast" }, esc(t)); document.body.append(d); setTimeout(() => d.remove(), 2500); }
@@ -860,7 +910,7 @@ function mockExam(container) {
   container.append(h("div", { class: "quiz" }, `<h4>${M.pw}</h4>`), w1, w2);
   writingTask(w1, "mock11", M.w11);
   writingTask(w2, "mock12", M.w12);
-  const est = h("div", { class: "quiz" }, `<b>Estimate your writing mark (optional):</b> Task 1.1 <input type="number" min="0" max="15" id="w11m" class="num"> /15 · Task 1.2 <input type="number" min="0" max="25" id="w12m" class="num"> /25` + (M.rubric || ""));
+  const est = h("div", { class: "quiz" }, `<b>Writing mark</b> (press ✨ Mark my writing, or type your own estimate): Task 1.1 <input type="number" min="0" max="15" id="w11m" class="num"> /15 · Task 1.2 <input type="number" min="0" max="25" id="w12m" class="num"> /25` + (M.rubric || ""));
   const res = h("div", { class: "result" });
   const sub = h("button", { class: "btn big" }, "✅ Submit mock");
   sub.onclick = () => {
@@ -868,10 +918,11 @@ function mockExam(container) {
     sub.disabled = true; clearInterval(tick);
     const marks = parts.map(p => ({ n: p.name, m: p.grade(), max: p.max }));
     const auto = marks.reduce((a, b) => a + b.m, 0);
-    const w11 = Math.min(15, +($("#w11m").value || 0)), w12 = Math.min(25, +($("#w12m").value || 0));
+    const am = (id, o) => o.mark ? markWriting(STATE.writing[id] || "", Object.assign({ source: o.source, min: o.min, sent: o.sent }, o.mark)).mark : 0;
+    const w11 = Math.min(15, +($("#w11m").value || am("mock11", M.w11))), w12 = Math.min(25, +($("#w12m").value || am("mock12", M.w12)));
     const wTot = w11 + w12;
     record("mock", auto, 60);
-    res.innerHTML = `<h3>Your result${STATE.name ? " – " + esc(STATE.name) : ""}</h3><table class="rt">${marks.map(x => `<tr><td>${x.n}</td><td><b>${x.m}</b> / ${x.max}</td></tr>`).join("")}<tr><td>Reading & language</td><td><b>${auto}</b> / 60</td></tr><tr><td>Writing (self-estimate)</td><td><b>${wTot || "—"}</b> / 40</td></tr><tr class="tot"><td>TOTAL ${wTot ? "" : "(without writing)"}</td><td><b>${auto + wTot}</b> / ${wTot ? 100 : 60}</td></tr></table><p class="muted">Time taken: ${timer.textContent.replace("⏱ ", "")}. Scroll up to see the feedback on every question. Take a screenshot of this box to share it with your teacher.</p>`;
+    res.innerHTML = `<h3>Your result${STATE.name ? " – " + esc(STATE.name) : ""}</h3><table class="rt">${marks.map(x => `<tr><td>${x.n}</td><td><b>${x.m}</b> / ${x.max}</td></tr>`).join("")}<tr><td>Reading & language</td><td><b>${auto}</b> / 60</td></tr><tr><td>Writing (automatic estimate)</td><td><b>${wTot || "—"}</b> / 40</td></tr><tr class="tot"><td>TOTAL ${wTot ? "" : "(without writing)"}</td><td><b>${auto + wTot}</b> / ${wTot ? 100 : 60}</td></tr></table><p class="muted">Time taken: ${timer.textContent.replace("⏱ ", "")}. Scroll up to see the feedback on every question. Take a screenshot of this box to share it with your teacher.</p>`;
     res.scrollIntoView({ behavior: "smooth" });
   };
   container.append(est, sub, res);
@@ -943,6 +994,177 @@ document.addEventListener("DOMContentLoaded", () => {
   $$("[data-go]").forEach(b => b.onclick = () => showTab(b.dataset.go));
   renderAll();
 });
+
+// ---------- Automatic writing marker (rubric: Task · Structure · Grammar · Vocabulary · Spelling & Punctuation, 0–5 each) ----------
+const RUBRIC_TEXT = {
+  task: { 5: "Addresses all parts of the prompt fully with clear, detailed ideas and well-developed reasons.", 4: "Addresses all parts with relevant, detailed ideas; one part is less developed.", 3: "Addresses most parts; one part is missing or only mentioned; reasons lack detail.", 2: "Addresses only part of the prompt; points have little support.", 1: "A few ideas loosely related to the prompt." },
+  structure: { 5: "Well-developed paragraphs, clear topic sentences, a wide range of connectors.", 4: "Clear paragraphs and topic sentences; logical order with a range of connectors.", 3: "Ideas in paragraphs, but topic sentences or support are weak; basic linking.", 2: "At most one paragraph or connected sentences; order sometimes unclear.", 1: "Little order or connection." },
+  grammar: { 5: "A wide range of simple and complex sentences used flexibly and accurately.", 4: "A range of simple and complex sentences with good control.", 3: "Simple and compound sentences with a limited range of complex sentences.", 2: "Simple sentences with limited control; errors often affect meaning.", 1: "Mainly fragments." },
+  vocab: { 5: "A wide range of vocabulary, used precisely, including less common and topic words.", 4: "A wide range including topic-specific words, with some repetition.", 3: "Mostly common vocabulary, adequate for the main ideas.", 2: "Limited, repetitive vocabulary.", 1: "Too few appropriate words." },
+  spell: { 5: "Almost all words spelled correctly; a wide range of punctuation used accurately.", 4: "Most words spelled correctly; a range of punctuation used correctly.", 3: "Most common words correct; capitals, full stops and commas mostly correct.", 2: "Frequent spelling errors; capitals and full stops used inconsistently.", 1: "Very little correct spelling or punctuation." }
+};
+const CRIT = [["task", "Task Completion"], ["structure", "Structure"], ["grammar", "Grammar"], ["vocab", "Vocabulary"], ["spell", "Spelling & Punctuation"]];
+const LINKS = {
+  addition: ["moreover", "furthermore", "in addition", "also", "besides", "as well as", "what is more"],
+  contrast: ["however", "whereas", "while", "although", "though", "but", "on the other hand", "in contrast", "unlike", "nevertheless", "despite", "even though", "on the contrary"],
+  result: ["therefore", "consequently", "as a result", "so", "thus", "this means", "which means"],
+  example: ["for example", "for instance", "such as", "like when"],
+  sequence: ["first", "firstly", "secondly", "thirdly", "then", "next", "finally", "after that", "lastly"],
+  conclusion: ["in conclusion", "overall", "to sum up", "on balance", "all in all", "to conclude", "in summary"],
+  opinion: ["in my opinion", "i believe", "i think", "in my view", "as far as i am concerned", "i would argue", "personally", "i prefer", "i would choose", "i would rather"],
+  similarity: ["both", "similarly", "likewise", "in the same way", "the same as"],
+  reason: ["because", "since", "due to", "the reason", "one reason", "so that", "as a result"]
+};
+const IRREG_PP = "been born built bought brought caught chosen done drawn driven eaten fallen felt found given gone grown heard held hidden kept known laid left lent let lost made meant met paid put read ridden run said seen sent set shown shut sold spent spoken stolen taken taught thought thrown told understood won worn written broken frozen forgotten".split(" ");
+function hasPhrase(t, p) { return new RegExp("(^|[^a-z])" + p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "([^a-z]|$)").test(t); }
+function countPhrases(t, list) { return list.filter(p => hasPhrase(t, p)).length; }
+function isWord(w) {
+  if (typeof DICT === "undefined") return true;
+  w = w.toLowerCase().replace(/^'+|'+$/g, "");
+  if (!w || DICT.has(w)) return true;
+  const base = w.replace(/'s$/, "");
+  const cands = [base, base.replace(/s$/, ""), base.replace(/es$/, ""), base.replace(/ies$/, "y"), base.replace(/ied$/, "y"), base.replace(/ed$/, ""), base.replace(/ed$/, "e"), base.replace(/d$/, ""), base.replace(/ing$/, ""), base.replace(/ing$/, "e"), base.replace(/ly$/, ""), base.replace(/ily$/, "y"), base.replace(/ier$/, "y"), base.replace(/iest$/, "y"), base.replace(/iness$/, "y"), base.replace(/iful$/, "y"), base.replace(/er$/, ""), base.replace(/est$/, ""), base.replace(/r$/, ""), base.replace(/st$/, ""), base.replace(/ness$/, ""), base.replace(/ment$/, ""), base.replace(/ful$/, ""), base.replace(/less$/, ""), base.replace(/(.)\1(ed|ing|er|est)$/, "$1"),
+    base.replace(/is(e|es|ed|ing|ation|ations)$/, "iz$1"), base.replace(/our/, "or"), base.replace(/tre$/, "ter"), base.replace(/lled$/, "led"), base.replace(/lling$/, "ling"), base.replace(/ogue$/, "og"), base.replace(/yse$/, "yze"), base.replace(/ence$/, "ense"), base.replace(/^un|^re|^dis|^pre|^over|^non/, "")];
+  const brit = c => [c, c.replace(/is(e|es|ed|ing|ation|ations)$/, "iz$1"), c.replace(/our/, "or"), c.replace(/tre$/, "ter"), c.replace(/ll(ed|ing|er)$/, "l$1"), c.replace(/ogue$/, "og"), c.replace(/yse$/, "yze"), c.replace(/ence$/, "ense")];
+  return cands.some(c => c && brit(c).some(x => DICT.has(x))) || /^(\w+)-(\w+)$/.test(w) && w.split("-").every(isWord);
+}
+function shingles(text, n = 5) { const t = text.toLowerCase().match(/[a-z']+/g) || []; const s = new Set(); for (let i = 0; i + n <= t.length; i++) s.add(t.slice(i, i + n).join(" ")); return s; }
+function markWriting(raw, cfg) {
+  const text = raw.trim(); const low = " " + text.toLowerCase().replace(/[’‘]/g, "'") + " ";
+  const tokens = text.match(/[A-Za-z’'\-]+/g) || []; const nW = tokens.length;
+  const sents = (text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).map(s => s.trim()).filter(s => s.length > 1);
+  const nS = sents.length || 1; const paras = text.split(/\n\s*\n|\n/).map(p => p.trim()).filter(p => (p.match(/\S+/g) || []).length >= 5);
+  const g10 = cfg.level === "g10", summary = cfg.kind === "summary";
+  const res = { nW, nS, nP: paras.length, scores: {}, tips: {}, notes: [], miss: [] };
+  if (nW < 8) { CRIT.forEach(([k]) => res.scores[k] = 0); res.zero = "The answer is too short to mark."; return finish(res, cfg); }
+  // copied from the source?
+  let overlap = 0;
+  if (cfg.source) { const src = shingles(cfg.source), mine = shingles(text); if (mine.size) overlap = [...mine].filter(x => src.has(x)).length / mine.size; }
+  if (overlap > 0.8) { CRIT.forEach(([k]) => res.scores[k] = 0); res.zero = "Most of this answer is copied from the source text. Copied answers get 0 – rewrite the ideas in your own words."; return finish(res, cfg); }
+  const used = {}; Object.entries(LINKS).forEach(([k, l]) => used[k] = countPhrases(low, l));
+  const linkTypes = ["addition", "contrast", "result", "example", "sequence", "conclusion", "similarity"].filter(k => used[k] > 0).length;
+  const target = cfg.min || (summary ? 0 : 150);
+  // ---- Task completion ----
+  const groups = (summary ? cfg.ideas : cfg.prompts) || [];
+  const covered = groups.filter(gp => gp.kw.some(k => low.includes(k)));
+  const missing = groups.filter(gp => !covered.includes(gp));
+  let t;
+  if (summary) {
+    const frac = groups.length ? covered.length / groups.length : 1;
+    t = frac >= 0.75 ? 4.5 : frac >= 0.5 ? 4 : frac >= 0.3 ? 3 : frac > 0 ? 2 : 1.5;
+    const [a, b] = cfg.sent || [4, 5];
+    if (nS < a - 1) t -= 1; else if (nS < a) t -= 0.5;
+    if (nS > b + 2) t -= 0.5;
+    if (used.opinion && /\b(i think|in my opinion|i believe)\b/.test(low)) { t -= 0.5; res.tips.task = "Leave out your own opinion – a summary only reports the writers' ideas."; }
+    if (overlap > 0.45) { t -= 1.5; res.notes.push("Large parts are copied from the text – use your own words."); } else if (overlap > 0.25) { t -= 0.5; res.notes.push("Some phrases are copied – try to paraphrase more."); }
+    if (cfg.contrast && !(used.contrast || used.similarity)) { t -= 0.5; res.tips.task = res.tips.task || "Show how the two views compare: Both… / whereas… / However…"; }
+  } else {
+    const frac = groups.length ? covered.length / groups.length : 1;
+    t = frac === 1 ? 4 : frac >= 0.66 ? 3.5 : frac >= 0.33 ? 2.5 : 1.5;
+    if (frac === 1 && used.reason >= (g10 ? 1 : 2) && used.example >= 1 && nW >= target) t += 1;
+    else if (frac === 1 && (used.reason >= 1 || used.example >= 1)) t += 0.5;
+    if (!used.opinion && !/\b(prefer|better|best|would choose)\b/.test(low)) t -= 0.5;
+    if (nW < target * 0.5) t = Math.min(t, 2); else if (nW < target * 0.8) t = Math.min(t, 3); else if (nW < target) t = Math.min(t, 4);
+  }
+  if (missing.length) res.tips.task = (res.tips.task ? res.tips.task + " " : "") + (summary ? "Main ideas you could add: " : "Prompts you didn't cover clearly: ") + missing.map(m => m.label).join(", ") + ".";
+  else if (!summary && !used.example) res.tips.task = "Add a real example (For example, …) to support your points.";
+  res.scores.task = t;
+  // ---- Structure ----
+  let st;
+  if (summary) { st = 3 + (linkTypes >= 2 ? 1 : linkTypes >= 1 ? 0.5 : 0) + (used.contrast && used.similarity ? 0.5 : 0); if (nS < 3) st = Math.min(st, 2.5); }
+  else {
+    const p = paras.length; st = p >= 4 ? 4 : p === 3 ? 3.5 : p === 2 ? 2.5 : 2;
+    if (used.conclusion) st += 0.5; if (linkTypes >= (g10 ? 3 : 4)) st += 0.5; if (linkTypes <= 1) st -= 0.5;
+    if (p <= 1) res.tips.structure = "Split your answer into paragraphs: introduction, body paragraphs, conclusion."; else if (!used.conclusion) res.tips.structure = "Finish with a conclusion: In conclusion, … / Overall, …";
+    else if (linkTypes < 4) res.tips.structure = "Use a wider range of connectors (However, Moreover, As a result, For example).";
+  }
+  res.scores.structure = st;
+  // ---- Grammar ----
+  const feats = {
+    relative: /\b(who|which|whose|where)\b|\bthat (is|are|was|were|has|have|can|will|makes?|helps?)\b/.test(low),
+    conditional: /\b(if|unless)\b/.test(low),
+    passive: new RegExp("\\b(is|are|was|were|be|been|being)\\s+(\\w+ed|" + IRREG_PP.join("|") + ")\\b").test(low),
+    modal: /\b(can|could|may|might|must|should|would|will|have to|has to)\b/.test(low),
+    subordinate: /\b(although|because|when|while|whereas|since|even though|so that|before|after)\b/.test(low),
+    comparative: /\b\w+er than\b|\bmore \w+ than\b|\bless \w+ than\b|\bas \w+ as\b/.test(low),
+    past: /\b\w+ed\b|\b(was|were|went|saw|had|did|made|took)\b/.test(low)
+  };
+  const variety = Object.values(feats).filter(Boolean).length;
+  let errs = 0;
+  sents.forEach(s => { if (/^[a-z]/.test(s)) errs += 0.5; });
+  errs += (text.match(/(^|[\s.,!?])i(\s|'|$)/g) || []).length * 0.5;
+  errs += (low.match(/\b(\w+) \1\b/g) || []).filter(x => !/^(that that|had had)$/.test(x)).length;
+  errs += (low.match(/\bmore \w+er\b|\bmost \w+est\b/g) || []).length;
+  errs += (low.match(/\b(he|she|it) (have|do|are|were|don't)\b|\b(they|we|you|i) (is|was|has|does|doesn't)\b|\bpeople is\b|\bcan (\w+s)\b/g) || []).filter(x => !/can (is|was|has|this|us|its)\b/.test(x)).length;
+  errs += (low.match(/\bthere is (many|a lot of|lots of|some \w+s\b|\w+s\b)/g) || []).filter(x => !/\b(this|bus|gas|class|glass|news|series|is|was|less|kiss|miss|crisis|basis|analysis)\b$/.test(x)).length;
+  errs += (low.match(/\b(he|she|it|everyone|everybody|someone|nobody|each person|every person|my (cousin|brother|sister|friend|father|mother|family|teacher)) (live|walk|save|have|need|go|like|want|share|make|do|work|study|play|pay|get|think|know|feel|say|come|take)\b/g) || []).length;
+  errs += (low.match(/\ba (?!uni|use|usu|one|euro|u[bcdfgklmnprstv])[aeiou]\w+/g) || []).length;
+  errs += (low.match(/\b(many|several|few|two|three|four|five|these|those) (reason|thing|person|student|school|city|family|place|problem|idea|way)\b/g) || []).length;
+  const fragments = sents.filter(s => (s.match(/\S+/g) || []).length < 3).length;
+  const avgLen = nW / nS; const errRate = errs / nS;
+  let gr = variety >= (g10 ? 5 : 6) ? 5 : variety >= (g10 ? 4 : 5) ? 4.5 : variety >= 3 ? 4 : variety >= 2 ? 3 : 2.5;
+  if (errRate > 0.5) gr -= 2; else if (errRate > 0.3) gr -= 1.5; else if (errRate > 0.15) gr -= 1; else if (errRate > 0.07) gr -= 0.5;
+  if (avgLen < 5 || fragments > nS / 2) gr = Math.min(gr, 2);
+  res.scores.grammar = gr;
+  const missFeat = { relative: "a relative clause (who / which)", conditional: "a conditional (If …, …)", passive: "a passive (is made / are built)", subordinate: "complex sentences (although / because / while)", comparative: "a comparative (cheaper than / more … than)" };
+  const addF = Object.keys(missFeat).filter(k => !feats[k]).slice(0, 2).map(k => missFeat[k]);
+  if (errs >= 2) res.tips.grammar = "Check subject–verb agreement (my cousin lives, there are many…), a / an, plurals, and capital letters."; else if (addF.length) res.tips.grammar = "To reach a higher band, try " + addF.join(" and ") + ".";
+  // ---- Vocabulary ----
+  const lw = tokens.map(w => w.toLowerCase());
+  const stop = new Set("the a an and or but of to in on at for with is are was were be been it this that they them their there we you he she i my our your his her its as by from not have has had do does did can will would so if than then also very more most which who what when where".split(" "));
+  const content = lw.filter(w => !stop.has(w) && w.length > 2);
+  const win = content.slice(0, 120); const ttr = win.length ? new Set(win).size / win.length : 0;
+  const longShare = content.length ? content.filter(w => w.length >= 8).length / content.length : 0;
+  const topicHits = (cfg.topic || []).filter(k => low.includes(k)).length;
+  const freq = {}; content.forEach(w => freq[w] = (freq[w] || 0) + 1); const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
+  let vo = 2.5;
+  if (ttr > (g10 ? 0.55 : 0.62)) vo += 0.5; if (ttr > (g10 ? 0.65 : 0.72)) vo += 0.5;
+  if (longShare > (g10 ? 0.08 : 0.12)) vo += 0.5; if (longShare > (g10 ? 0.13 : 0.18)) vo += 0.5; if (longShare > (g10 ? 0.18 : 0.24)) vo += 0.5;
+  if (topicHits >= (g10 ? 2 : 3)) vo += 0.5; if (topicHits >= (g10 ? 4 : 6)) vo += 0.5;
+  if (top && content.length > 40 && top[1] / content.length > 0.06) { vo -= 0.5; res.tips.vocab = `You repeat “${top[0]}” ${top[1]} times – use synonyms.`; }
+  if (nW < 40) vo = Math.min(vo, 3);
+  if (!res.tips.vocab && topicHits < 4) res.tips.vocab = "Use more topic words from the unit word lists.";
+  res.scores.vocab = vo;
+  // ---- Spelling & punctuation ----
+  const midCaps = new Set(); sents.forEach(s => (s.match(/\s([A-Z][a-z]+)/g) || []).forEach(m => midCaps.add(m.trim())));
+  const checkable = tokens.filter(w => !midCaps.has(w) && !/^[A-Z]{2,}$/.test(w) && w.length > 1);
+  const miss = [...new Set(checkable.filter(w => !isWord(w)).map(w => w.toLowerCase()))];
+  const missRate = checkable.length ? checkable.filter(w => !isWord(w)).length / checkable.length : 0;
+  let sp = missRate <= 0.01 ? 5 : missRate <= 0.03 ? 4.5 : missRate <= 0.06 ? 3.5 : missRate <= 0.1 ? 2.5 : 1.5;
+  const capStart = sents.filter(s => /^[A-Z"“'0-9]/.test(s)).length / nS;
+  const endPunct = /[.!?]["”']?\s*$/.test(text) ? 1 : 0;
+  if (capStart < 0.7) sp -= 1; else if (capStart < 0.9) sp -= 0.5;
+  if (!endPunct) sp -= 0.5;
+  if (nW > 80 && !/,/.test(text)) { sp -= 0.5; res.tips.spell = "Use commas after linkers (However, … / For example, …)."; }
+  res.miss = miss.slice(0, 12);
+  if (miss.length) res.tips.spell = "Check the spelling of: " + res.miss.join(", ") + (miss.length > 12 ? " …" : "") + ".";
+  res.scores.spell = sp;
+  if (!summary && nW < target * 0.8 && nW >= target * 0.4) { ["grammar", "vocab"].forEach(k => res.scores[k] = Math.min(res.scores[k], 4)); res.notes.push(`Aim for at least ${target} words – you wrote ${nW}.`); }
+  if (!summary && nW < target * 0.4) { ["structure", "grammar", "vocab"].forEach(k => res.scores[k] = Math.min(res.scores[k], 2.5)); res.notes.push(`Your answer is much shorter than ${target} words – write more to reach higher bands.`); }
+  // ---- be generous: half-bands and above round up, keep within 1–5 ----
+  CRIT.forEach(([k]) => { res.scores[k] = Math.max(1, Math.min(5, Math.round(res.scores[k] + 0.3))); });
+  res.covered = covered.map(c => c.label); res.missing = missing.map(m => m.label); res.overlap = overlap;
+  return finish(res, cfg);
+}
+function finish(res, cfg) {
+  res.total25 = CRIT.reduce((a, [k]) => a + (res.scores[k] || 0), 0);
+  res.max = cfg.kind === "summary" ? 15 : 25;
+  res.mark = cfg.kind === "summary" ? Math.ceil(res.total25 * 15 / 25) : res.total25;
+  return res;
+}
+function renderMark(res, cfg) {
+  const band = s => `<span class="band b${s}">${s}</span>`;
+  let h = `<div class="markbox"><div class="markhead"><div><b>Estimated mark</b><div class="muted">Automatic, generous estimate using the exam rubric – your teacher's mark is final.</div></div><div class="bigmark">${res.mark}<small> / ${res.max}</small></div></div>`;
+  if (res.zero) return h + `<div class="fb no">${esc(res.zero)}</div></div>`;
+  h += `<div class="muted" style="margin:6px 0">${res.nW} words · ${res.nS} sentences · ${res.nP} paragraph(s)${cfg.min ? ` · target ${cfg.min}+ words` : ""}${cfg.sent ? ` · target ${cfg.sent.join("–")} sentences` : ""}</div>`;
+  h += `<table class="rtab mt"><tr><th>Criterion</th><th>Band</th><th>What this band means</th><th>How to improve</th></tr>`;
+  CRIT.forEach(([k, n]) => { const s = res.scores[k]; h += `<tr><td><b>${n}</b></td><td>${band(s)}</td><td>${esc(RUBRIC_TEXT[k][s] || "")}</td><td>${res.tips[k] && (s < 5 || k === "spell") ? esc(res.tips[k]) : s >= 5 ? "Excellent – keep it up!" : "Add more detail and variety to reach the next band."}</td></tr>`; });
+  h += `</table>`;
+  if (cfg.kind === "summary") h += `<div class="muted">Task 1.1: the 5 criteria give ${res.total25}/25, converted to ${res.mark}/15.</div>`;
+  if (res.notes.length) h += res.notes.map(n => `<div class="fb no">${esc(n)}</div>`).join("");
+  if (res.covered && res.covered.length) h += `<div class="fb ok">✔ ${cfg.kind === "summary" ? "Main ideas" : "Prompts"} covered: ${res.covered.map(esc).join(", ")}</div>`;
+  return h + `</div>`;
+}
 </script>
 </body>
 </html>
